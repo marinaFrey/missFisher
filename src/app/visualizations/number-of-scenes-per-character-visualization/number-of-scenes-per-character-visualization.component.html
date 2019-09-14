@@ -1,0 +1,23 @@
+<div class="card">
+    <h5 class="card-header">Viz</h5>
+    <div class="card-body">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="btn-group mr-2" role="group" aria-label="grouping methods">
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==0}' (click)="graphTypeSelection = 0; createVisualization()">Grouped</button>
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==1}' (click)="graphTypeSelection = 1; createVisualization()">Per episode</button>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="season selection">
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==0}' (click)="seasonSelection = 0; createVisualization()">All</button>
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==1}' (click)="seasonSelection = 1; createVisualization()">Season 1</button>
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==2}' (click)="seasonSelection = 2; createVisualization()">Season 2</button>
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==3}' (click)="seasonSelection = 3; createVisualization()">Season 3</button>
+            </div>
+        </div>
+        <div class="row">
+            <svg id="viz" style="width:100%;"></svg>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        Based on data collected by ...
+    </div>
+</div>
