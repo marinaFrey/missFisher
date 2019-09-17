@@ -21,7 +21,6 @@ export class Episode {
 
     jackInPhryinesHome: Information;        // number of scenes where jack is in Phryne's home
     stealthyScenes: Information;            // number of scenes Phryne is trying to be stealthy
-    hispanoSuizaAppears: Information;       // number of scenes with the Hispano
     drinking: Information;                  // number of scenes where some kind of drink (usually alcohol) is being consumed
     changesOfOutfit: Information;           // number of times Phryne changed her outfit during the episode. Still counts even if she repeats the same outfit
     phrynesHouseScenes: Information;        // number of scenes outside or inside Phryne's house
