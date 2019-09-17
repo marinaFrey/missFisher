@@ -15,7 +15,7 @@ export class VisualizationComponent implements OnInit {
   svg: any;
   width: number;
   height: number;
-  margin = 3;
+  margin;
   tooltip: any;
   svgName: string;
   parent: any;
@@ -111,6 +111,36 @@ export class VisualizationComponent implements OnInit {
 
 
     return this.yScale;
+  }
+
+  createScaleLinear(domain, size, margin) {
+    if (margin.top && margin.bottom) {
+      var scale = d3.scaleLinear()
+        .domain(domain)
+        .range([margin.top, size - margin.bottom]);
+    }
+    else {
+      var scale = d3.scaleLinear()
+        .domain(domain)
+        .range([margin, size - margin]);
+    }
+    return scale;
+  }
+
+  createScaleBand(domain, size, margin, padding) {
+    if (margin.top && margin.bottom) {
+      var scale = d3.scaleBand()
+        .domain(domain)
+        .rangeRound([margin.left, size - margin.right]) 
+        .padding(padding);
+    }
+    else {
+      var scale = d3.scaleBand()
+        .domain(domain)
+        .rangeRound([margin, size - margin]) 
+        .padding(padding);
+    }
+    return scale;
   }
 
   getXScale() { return this.xScale; }
