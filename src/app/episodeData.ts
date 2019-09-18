@@ -7,7 +7,11 @@ export const EPISODES: Episode[] = [
         episode: 1,
         name: "Cocaine Blues",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,6),                     
+            position: 1,  
+            label: "likely mid to late July 1928"                 
+        },
         totalNumberOfScenes: 45,
 
         scenesPerCharacter: [
@@ -156,7 +160,11 @@ export const EPISODES: Episode[] = [
         episode: 2,
         name: "Murder on the Ballarat Train",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,7),                     
+            position: 0,  
+            label: "early August 1928 (around 02-Aug)"                 
+        },
         totalNumberOfScenes: 51,
 
         scenesPerCharacter: [
@@ -305,7 +313,11 @@ export const EPISODES: Episode[] = [
         episode: 3,
         name: "The Green Mill Murder",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,7),                     
+            position: 1,  
+            label: "Mid-August 1928 (around 11-Aug)"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -454,7 +466,11 @@ export const EPISODES: Episode[] = [
         episode: 4,
         name: "Death at Victoria Dock",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,7),                     
+            position: 3,  
+            label: "End of August 1928 (around 26-Aug)"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -603,7 +619,11 @@ export const EPISODES: Episode[] = [
         episode: 5,
         name: "Raisins and Almonds",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,8),                     
+            position: 0,  
+            label: "early September 1928 (around 04-Sep)"                 
+        },
         totalNumberOfScenes: 44,
 
         scenesPerCharacter: [
@@ -752,7 +772,11 @@ export const EPISODES: Episode[] = [
         episode: 6,
         name: "Ruddy Gore",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,8),                     
+            position: 1,  
+            label: "Mid-September 1928 (around 16-Sep)"                 
+        },
         totalNumberOfScenes: 50,
 
         scenesPerCharacter: [
@@ -901,7 +925,11 @@ export const EPISODES: Episode[] = [
         episode: 7,
         name: "Murder in Montparnasse",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,9),                     
+            position: 0,  
+            label: "early October 1928 (around 06-Oct)"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -1049,7 +1077,11 @@ export const EPISODES: Episode[] = [
         episode: 8,
         name: "Away with the Fairies",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,9),                     
+            position: 1,  
+            label: "early to Mid-October 1928"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -1198,7 +1230,11 @@ export const EPISODES: Episode[] = [
         episode: 9,
         name: "Queen of the Flowers",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,10),                     
+            position: 0,  
+            label: "early November 1928 (around 05-Nov)"                 
+        },
         totalNumberOfScenes: 45,
 
         scenesPerCharacter: [
@@ -1347,7 +1383,11 @@ export const EPISODES: Episode[] = [
         episode: 10,
         name: "Death by Miss Adventure",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,10),                     
+            position: 1,  
+            label: "Mid-November 1928 (around 14-Nov)"                 
+        },
         totalNumberOfScenes: 50,
 
         scenesPerCharacter: [
@@ -1496,7 +1536,11 @@ export const EPISODES: Episode[] = [
         episode: 11,
         name: "Blood and Circuses",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,11),                     
+            position: 0,  
+            label: "Early December 1928 (around 04-Dec)"                 
+        },
         totalNumberOfScenes: 51,
 
         scenesPerCharacter: [
@@ -1646,7 +1690,11 @@ export const EPISODES: Episode[] = [
         episode: 12,
         name: "Murder in the Dark",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,11),                     
+            position: 1,  
+            label: "Mid-December 1928 (around 17-Dec)"                 
+        },
         totalNumberOfScenes: 50,
 
         scenesPerCharacter: [
@@ -1795,7 +1843,11 @@ export const EPISODES: Episode[] = [
         episode: 13,
         name: "King Memses' Curse",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1928,11),                     
+            position: 2,  
+            label: "Mid to late December 1928 (around 19-Dec)"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -1944,7 +1996,11 @@ export const EPISODES: Episode[] = [
         episode: 1,
         name: "Murder Most Scandalous",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,0),                     
+            position: 1,  
+            label: "Mid to late January 1929 (around 20-Jan)"                 
+        },
         totalNumberOfScenes: 50,
 
         scenesPerCharacter: [
@@ -2093,7 +2149,11 @@ export const EPISODES: Episode[] = [
         episode: 2,
         name: "Death Comes Knocking",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,2),                     
+            position: 0,  
+            label: "March 1929!!!"                 
+        },
         totalNumberOfScenes: 37,
 
         scenesPerCharacter: [
@@ -2242,7 +2302,11 @@ export const EPISODES: Episode[] = [
         episode: 3,
         name: "Dead Man's Chest",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,0),                     
+            position: 3,  
+            label: "End of January 1929 (around 26-Jan)"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -2391,7 +2455,11 @@ export const EPISODES: Episode[] = [
         episode: 4,
         name: "Deadweight",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,1),                     
+            position: 0,  
+            label: "Early February 1929 (around 07-Feb)"                 
+        },
         totalNumberOfScenes: 44,
 
         scenesPerCharacter: [
@@ -2540,7 +2608,11 @@ export const EPISODES: Episode[] = [
         episode: 5,
         name: "Murder a la Mode",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,1),                     
+            position: 1,  
+            label: "February 1929"                 
+        },
         totalNumberOfScenes: 45,
 
         scenesPerCharacter: [
@@ -2837,7 +2909,11 @@ export const EPISODES: Episode[] = [
         episode: 7,
         name: "Blood at the Wheel",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,2),                     
+            position: 2,  
+            label: "Mid to late March 1929 (around 20-Mar)"                 
+        },
         totalNumberOfScenes: 35,
 
         scenesPerCharacter: [
@@ -2986,7 +3062,11 @@ export const EPISODES: Episode[] = [
         episode: 8,
         name: "The Blood of Juana the Mad",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,3),                     
+            position: 2,  
+            label: "Around 18-Apr-1929 or still March 1929 (inconsistency found)"                 
+        },
         totalNumberOfScenes: 41,
 
         scenesPerCharacter: [
@@ -3135,7 +3215,11 @@ export const EPISODES: Episode[] = [
         episode: 9,
         name: "Framed for Murder",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,3),                     
+            position: 0,  
+            label: "Likely early April 1929"                 
+        },
         totalNumberOfScenes: 52,
 
         scenesPerCharacter: [
@@ -3284,7 +3368,11 @@ export const EPISODES: Episode[] = [
         episode: 10,
         name: "Death on the Vine",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,3),                     
+            position: 1,  
+            label: "Mid to late April 1929 (around 16-Apr)"                 
+        },
         totalNumberOfScenes: 46,
 
         scenesPerCharacter: [
@@ -3433,7 +3521,11 @@ export const EPISODES: Episode[] = [
         episode: 11,
         name: "Dead Air",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,4),                     
+            position: 1,  
+            label: "Mid-May 1929 (around 15-May)"                 
+        },
         totalNumberOfScenes: 50,
 
         scenesPerCharacter: [
@@ -3582,7 +3674,11 @@ export const EPISODES: Episode[] = [
         episode: 12,
         name: "Unnatural Habits",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,5),                     
+            position: 0,  
+            label: "Early June 1929 (around 04-Jun)"                 
+        },
         totalNumberOfScenes: 43,
 
         scenesPerCharacter: [
@@ -3731,7 +3827,11 @@ export const EPISODES: Episode[] = [
         episode: 13,
         name: "Murder Under the Mistletoe",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,6),                     
+            position: 1,  
+            label: "July 1929"                 
+        },
         totalNumberOfScenes: 48,
 
         scenesPerCharacter: [
@@ -3881,7 +3981,11 @@ export const EPISODES: Episode[] = [
         episode: 1,
         name: "Death Defying Feats",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,6),                     
+            position: 2,  
+            label: "Late July 1929 (around 27-Jul)"                 
+        },
         totalNumberOfScenes: 43,
 
         scenesPerCharacter: [
@@ -4030,7 +4134,11 @@ export const EPISODES: Episode[] = [
         episode: 2,
         name: "Murder & the Maiden",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,6),                     
+            position: 2,  
+            label: "Late July 1929"                 
+        },
         totalNumberOfScenes: 44,
 
         scenesPerCharacter: [
@@ -4179,7 +4287,11 @@ export const EPISODES: Episode[] = [
         episode: 3,
         name: "Murder & Mozzarella",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,7),                     
+            position: 0,  
+            label: "Early August 1929 (around 01-Aug)"                 
+        },
         totalNumberOfScenes: 44,
 
         scenesPerCharacter: [
@@ -4328,7 +4440,11 @@ export const EPISODES: Episode[] = [
         episode: 4,
         name: "Blood & Money",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,7),                     
+            position: 0,  
+            label: "Early August 1929 (around 05-Aug)"                 
+        },
         totalNumberOfScenes: 38,
 
         scenesPerCharacter: [
@@ -4627,7 +4743,11 @@ export const EPISODES: Episode[] = [
         episode: 6,
         name: "Death at the Grand",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,7),                     
+            position: 1,  
+            label: "Mid-August 1929 (around 18-Aug)"                 
+        },
         totalNumberOfScenes: 52,
 
         scenesPerCharacter: [
@@ -4777,7 +4897,11 @@ export const EPISODES: Episode[] = [
         episode: 7,
         name: "Game, Set & Murder",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,7),                     
+            position: 2,  
+            label: "Late August 1929 (around 31-Aug)"                 
+        },
         totalNumberOfScenes: 47,
 
         scenesPerCharacter: [
@@ -4926,7 +5050,11 @@ export const EPISODES: Episode[] = [
         episode: 8,
         name: "Death Do Us Part",
         murders: [],
-        date: null,
+        date: {
+            date: new Date(1929,8),                     
+            position: 0,  
+            label: "Early September 1929 (around 03-Sep)"                 
+        },
         totalNumberOfScenes: 52,
 
         scenesPerCharacter: [
