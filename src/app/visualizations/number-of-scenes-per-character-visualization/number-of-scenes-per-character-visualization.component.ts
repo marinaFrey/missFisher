@@ -157,7 +157,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Percentage of scenes");
+      .text("Percentage of screen time");
 
     this.svg.selectAll(".bar")
       .data(this.parsedData)
@@ -276,7 +276,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Percentage of scenes");
+      .text("Percentage of screen time");
 
     this.svg.selectAll(".barCluster")
       .data(this.parsedData)
@@ -316,23 +316,39 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   }
 
   updateGroupedBarGraph() {
-    this.createGroupedBarGraph();
+    //this.createGroupedBarGraph();
+
+    var pointer = this;
+
+    d3.select(this.svgName).selectAll(".bar")
+      .data(this.parsedData).transition().duration(500)
+      .attr("y", function (d) {
+        return pointer.yScale(Number(d.value));
+      })
+      .attr("height", function (d) {
+        return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom;
+      });
+
   }
 
   createLineGraph() {
-    console.log("creatingLineGraph");
+
+    this.parseLineData();
     this.clearSvg();
     var pointer = this;
-    this.xScale = this.createScaleLinear([0, this.parsedData.length - 1], this.width, this.margin);
+    this.xScale = d3.scaleLinear()
+      .range([this.margin.left, this.width - this.margin.right]);
+    this.xScale.domain([0, this.parsedData[0].episodes.length - 1]);
+    //this.createScaleLinear([0, this.parsedData[0].episodes.length - 1], this.width, this.margin);
 
     this.yScale = d3.scaleLinear()
-      .rangeRound([this.height - this.margin.bottom, this.margin.bottom]);
+      .range([this.height - this.margin.bottom, this.margin.bottom]);
     this.yScale.domain([0, 100]);
 
     // 7. d3's line generator
     var line = d3.line()
       .x(function (d, i) { return pointer.xScale(i); }) // set the x values for the line generator
-      .y(function (d) { console.log(d.value); return pointer.yScale(d.value); }) // set the y values for the line generator 
+      .y(function (d) { return pointer.yScale(d.value); }) // set the y values for the line generator 
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
     this.svg.append("g")
@@ -353,30 +369,79 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Percentage of scenes");
+      .text("Percentage of screen time");
 
     // 9. Append the path, bind the data, and call the line generator 
-    this.svg.append("path")
-      .datum(this.parsedData) // 10. Binds data to the line 
-      .attr("class", "line") // Assign a class for styling 
-      .attr("d", line); // 11. Calls the line generator 
+
+    for (var i = 0; i < this.parsedData.length; i++) {
+      this.svg.append("path")
+        .datum(this.parsedData[i].episodes) // 10. Binds data to the line 
+        .attr("class", "line") // Assign a class for styling
+        .attr("id", this.parsedData[i].character.replace(/\s/g, ''))
+        .attr("fill", "none")
+        .attr("stroke", function (d) { ; return pointer.parsedData[i].color })
+        .attr("stroke-width", 2)
+        .attr("d", line); // 11. Calls the line generator 
+    }
+
 
     // 12. Appends a circle for each datapoint 
-    this.svg.selectAll(".dot")
-      .data(this.parsedData)
-      .enter().append("circle") // Uses the enter().append() method
+    this.svg.selectAll("circle-group")
+      .data(this.parsedData).enter()
+      .append("g")
+      .style("fill", (d, i) => d.color)
+      .style("stroke", "white")
+      .selectAll("circle")
+      .data(d => d.episodes).enter()
+      .append("circle") // Uses the enter().append() method
       .attr("class", "dot") // Assign a class for styling
       .attr("cx", function (d, i) { return pointer.xScale(i) })
-      .attr("cy", function (d) { return pointer.yScale(d.y) })
-      .attr("r", 5)
-      .on("mouseover", function (a, b, c) {
-        console.log(a, b, c);
+      .attr("cy", function (d) { return pointer.yScale(d.value) })
+      .attr("r", 3)
+      .on("mouseover", function (d, i, c) {
+
+        pointer.highlightLine(d, c);
+        if (pointer.graphTypeSelection == pointer.PER_EPISODE)
+          pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%\n" +
+            "S" + d.season + "E" + d.episode + ": " + d.name);
+        else
+          pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%");
       })
-      .on("mouseout", function () { });
+      .on("mouseout", function (d, i, c) {
+        pointer.unhighlightLine(d, c);
+        pointer.hideTooltip();
+      });
+  }
+
+  highlightLine(d, c) {
+    d3.selectAll(".line").attr("opacity", 0.3);
+    d3.selectAll("#" + d.character.replace(/\s/g, '')).attr("stroke-width", 3).attr("opacity", 1);
+    d3.selectAll("circle").attr("opacity", 0.3);
+    d3.selectAll(c).attr("fill", d.highlightColor).attr("opacity", 1);
+  }
+
+  unhighlightLine(d, c) {
+    d3.selectAll(c).attr("fill", d.color);
+    d3.selectAll(".line").attr("opacity", 1);
+    d3.selectAll("circle").attr("opacity", 1);
+    d3.selectAll("#" + d.character.replace(/\s/g, '')).attr("stroke-width", 2).attr("opacity", 1);
   }
 
   updateLineGraph() {
-    console.log("updatingLineGraph");
+    this.createLineGraph();
+    /*
+    this.parseLineData();
+    var line = d3.line()
+      .x(function (d, i) { return pointer.xScale(i); }) // set the x values for the line generator
+      .y(function (d) { return pointer.yScale(d.value); }) // set the y values for the line generator 
+      .curve(d3.curveMonotoneX) // apply smoothing to the line
+    var pointer = this;
+    for (var i = 0; i < this.parsedData.length; i++) {
+      console.log(this.parsedData[i],this.parsedData[i].character);
+      d3.select(this.svgName).selectAll("#" + this.parsedData[i].character.replace(/\s/g, ''))
+        .data(this.parsedData).transition().duration(500)
+        .attr("d", line);;
+    }*/
   }
 
   parseTotalData() {
@@ -413,7 +478,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
     var parsedData = [];
     for (var j = 0; j < data.length; j++) {
-      parsedData[j] =  { name: data[j].name, characters: [] };
+      parsedData[j] = { name: data[j].name, characters: [] };
       parsedData[j].characters = [];
       data[j].characters.forEach(function (item) {
         parsedData[j]['characters'].push(item);
@@ -440,7 +505,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
     var parsedData = [];
     for (var j = 0; j < data.length; j++) {
-      parsedData[j] =  { name: data[j].name, characters: [] };
+      parsedData[j] = { name: data[j].name, characters: [] };
       parsedData[j].characters = [];
       data[j].characters.forEach(function (item) {
         parsedData[j]['characters'].push(item);
@@ -448,6 +513,32 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
     }
 
     this.parsedData = parsedData;
+  }
+
+  parseLineData() {
+
+    var parsedData = [];
+    for (var j = 0; j < this.parsedData.length; j++) {
+      //parsedData[j] =  { name: data[j].name, characters: [] };
+      //parsedData[j].characters = [];
+      this.parsedData[j].characters.forEach(function (item, index) {
+        if (!parsedData[index])
+          parsedData[index] = { character: item.character, color: item.color, highlightColor: item.highlightColor, episodes: [] };
+        parsedData[index]['episodes'].push({
+          name: item.name,
+          season: item.season,
+          episode: item.episode,
+          value: item.value,
+          character: item.character,
+          color: item.color,
+          highlightColor: item.highlightColor
+        });
+      });
+    }
+
+    this.parsedData = parsedData;
+    console.log(this.parsedData);
+
   }
 
   pushTotalCharacterData(data, i) {
@@ -477,8 +568,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       data[this.episodes[i].season - 1] = { name: "Season " + this.episodes[i].season, characters: [] };
 
     for (var j = 0; j < this.episodes[i].scenesPerCharacter.length; j++) {
-      if (this.getCharacterInfo(this.episodes[i].scenesPerCharacter[j].character, "isShowing") == true) 
-      {
+      if (this.getCharacterInfo(this.episodes[i].scenesPerCharacter[j].character, "isShowing") == true) {
         if (!data[this.episodes[i].season - 1].characters[j]) {
           data[this.episodes[i].season - 1].characters[j] = {
             label: this.episodes[i].scenesPerCharacter[j].label,

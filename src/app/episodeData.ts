@@ -72,15 +72,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 0,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 13,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 0,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 3,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 13,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 31,       
+            character: "none"       
+        }
 
     },
     {
@@ -154,15 +185,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 0,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 0,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 1,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 9,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 16,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 3,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 8,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 17,       
+            character: "none"       
+        }
 
     },
     {
@@ -236,15 +298,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 0,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 0,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 10,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 10,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 10,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 9,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 25,       
+            character: "none"       
+        }
 
     },
     {
@@ -318,15 +411,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 14,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 15,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 1,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 12,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 30,       
+            character: "none"       
+        }
 
     },
     {
@@ -400,15 +524,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 12,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 13,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 10,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 10,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 27,       
+            character: "none"       
+        }
 
     },
     {
@@ -482,15 +637,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 12,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 8,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 5,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 17,       
+            character: "none"       
+        }
 
     },
     {
@@ -564,15 +750,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 10,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 16,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 6,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 9,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 31,       
+            character: "none"       
+        }
 
     },{
         id: 7,
@@ -645,15 +862,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 4,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 0,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 11,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 15,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 5,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 28,       
+            character: "none"       
+        }
 
     },
     {
@@ -727,15 +975,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 7,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 0,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 7,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 17,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 7,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 7,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 34,       
+            character: "none"       
+        }
 
     },
     {
@@ -809,15 +1088,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 7,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 12,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 8,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 25,       
+            character: "none"       
+        }
 
     },
     {
@@ -891,15 +1201,47 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 1,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 9,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 9,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 16,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 28,       
+            character: "none"       
+        }
 
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
 
     },
     {
@@ -973,15 +1315,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 2,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 1,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 4,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 9,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 6,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 4,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 17,       
+            character: "none"       
+        }
 
     },
     {
@@ -1055,15 +1428,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 3,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 4,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 8,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 10,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 7,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 26,       
+            character: "none"       
+        }
 
     },
     {
@@ -1137,15 +1541,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 6,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 12,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 9,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 11,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 7,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 32,       
+            character: "none"       
+        }
 
     },
     {
@@ -1219,15 +1654,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 7,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 7,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 20,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 6,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 17,       
+            character: "none"       
+        }
 
     },
     {
@@ -1301,15 +1767,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 4,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 10,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 1,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 5,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 8,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 29,       
+            character: "none"       
+        }
 
     },
     {
@@ -1383,15 +1880,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 2,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 3,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 1,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 7,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 7,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 9,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 24,       
+            character: "none"       
+        }
 
     },
     {
@@ -1465,16 +1993,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
-
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 5,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 6,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 10,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 11,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 11,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 26,       
+            character: "none"       
+        }
     },
     {
         id: 18,
@@ -1547,15 +2105,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 0,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 5,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 2,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 10,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 10,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 23,       
+            character: "none"       
+        }
 
     },
     {
@@ -1629,15 +2218,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 3,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 8,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 6,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 6,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 8,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 22,       
+            character: "none"       
+        }
 
     },
     {
@@ -1711,15 +2331,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 0,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 6,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 8,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 8,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 3,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 14,       
+            character: "none"       
+        }
 
     },
     {
@@ -1793,15 +2444,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 2,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 7,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 10,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 7,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 4,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 16,       
+            character: "none"       
+        }
 
     },
     {
@@ -1875,15 +2557,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 4,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 2,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 7,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 26,       
+            character: "none"       
+        }
 
     },
     {
@@ -1957,15 +2670,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 5,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 11,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 13,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 11,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 4,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 24,       
+            character: "none"       
+        }
 
     },
     {
@@ -2039,15 +2783,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 6,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 6,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 1,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 8,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 13,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 10,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 20,       
+            character: "none"       
+        }
 
     },
     {
@@ -2121,15 +2896,47 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 0,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 8,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 4,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 2,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 3,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 11,       
+            character: "none"       
+        }
 
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
 
     },
     {
@@ -2203,15 +3010,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 6,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 3,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 6,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 12,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 4,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 24,       
+            character: "none"       
+        }
 
     },
     {
@@ -2285,15 +3123,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 6,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 7,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 12,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 26,       
+            character: "none"       
+        }
 
     },
     {
@@ -2367,15 +3236,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 4,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 7,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 3,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 7,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 8,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 25,       
+            character: "none"       
+        }
 
     },
     {
@@ -2449,15 +3349,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 3,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 3,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 3,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 4,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 10,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 10,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 24,       
+            character: "none"       
+        }
 
     },
     {
@@ -2531,15 +3462,47 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 0,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 0,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 3,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 1,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 5,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 14,       
+            character: "none"       
+        }
 
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
 
     },
     {
@@ -2613,15 +3576,47 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 1,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 4,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 8,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 8,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 5,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 15,       
+            character: "none"       
+        }
 
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
 
     },
     {
@@ -2695,15 +3690,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 2,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 2,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 9,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 10,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 9,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 6,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 23,       
+            character: "none"       
+        }
 
     },
     {
@@ -2777,15 +3803,46 @@ export const EPISODES: Episode[] = [
         talking: null,
         phryneInPoliceStation: null,
 
-        jackInPhryinesHome: null,
-        stealthyScenes: null,
-
-        drinking: null,
-        changesOfOutfit: null,
-        phrynesHouseScenes: null,
-        policeStationScenes: null,
-        locations: null,
-        changesOfLocation: null
+        jackInPhryinesHome: {
+            label: "Screen time with Jack in Phryne's Home",                  
+            value: 1,       
+            character: "Jack"       
+        },
+        stealthyScenes: {
+            label: "Screen time with Phryne being stealhy",                  
+            value: 0,       
+            character: "Phryne"       
+        },
+        drinking: {
+            label: "Screen time with someone drinking",                  
+            value: 0,       
+            character: "all"       
+        },
+        changesOfOutfit: {
+            label: "Number of times Phryne changes clothes",                  
+            value: 5,       
+            character: "Phryne"       
+        },
+        phrynesHouseScenes: {
+            label: "Screen time showing Phryne's house",                  
+            value: 13,       
+            character: "none"       
+        },
+        policeStationScenes: {
+            label: "Screen time showing the police station",                  
+            value: 5,       
+            character: "none"       
+        },
+        locations: {
+            label: "Number of different locations",                  
+            value: 7,       
+            character: "none"       
+        },
+        changesOfLocation: {
+            label: "Number of times they change locations between scenes",                  
+            value: 28,       
+            character: "none"       
+        }
 
     }
 
