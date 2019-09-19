@@ -22,7 +22,6 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
   @Input('episodesData') public episodes;
   parsedData;
-  svgName = "#viz";
   seasonSelection = 0; // 0 = all seasons
   graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
   graphStyleSelection = 0; // 0 = line chart 1 = bar chart
@@ -46,7 +45,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   ];
 
   constructor() {
-    super("#viz", 100, 100);
+    super("#viz", 500, 300);
   }
 
   ngOnInit() {
@@ -56,7 +55,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   create() {
     var pointer = this;
     if (document.querySelector(this.svgName) != null) {
-      this.setSvgSize(1 / 2.3);
+      this.setSvg();
       if (this.episodes)
         this.createVisualization();
     }
