@@ -5,7 +5,7 @@
     margin-left: 40px;
     margin-right: 40px;
 }
-
+/*
 #tooltip {
 
 
@@ -14,7 +14,7 @@
     height: auto;
     padding: 10px;
     color: #FFFFFF;
-    background: #FFFFFF;/*#0E80B3;*/
+    background: #FFFFFF;
     opacity: 1;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -25,7 +25,7 @@
     pointer-events: none;
     }
   
-  /* TOOLTIP */
+
   
   #tooltip.hidden {
     display: none;
@@ -44,12 +44,12 @@
   text-align: center;                        
   padding: 10px;             
   font: 16px sans-serif;        
-  background: white;/*lightsteelblue;  */ 
+  background: white;
   -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
   border: 20px;      
   border-radius: 8px;           
   pointer-events: none;         
-  }
+  }*/
   

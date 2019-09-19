@@ -163,6 +163,9 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       .data(this.parsedData)
       .enter().append("rect")
       .attr("class", "bar")
+      .attr("class", "tooltipped")
+      .attr("data-toggle", "tooltip")
+      .attr("title", function (d) { return d.character + ": " + Math.round(d.value) + "%"; })
       .attr("x", function (d) {
         return pointer.xScale(d.character);
       })
@@ -175,47 +178,56 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       })
       .attr("fill", function (d) {
         return d.color
-      })
-      .on("mouseover", function (d, i) {
-
+      }).on("mouseover", function (d, i) {
         d3.select(this).attr("fill", d.highlightColor);
-        pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%");
       })
       .on("mouseout", function (d, i) {
         d3.select(this).attr("fill", d.color);
-        pointer.hideTooltip();
       });
 
     this.svg.selectAll("svg")
       .data(this.parsedData)
       .enter()
-      //.filter(function (d) { return (d[1] != 0 && (y(d[0]) - y(d[1])) >= x.bandwidth()); })
+      //.filter(function (d) { return (pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth()) > 0; })
       .append("png:image")
       .attr("class", "img")
+      .attr("class", "tooltipped")
+      .attr("data-toggle", "tooltip")
+      .attr("title", function (d) { return d.character + ": " + Math.round(d.value) + "%"; })
       .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + ".png"; })
-      .attr("width", this.xScale.bandwidth())
-      .attr("height", this.xScale.bandwidth())
+      .attr("width", function (d) {
+        if ((pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth()) > 0)
+          return pointer.xScale.bandwidth();
+        else
+          return pointer.yScale(Number(d.value));
+      })
+      .attr("height", function (d) {
+        if ((pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth()) > 0)
+          return pointer.xScale.bandwidth();
+        else
+          return pointer.yScale(Number(d.value));
+      })
       .attr("x", function (d) {
-        return pointer.xScale(d.character);
+        if ((pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth()) > 0)
+          return pointer.xScale(d.character);
+        else
+          return pointer.xScale(d.character) + pointer.xScale.bandwidth()/2 - pointer.yScale(Number(d.value))/2;
+
       })
       .attr("y", function (d) {
-        //if ((pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom) < pointer.xScale.bandwidth())
-        return pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth();
-        //else
-        //return pointer.yScale(Number(d.value));
-      })
-      .on("mouseover", function (d) {
-        pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%");
-      })
-      .on("mouseout", function () {
-        pointer.hideTooltip();
-      });;
+        if ((pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth()) > 0)
+          return pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth();
+        else
+          return 0;
+      });
+
+
   }
 
   updateTotalBarGraph() {
     var pointer = this;
 
-    d3.select(this.svgName).selectAll(".bar")
+    d3.select(this.svgName).selectAll("rect")
       .data(this.parsedData).transition().duration(500)
       .attr("y", function (d) {
         return pointer.yScale(Number(d.value));
@@ -224,7 +236,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
         return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom;
       });
 
-    d3.select(this.svgName).selectAll(".img")
+    d3.select(this.svgName).selectAll("image.tooltipped")
       .data(this.parsedData).transition().duration(500)
       .attr("y", function (d) {
         //if ((pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom) < pointer.xScale.bandwidth())
@@ -287,6 +299,16 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       .data(function (d) { return d.characters })
       .enter().append("rect")
       .filter(function (d) { return d.value != 0; })
+      .attr("class", "tooltipped")
+      .attr("data-toggle", "tooltip")
+      .attr("title", function (d) {
+        if (pointer.graphTypeSelection == pointer.PER_EPISODE)
+          return d.character + ": " + Math.round(d.value) + "%<br/>" +
+            "S" + d.season + "E" + d.episode + ": " + d.name;
+        else
+          return d.character + ": " + Math.round(d.value) + "%<br/>" +
+            "Season " + d.season;
+      })
       .attr("x", function (d) {
         return x1(d.character);
       })
@@ -301,17 +323,10 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
         return d.color
       })
       .on("mouseover", function (d, i) {
-
         d3.select(this).attr("fill", d.highlightColor);
-        if (pointer.graphTypeSelection == pointer.PER_EPISODE)
-          pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%\n" +
-            "S" + d.season + "E" + d.episode + ": " + d.name);
-        else
-          pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%");
       })
       .on("mouseout", function (d, i) {
         d3.select(this).attr("fill", d.color);
-        pointer.hideTooltip();
       });
   }
 
@@ -395,21 +410,25 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       .data(d => d.episodes).enter()
       .append("circle") // Uses the enter().append() method
       .attr("class", "dot") // Assign a class for styling
+      .attr("class", "tooltipped")
+      .attr("data-toggle", "tooltip")
+      .attr("title", function (d) {
+        if (pointer.graphTypeSelection == pointer.PER_EPISODE)
+          return d.character + ": " + Math.round(d.value) + "%<br/>" +
+            "S" + d.season + "E" + d.episode + ": " + d.name;
+        else
+          return d.character + ": " + Math.round(d.value) + "%<br/>" +
+            "Season " + d.season;
+      })
       .attr("cx", function (d, i) { return pointer.xScale(i) })
       .attr("cy", function (d) { return pointer.yScale(d.value) })
       .attr("r", 3)
       .on("mouseover", function (d, i, c) {
 
         pointer.highlightLine(d, c);
-        if (pointer.graphTypeSelection == pointer.PER_EPISODE)
-          pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%\n" +
-            "S" + d.season + "E" + d.episode + ": " + d.name);
-        else
-          pointer.showTextTooltip(d.character + ": " + Math.round(d.value) + "%");
       })
       .on("mouseout", function (d, i, c) {
         pointer.unhighlightLine(d, c);
-        pointer.hideTooltip();
       });
   }
 
@@ -571,6 +590,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       if (this.getCharacterInfo(this.episodes[i].scenesPerCharacter[j].character, "isShowing") == true) {
         if (!data[this.episodes[i].season - 1].characters[j]) {
           data[this.episodes[i].season - 1].characters[j] = {
+            season: this.episodes[i].season,
             label: this.episodes[i].scenesPerCharacter[j].label,
             value: (this.episodes[i].scenesPerCharacter[j].value * 100) / this.episodes[i].totalNumberOfScenes,
             character: this.episodes[i].scenesPerCharacter[j].character,
