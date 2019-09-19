@@ -23,56 +23,18 @@ export class VisualizationComponent implements OnInit {
 
   constructor(svgName: string, width: number, height: number) {
     this.width = width;
-    this.svgName = svgName;
-    if ($(svgName).width()) {
-      this.width = $(svgName).width();
-    }
     this.height = height;
-    $(svgName).height(this.height);
+    this.svgName = svgName;
     this.createSvg(svgName, width, height);
-    this.svg = d3.select(this.svgName);
-    this.setTooltip();
+    //this.svg = d3.select(this.svgName);
+
   }
 
   ngOnInit() {
   }
 
-  clearSvg() {
-    this.svg.selectAll("*").remove();
-  }
-
-  setSvgSize(proportion) {
-    if ($(this.svgName).width()) {
-      this.width = $(this.svgName).width();
-      this.height = this.width * proportion;
-      $(this.svgName).height(this.height);
-      $(this.svgName).width(this.width);
-    }
-    this.svg = d3.select(this.svgName);
-  }
-
-  setTooltip() {
-    this.tooltip = d3.select("body").append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
-  }
-
-  showTextTooltip(html): void {
-    this.tooltip.transition()
-      .duration(200)
-      .style("opacity", .9);
-    this.tooltip.html(html)
-      .style("left", (d3.event.pageX + 10) + "px")
-      .style("top", (d3.event.pageY - 30) + "px");
-  }
-
-  hideTooltip() {
-    this.tooltip.transition()
-      .duration(500)
-      .style("opacity", 0);
-  }
-
   createSvg(svgName: string, width: number, height: number) {
+    
     this.svg = d3.select(svgName)
       .attr("width", width)
       .attr("height", height);
@@ -80,6 +42,14 @@ export class VisualizationComponent implements OnInit {
     this.clearSvg();
 
     return this.svg;
+  }
+
+  clearSvg() {
+    this.svg.selectAll("*").remove();
+  }
+
+  setSvg() {
+    this.svg = d3.select(this.svgName);
   }
 
   createXScale(domain, width, margin) {
@@ -131,37 +101,17 @@ export class VisualizationComponent implements OnInit {
     if (margin.top && margin.bottom) {
       var scale = d3.scaleBand()
         .domain(domain)
-        .rangeRound([margin.left, size - margin.right]) 
+        .rangeRound([margin.left, size - margin.right])
         .padding(padding);
     }
     else {
       var scale = d3.scaleBand()
         .domain(domain)
-        .rangeRound([margin, size - margin]) 
+        .rangeRound([margin, size - margin])
         .padding(padding);
     }
     return scale;
   }
 
-  getXScale() { return this.xScale; }
-
-  setXScale(scale: any) { this.xScale = scale; }
-
-  getYScale() { return this.yScale; }
-
-  setYScale(scale: any) { this.yScale = scale; }
-
-  getColorScale() { return this.colorScale; }
-
-  setColorScale(scale: any) { this.colorScale = scale; }
-
-  getSvg() { return this.svg; }
-
-  setSvg(scale: any) { this.svg = scale; }
-
-  getHeight() { return this.height; }
-
-  getWidth() { return this.width; }
-
-
+  
 }

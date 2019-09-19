@@ -7,7 +7,8 @@
         <div class="row h-100 justify-content-center align-items-center" style="margin-bottom: 30px">
 
             <div class="btn-group mr-1" role="group" aria-label="grouping methods">
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" title="Some text" [ngClass]='{"active":graphTypeSelection==0}' (click)="graphTypeSelection = 0; createVisualization()">Total</button>
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" title="Some text" [ngClass]='{"active":graphTypeSelection==0}'
+                    (click)="graphTypeSelection = 0; createVisualization()">Total</button>
                 <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==1}' (click)="graphTypeSelection = 1; createVisualization()">Per season</button>
                 <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==2}' (click)="graphTypeSelection = 2; createVisualization()">Per episode</button>
             </div>
@@ -28,7 +29,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-10">
-                <svg id="viz" style="width:100%;"></svg>
+                
+                <div id="vizcontainer" class="svg-container">
+                    <svg id="viz" class="svg-content-responsive" style="width:100%;" viewBox="0 0 500 300"></svg>
+                </div>
+    
             </div>
             <div class="col-2">
                 <div *ngFor="let characterInfo of charactersInfo; let i = index">
@@ -36,7 +41,7 @@
                         <div class="alert alert-primary " [ngStyle]="{'background': characterInfo.color, 'border-color':characterInfo.highlight}"
                             style="margin-right: 10px;">
                         </div>
-                        <label >
+                        <label>
                             <input type="checkbox" [(ngModel)]='characterInfo.isShowing' (change)="createVisualization();"> {{characterInfo.name}}
                         </label>
                     </div>
