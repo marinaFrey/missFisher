@@ -25,22 +25,18 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   seasonSelection = 0; // 0 = all seasons
   graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
   graphStyleSelection = 1; // 0 = line chart 1 = bar chart
-  margin = {
-    top: 20,
-    right: 30,
-    bottom: 80,
-    left: 50
-  };
+  selectAll = true;
+
   charactersInfo = [
     { name: "Phryne", color: "#e25b6fff", hightlight: "#be495aff", isShowing: true },
     { name: "Jack", color: "#4b76e4ff", hightlight: "#415a9eff", isShowing: true },
     { name: "Dot", color: "#f8b76eff", hightlight: "#c68f52ff", isShowing: true },
     { name: "Hugh", color: "#67c5deff", hightlight: "#4b9bb0ff", isShowing: true },
-    { name: "Aunt Prudence", color: "#51e6b2ff", hightlight: "#50ac8cff", isShowing: true },
     { name: "Cec and Bert", color: "#86817eff", hightlight: "#685950ff", isShowing: true },
+    { name: "Mr Butler", color: "#cda5ffff", hightlight: "#9a7cc1ff", isShowing: true },
+    { name: "Aunt Prudence", color: "#51e6b2ff", hightlight: "#50ac8cff", isShowing: true },
     { name: "Jane", color: "#ff84bfff", hightlight: "#c46090ff", isShowing: true },
     { name: "Mac", color: "#f27f66ff", hightlight: "#bb6a58ff", isShowing: true },
-    { name: "Mr Butler", color: "#cda5ffff", hightlight: "#9a7cc1ff", isShowing: true },
     { name: "Hispano Suiza", color: "#9e5b60ff", hightlight: "#6d3a3dff", isShowing: true }
   ];
 
@@ -70,20 +66,19 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
   createVisualization() {
 
-    //this.clearSvg();
-
     switch (this.graphTypeSelection) {
       case this.TOTAL:
         this.parseTotalData();
+        this.reorderData();
         this.createBarChart(this.parsedData);
         break;
 
       case this.PER_SEASON:
         this.parseSeasonData();
+        this.reorderData();
         if (this.graphStyleSelection == this.BAR_CHART)
           this.createGroupedBarChart(this.parsedData);
-        if (this.graphStyleSelection == this.LINE_CHART)
-        {
+        if (this.graphStyleSelection == this.LINE_CHART) {
           this.parseLineData();
           this.createLineChart(this.parsedData);
         }
@@ -91,11 +86,12 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
       case this.PER_EPISODE:
         this.parseEpisodicData();
+        this.reorderData();
         if (this.graphStyleSelection == this.BAR_CHART)
-        this.createGroupedBarChart(this.parsedData);
-        if (this.graphStyleSelection == this.LINE_CHART)
-        {
+          this.createGroupedBarChart(this.parsedData);
+        if (this.graphStyleSelection == this.LINE_CHART) {
           this.parseLineData();
+          this.reorderData();
           this.createLineChart(this.parsedData);
         }
         break;
@@ -104,36 +100,37 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
   }
 
-  updateVisualization() {
+  changeFilterSelection() {
+    for (var i = 0; i < this.charactersInfo.length; i++) {
+      this.charactersInfo[i].isShowing = this.selectAll;
+    }
+    this.createVisualization();
+  }
 
-    switch (this.graphTypeSelection) {
-      case this.TOTAL:
-        this.parseTotalData();
-        this.createBarChart(this.parsedData);
-        break;
-
-      case this.PER_SEASON:
-        this.parseSeasonData();
-        if (this.graphStyleSelection == this.BAR_CHART)
-        this.createGroupedBarChart(this.parsedData);  
-        if (this.graphStyleSelection == this.LINE_CHART)
-        {
-          this.parseLineData();
-          this.createLineChart(this.parsedData);
-        }
-        break;
-
-      case this.PER_EPISODE:
-        this.parseEpisodicData();
-        if (this.graphStyleSelection == this.BAR_CHART)
-        this.createGroupedBarChart(this.parsedData);
-        if (this.graphStyleSelection == this.LINE_CHART)
-        {
-          this.parseLineData();
-          this.createLineChart(this.parsedData);
-        }
-        break;
-
+  reorderData() {
+    var pointer = this;
+    var result = [];
+    if (!this.parsedData[0].characters) {
+      this.charactersInfo.forEach(function (key) {
+        pointer.parsedData.forEach(function (character) {
+          if (key.name == character.character)
+            result.push(character);
+        })
+      })
+      this.parsedData = result;
+    }
+    else {
+      
+      for (var i = 0; i < this.parsedData.length; i++) {
+        var result = [];
+        this.charactersInfo.forEach(function (key) {    
+          pointer.parsedData[i].characters.forEach(function (character) {
+            if (key.name == character.character)
+              result.push(character);
+          })
+        })
+        this.parsedData[i].characters = result;
+      }
     }
   }
 
@@ -202,7 +199,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       parsedData[j] = { name: data[j].name, characters: [] };
       parsedData[j].characters = [];
       data[j].characters.forEach(function (item) {
-        
+
         parsedData[j]['characters'].push(item);
       });
     }
@@ -266,7 +263,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       if (this.getCharacterInfo(this.episodes[i].scenesPerCharacter[j].character, "isShowing") == true) {
         if (!data[this.episodes[i].season - 1].characters[j]) {
           data[this.episodes[i].season - 1].characters[j] = {
-            name:  "Season " + this.episodes[i].season,
+            name: "Season " + this.episodes[i].season,
             season: this.episodes[i].season,
             label: this.episodes[i].scenesPerCharacter[j].label,
             value: (this.episodes[i].scenesPerCharacter[j].value * 100) / this.episodes[i].totalNumberOfScenes,

@@ -80,18 +80,19 @@ export const EPISODES: Episode[] = [
             {
                 label: "Jack says 'Phryne'",
                 value: 0,
-                character: "Jack"
-            },
-            {
-                label: "Phryne says 'Jack Robinson'",
-                value: 0,
-                character: "Phryne"
+                character: "Jack"           
             },
             {
                 label: "Phryne says 'Jack'",
                 value: 0,
                 character: "Phryne"
             },
+            {
+                label: "Phryne says 'Jack Robinson'",
+                value: 0,
+                character: "Phryne"
+            },
+            
             {
                 label: "Phryne says 'Inspector (Jack) (Robinson)'",
                 value: 4,
