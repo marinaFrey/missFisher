@@ -1,4 +1,7 @@
-
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 .card
 {
     margin:10px;
