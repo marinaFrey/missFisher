@@ -199,7 +199,7 @@ export class VisualizationComponent implements OnInit {
       return;
     }
 
-    this.svg.selectAll("g.circles").remove();
+    this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
     this.xScale = this.createScaleBand(data.map(function (d) {
@@ -284,7 +284,7 @@ export class VisualizationComponent implements OnInit {
       return;
     }
 
-    this.svg.selectAll("g.circles").remove();
+    this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
     this.xScale = this.createScaleBand(data.map(function (d) {
@@ -431,7 +431,7 @@ export class VisualizationComponent implements OnInit {
     }
 
     this.svg.selectAll("image").remove();
-    this.svg.selectAll("g.circles").remove();
+    this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
     this.xScale = this.createScaleBand(data.map(function (d) {
