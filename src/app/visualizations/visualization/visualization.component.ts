@@ -361,8 +361,6 @@ export class VisualizationComponent implements OnInit {
     var imageGroups = this.svg.selectAll("g.img").data(data);
     imageGroups.enter().append("g").classed('img', true);
     imageGroups.exit().remove();
-
-
     var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) { return d.characters; });
 
     images
@@ -404,22 +402,27 @@ export class VisualizationComponent implements OnInit {
 
   calculateHighestValue(data, vectorsName) {
     var highestValue = 0;
+    console.log(data);
     for (var i = 0; i < data.length; i++) {
       var sum = 0;
-      var character = "";
+      var character = data[i][vectorsName][0].character;
+
       for (var j = 0; j < data[i][vectorsName].length; j++) {
-        if (character == data[i][vectorsName].character)
+        if (character == data[i][vectorsName][j].character)
+        {
           sum += data[i][vectorsName][j].value;
+        }  
         else {
           if (highestValue < sum)
             highestValue = sum;
-          sum = 0;
-          character = data[i][vectorsName].character
+          sum = data[i][vectorsName][j].value;
+          character = data[i][vectorsName][j].character
         }
       }
       if (highestValue < sum)
         highestValue = sum;
     }
+    console.log(highestValue);
     return highestValue;
   }
 
@@ -429,8 +432,9 @@ export class VisualizationComponent implements OnInit {
       this.clearSvg();
       return;
     }
+    console.log(data);
 
-    this.svg.selectAll("image").remove();
+    //this.svg.selectAll("image").remove();
     this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
@@ -439,7 +443,6 @@ export class VisualizationComponent implements OnInit {
     }), this.width, this.margin, 0.05);
 
     var x1 = d3.scaleBand()
-      .padding(0.005)
       .domain(data[0].characters.map(function (d) {
         return d.character;
       }))
@@ -455,8 +458,6 @@ export class VisualizationComponent implements OnInit {
     for (var i = 0; i < data[0].characters.length; i++)
       subgroups.push(data[0].characters[i].label);
 
-    var stackedData = d3.stack().keys(subgroups)(data)
-
     var barGroups = this.svg.selectAll("g.layer").data(data);
     barGroups.enter().append("g").classed('layer', true);
     barGroups.exit().remove();
@@ -466,14 +467,29 @@ export class VisualizationComponent implements OnInit {
         return d.characters;
       });
 
-    var stackSoFar = [];
-    var xDomain = this.xScale.domain();
-    var x1Domain = x1.domain();
-    for (var i = 0; i < xDomain.length; i++) {
-      stackSoFar[xDomain[i]] = [];
-      for (var j = 0; j < x1Domain.length; j++)
-        stackSoFar[xDomain[i]][x1Domain[j]] = 0;
+    var yPoints = []
+    for (var i = 0; i < data.length; i++) {
+      yPoints[data[i].name] = [];
+      for (var j = 0; j < data[i].characters.length; j++)
+      {
+        yPoints[data[i].name][j] = 
+        {
+          y:  (j==0 || (data[i].characters[j-1].character != data[i].characters[j].character))?
+           data[i].characters[j].value : 
+           yPoints[data[i].name][j-1].y +data[i].characters[j].value
+        }
+      }
     }
+    for (var i = 0; i < data.length; i++) {
+      for (var j = 0; j < data[i].characters.length; j++)
+      {
+        yPoints[data[i].name][j].height = (j==0 || (data[i].characters[j-1].character != data[i].characters[j].character))? 
+            pointer.yScale.range()[0] - pointer.yScale(yPoints[data[i].name][j].y) : 
+            pointer.yScale(yPoints[data[i].name][j-1].y)- pointer.yScale(yPoints[data[i].name][j].y)
+      }
+    }
+    //console.log(yPoints)
+
 
     bars.enter().append("rect")
       //.filter(function(d){ return d.value > 0;})
@@ -484,11 +500,10 @@ export class VisualizationComponent implements OnInit {
       .on("mouseout", function (d, i) { d3.select(this).attr("fill", d.color); })
       .transition().duration(this.transitionSpeed)
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
-      .attr("y", function (d) {
-        stackSoFar[d.name][d.character] += d.value;
-        return pointer.yScale(stackSoFar[d.name][d.character]);
+      .attr("y", function (d,i) {        
+        return pointer.yScale(yPoints[d.name][i].y);
       })
-      .attr("height", function (d) { return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom; })
+      .attr("height", function (d,i) { return yPoints[d.name][i].height })
       .on('end', function () {
         d3.select(this)
           .attr("data-original-title", function (d) { var text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; return text; });
@@ -500,18 +515,57 @@ export class VisualizationComponent implements OnInit {
       .transition().duration(this.transitionSpeed)
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
       .attr("x", function (d) { return pointer.xScale(d.name) + x1(d.character); })
-      .attr("y", function (d) {
-        stackSoFar[d.name][d.character] += d.value;
-        return pointer.yScale(stackSoFar[d.name][d.character]);
+      .attr("y", function (d,i) {      
+        return pointer.yScale(yPoints[d.name][i].y);
       })
+      .attr("height", function (d,i) { return yPoints[d.name][i].height })
       .attr("width", x1.bandwidth())
-      .attr("height", function (d) { return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom; })
       .on('end', function () {
         d3.select(this)
           .attr("data-original-title", function (d) { var text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; return text; });
       });
 
     bars.exit().remove();
+      /*
+    var imageGroups = this.svg.selectAll("g.img").data(data);
+    imageGroups.enter().append("g").classed('img', true);
+    imageGroups.exit().remove();
+    var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) {console.log(d); return d.characters; });
+
+    images
+      .enter()
+      .append("image")
+      .filter(function(d,i,c){
+        console.log(d,i,c); return true;
+      })
+      .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+      .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
+      .attr("y", function (d) {return pointer.height - pointer.margin.bottom;})
+      .merge(images) // get the already existing elements as well
+      .transition() // and apply changes to all of them
+      .duration(this.transitionSpeed)
+      .attr("class", "img")
+      //.attr("opacity", function (d) {if (d.value > 0 && x1.bandwidth() >= pointer.minPhotoSize) return 1; else return 0})
+      .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + "Calling.png"; })
+      .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+      .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
+      .attr("y", function (d) {return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - x1.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+      .on('end', function () {
+          d3.select(this).attr("data-original-title", function (d) { 
+            var text;
+            if(d.episode)
+              text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+            else
+              text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
+            return text; 
+          });
+        d3.select(this).attr("class", "tooltipped");
+        d3.select(this).attr("data-toggle", "tooltip");
+      });
+
+    images.exit().remove();*/
   }
 
   createLineChart(data) {

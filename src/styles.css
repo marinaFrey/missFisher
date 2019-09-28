@@ -9,6 +9,18 @@
     margin-right: 40px;
 }
 
+.group-button
+{
+  margin-bottom: 10px;
+}
+
+.legend-color
+{
+  padding-top:3px;
+  padding-bottom:3px;
+  margin-right: 10px;
+}
+
 .svg-container {
   display: inline-block;
   position: relative;

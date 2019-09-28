@@ -16,15 +16,16 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
   parsedData;
   seasonSelection = 0; // 0 = all seasons
   graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
+  selectAll = true;
 
   charactersInfo = [
-    { name: "Jack", label: "Jack says '(Miss) Phryne Fisher'", color: "#163075ff", hightlight: "#2d447fff", isShowing: true },
-    { name: "Jack", label: "Jack says 'Miss Fisher'", color: "#3553a0ff", hightlight: "#4b62aaff", isShowing: true },
-    { name: "Jack", label: "Jack says 'Phryne'", color: "#4b76e4ff", hightlight: "#081c51ff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Detective Inspector Jack Robinson'", color: "#42292dff", hightlight: "#221619ff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Inspector (Jack) (Robinson)'", color: "#7f414bff", hightlight: "#633139ff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Jack Robinson'", color: "#b65664ff", hightlight: "#98404dff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Jack'", color: "#e25b6fff", hightlight: "#be495aff", isShowing: true }
+    { name: "Jack", label: "Jack says '(Miss) Phryne Fisher'", color: "#163075ff", hightlight: "#102252ff", isShowing: true },
+    { name: "Jack", label: "Jack says 'Miss Fisher'", color: "#3553a0ff", hightlight: "#284284ff", isShowing: true },
+    { name: "Jack", label: "Jack says 'Phryne'", color: "#4b76e4ff", hightlight: "#3b62c7ff", isShowing: true },
+    { name: "Phryne", label: "Phryne says 'Detective Inspector Jack Robinson'", color: "#4e252bff", hightlight: "#42171eff", isShowing: true },
+    { name: "Phryne", label: "Phryne says 'Inspector (Jack) (Robinson)'", color: "#7c3842ff", hightlight: "#60252eff", isShowing: true },
+    { name: "Phryne", label: "Phryne says 'Jack Robinson'", color: "#b74d5cff", hightlight: "#9f4552ff", isShowing: true },
+    { name: "Phryne", label: "Phryne says 'Jack'", color: "#e25b6fff", hightlight: "#c14b5dff", isShowing: true }
   ];
 
   constructor() {
@@ -74,6 +75,13 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
     }
     
 
+  }
+
+  changeFilterSelection() {
+    for (var i = 0; i < this.charactersInfo.length; i++) {
+      this.charactersInfo[i].isShowing = this.selectAll;
+    }
+    this.createVisualization();
   }
 
   reorderData() {
@@ -182,7 +190,7 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
       data[this.episodes[i].season - 1] = { name: "Season " + this.episodes[i].season, characters: [] };
 
     for (var j = 0; j < this.episodes[i].nameCalling.length; j++) {
-      //if (this.getCharacterInfo(this.episodes[i].nameCalling[j].character, "isShowing") == true) 
+      if (this.getCharacterInfo(this.episodes[i].nameCalling[j].label, "label", "isShowing") == true)
       {
         if (!data[this.episodes[i].season - 1].characters[j]) {
           data[this.episodes[i].season - 1].characters[j] = {
@@ -206,7 +214,7 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
   pushEpisodicCharacterData(data, i, id) {
     data[id] = { name: this.episodes[i].name, characters: [] };
     for (var j = 0; j < this.episodes[i].nameCalling.length; j++) {
-      //if (this.getCharacterInfo(this.episodes[i].nameCalling[j].character, "isShowing") == true) 
+      if (this.getCharacterInfo(this.episodes[i].nameCalling[j].label, "label", "isShowing") == true)
       {
         data[id].characters[j] = {
           name: this.episodes[i].name,
