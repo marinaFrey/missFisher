@@ -4,8 +4,7 @@
         <div class="row justify-content-center align-items-center" style="margin-bottom: 30px">
 
             <div class=" btn-group mr-1 group-button" role="group" aria-label="grouping methods">
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==0}'
-                    (click)="graphTypeSelection = 0; createVisualization()">Total</button>
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==0}' (click)="graphTypeSelection = 0; createVisualization()">Total</button>
                 <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==1}' (click)="graphTypeSelection = 1; createVisualization()">Per season</button>
                 <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==2}' (click)="graphTypeSelection = 2; createVisualization()">Per episode</button>
             </div>
@@ -44,14 +43,17 @@
                             </label>
                         </div>
                         <div *ngFor="let characterInfo of charactersInfo; let i = index">
-                            <div class="row" >
-
-                                <label style="margin: 10px;">
-                                    <span class="alert alert-primary " [ngStyle]="{'background': characterInfo.color, 'border-color':characterInfo.highlight}" style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
-                                    </span>
-                                    <input type="checkbox" [(ngModel)]='characterInfo.isShowing' (change)="createVisualization();"> {{characterInfo.label}}
-                                </label>
+                            <div *ngFor="let info of characterInfo.infos; let infoIndex = index">
+                                <div class="row">
+                                    <label style="margin: 10px;">
+                                        <span class="alert alert-primary " [ngStyle]="{'background': info.color, 'border-color':info.highlight}"
+                                            style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
+                                        </span>
+                                        <input type="checkbox" [(ngModel)]='info.isShowing' (change)="createVisualization();"> {{info.label}}
+                                    </label>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
