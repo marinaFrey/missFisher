@@ -10,6 +10,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { NumberOfScenesPerCharacterVisualizationComponent } from './visualizations/number-of-scenes-per-character-visualization/number-of-scenes-per-character-visualization.component';
 import { VisualizationComponent } from './visualizations/visualization/visualization.component';
 import { NameCallingVisualizationComponent } from './visualizations/name-calling-visualization/name-calling-visualization.component';
+import { IndulgingVisualizationComponent } from './visualizations/indulging-visualization/indulging-visualization.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NameCallingVisualizationComponent } from './visualizations/name-calling
     NavigationBarComponent,
     NumberOfScenesPerCharacterVisualizationComponent,
     VisualizationComponent,
-    NameCallingVisualizationComponent
+    NameCallingVisualizationComponent,
+    IndulgingVisualizationComponent
   ],
   imports: [
     BrowserModule,

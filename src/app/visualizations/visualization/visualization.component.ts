@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
+import { enterView } from '@angular/core/src/render3/instructions';
 declare var $: any;
 
 @Component({
@@ -16,7 +17,7 @@ export class VisualizationComponent implements OnInit {
   width: number;
   height: number;
   margin = {
-    top: 10,
+    top: 50,
     right: 30,
     bottom: 80,
     left: 50
@@ -120,8 +121,7 @@ export class VisualizationComponent implements OnInit {
     return scale;
   }
 
-  calculateImageInfo(responsiveSize, maximumSize, bandwidth, pointer)
-  {
+  calculateImageInfo(responsiveSize, maximumSize, bandwidth, pointer) {
     if (pointer.minPhotoSize <= bandwidth) {
       if (bandwidth <= pointer.maxPhotoSize)
         return responsiveSize;
@@ -263,10 +263,10 @@ export class VisualizationComponent implements OnInit {
       .attr("class", "img")
       .attr("opacity", function (d) { if (d.value > 0 && (pointer.minPhotoSize <= pointer.xScale.bandwidth())) return 1; else return 0 })
       .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + ".png"; })
-      .attr("width", function (d) {return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer);})
-      .attr("height", function (d) {return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer);})
-      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.character), pointer.xScale(d.character) + pointer.xScale.bandwidth() / 2 - pointer.maxPhotoSize / 2, pointer.xScale.bandwidth(), pointer);})
-      .attr("y", function (d) {return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer);})
+      .attr("width", function (d) { return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer); })
+      .attr("height", function (d) { return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer); })
+      .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.character), pointer.xScale(d.character) + pointer.xScale.bandwidth() / 2 - pointer.maxPhotoSize / 2, pointer.xScale.bandwidth(), pointer); })
+      .attr("y", function (d) { return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer); })
       .on('end', function () {
         d3.select(this)
           .attr("data-original-title", function (d) { var text = d.character + ": " + Math.round(d.value) + "%"; return text; });
@@ -324,13 +324,13 @@ export class VisualizationComponent implements OnInit {
       .attr("y", function (d) { return pointer.yScale(d.value); })
       .attr("height", function (d) { return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom; })
       .on('end', function () {
-        d3.select(this).attr("data-original-title", function (d) { 
+        d3.select(this).attr("data-original-title", function (d) {
           var text;
-          if(d.episode)
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+          if (d.episode)
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
           else
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
-          return text; 
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season;
+          return text;
         });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
@@ -344,20 +344,20 @@ export class VisualizationComponent implements OnInit {
       .attr("width", x1.bandwidth())
       .attr("height", function (d) { return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom; })
       .on('end', function () {
-        d3.select(this).attr("data-original-title", function (d) { 
+        d3.select(this).attr("data-original-title", function (d) {
           var text;
-          if(d.episode)
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+          if (d.episode)
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
           else
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
-          return text; 
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season;
+          return text;
         });
       });
 
     bars.exit().remove();
 
 
-    
+
     var imageGroups = this.svg.selectAll("g.img").data(data);
     imageGroups.enter().append("g").classed('img', true);
     imageGroups.exit().remove();
@@ -366,29 +366,29 @@ export class VisualizationComponent implements OnInit {
     images
       .enter()
       .append("image")
-      .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
-      .attr("y", function (d) {return pointer.height - pointer.margin.bottom;})
+      .attr("width", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+      .attr("height", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+      .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer); })
+      .attr("y", function (d) { return pointer.height - pointer.margin.bottom; })
       .merge(images) // get the already existing elements as well
       .transition() // and apply changes to all of them
       .duration(this.transitionSpeed)
       .attr("class", "img")
       //.attr("opacity", function (d) {if (d.value > 0 && x1.bandwidth() >= pointer.minPhotoSize) return 1; else return 0})
       .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + ".png"; })
-      .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
-      .attr("y", function (d) {return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - x1.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+      .attr("width", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+      .attr("height", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+      .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer); })
+      .attr("y", function (d) { return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - x1.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, x1.bandwidth(), pointer); })
       .on('end', function () {
-          d3.select(this).attr("data-original-title", function (d) { 
-            var text;
-            if(d.episode)
-              text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
-            else
-              text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
-            return text; 
-          });
+        d3.select(this).attr("data-original-title", function (d) {
+          var text;
+          if (d.episode)
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
+          else
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season;
+          return text;
+        });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
       });
@@ -400,24 +400,16 @@ export class VisualizationComponent implements OnInit {
 
   }
 
-  calculateHighestValue(data, vectorsName) {
+  calculateHighestValue(data, vectorsName, vectorsName2) {
     var highestValue = 0;
-    console.log(data);
     for (var i = 0; i < data.length; i++) {
-      var sum = 0;
-      var character = data[i][vectorsName][0].character;
-
       for (var j = 0; j < data[i][vectorsName].length; j++) {
-        if (character == data[i][vectorsName][j].character)
-        {
-          sum += data[i][vectorsName][j].value;
-        }  
-        else {
-          if (highestValue < sum)
-            highestValue = sum;
-          sum = data[i][vectorsName][j].value;
-          character = data[i][vectorsName][j].character
+        var sum = 0;
+        for (var k = 0; k < data[i][vectorsName][j][vectorsName2].length; k++) {
+          sum += data[i][vectorsName][j][vectorsName2][k].value;
         }
+        if (highestValue < sum)
+          highestValue = sum;
       }
       if (highestValue < sum)
         highestValue = sum;
@@ -438,61 +430,69 @@ export class VisualizationComponent implements OnInit {
     this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
+
+    var yPoints = []
+    for (var i = 0; i < data.length; i++) {
+      yPoints[data[i].name] = [];
+      for (var j = 0; j < data[i].characters.length; j++) {
+        yPoints[data[i].name][data[i].characters[j].name] = [];
+        for (var k = 0; k < data[i].characters[j].infos.length; k++) {
+          yPoints[data[i].name][data[i].characters[j].name][k] =
+            {
+              y: data[i].characters[j].infos[k].value
+            }
+          if (k > 0)
+          {
+            yPoints[data[i].name][data[i].characters[j].name][k].y += yPoints[data[i].name][data[i].characters[j].name][k-1].y
+          }
+        }
+      }
+    }
+
     this.xScale = this.createScaleBand(data.map(function (d) {
       return d.name;
     }), this.width, this.margin, 0.05);
 
     var x1 = d3.scaleBand()
       .domain(data[0].characters.map(function (d) {
-        return d.character;
+        return d.name;
       }))
       .rangeRound([0, this.xScale.bandwidth()]);
 
     this.yScale = d3.scaleLinear()
       .rangeRound([this.height - this.margin.bottom, this.margin.top]);
-    this.yScale.domain([0, this.calculateHighestValue(data, 'characters')]);
+    this.yScale.domain([0, this.calculateHighestValue(data, 'characters', "infos")]);
 
     this.createAxes("Number of times", null, null);
 
-    var subgroups = [];
-    for (var i = 0; i < data[0].characters.length; i++)
-      subgroups.push(data[0].characters[i].label);
+    for (var i = 0; i < data.length; i++) {
+      for (var j = 0; j < data[i].characters.length; j++) {
+        for (var k = 0; k < data[i].characters[j].infos.length; k++) {
+          yPoints[data[i].name][data[i].characters[j].name][k].height = (k == 0) ?
+            pointer.yScale.range()[0] - pointer.yScale(yPoints[data[i].name][data[i].characters[j].name][k].y) :
+            pointer.yScale(yPoints[data[i].name][data[i].characters[j].name][k - 1].y) - pointer.yScale(yPoints[data[i].name][data[i].characters[j].name][k].y)
+        }
+
+      }
+    }
 
     var barGroups = this.svg.selectAll("g.layer").data(data);
     barGroups.enter().append("g").classed('layer', true);
     barGroups.exit().remove();
 
-    var bars = this.svg.selectAll("g.layer").selectAll("rect")
+    var bars = this.svg.selectAll("g.layer").selectAll("g")
       .data(function (d) {
         return d.characters;
       });
+    bars.enter().append("g").classed('subLayer', true);
+    bars.exit().remove();
 
-    var yPoints = []
-    for (var i = 0; i < data.length; i++) {
-      yPoints[data[i].name] = [];
-      for (var j = 0; j < data[i].characters.length; j++)
-      {
-        yPoints[data[i].name][j] = 
-        {
-          y:  (j==0 || (data[i].characters[j-1].character != data[i].characters[j].character))?
-           data[i].characters[j].value : 
-           yPoints[data[i].name][j-1].y +data[i].characters[j].value
-        }
-      }
-    }
-    for (var i = 0; i < data.length; i++) {
-      for (var j = 0; j < data[i].characters.length; j++)
-      {
-        yPoints[data[i].name][j].height = (j==0 || (data[i].characters[j-1].character != data[i].characters[j].character))? 
-            pointer.yScale.range()[0] - pointer.yScale(yPoints[data[i].name][j].y) : 
-            pointer.yScale(yPoints[data[i].name][j-1].y)- pointer.yScale(yPoints[data[i].name][j].y)
-      }
-    }
-    //console.log(yPoints)
+    var subBars = this.svg.selectAll("g.subLayer").selectAll("rect")
+      .data(function (d) {
+        return d.infos;
+      });
 
-
-    bars.enter().append("rect")
-      //.filter(function(d){ return d.value > 0;})
+    subBars.enter().append("rect")
       .attr("width", x1.bandwidth())
       .attr("y", function (d) { return pointer.height - pointer.margin.bottom; })
       .attr("x", function (d) { return pointer.xScale(d.name) + x1(d.character); })
@@ -500,72 +500,82 @@ export class VisualizationComponent implements OnInit {
       .on("mouseout", function (d, i) { d3.select(this).attr("fill", d.color); })
       .transition().duration(this.transitionSpeed)
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
-      .attr("y", function (d,i) {        
-        return pointer.yScale(yPoints[d.name][i].y);
+      .attr("y", function (d, i) {
+        return pointer.yScale(yPoints[d.name][d.character][i].y);
       })
-      .attr("height", function (d,i) { return yPoints[d.name][i].height })
+      .attr("height", function (d, i) { return yPoints[d.name][d.character][i].height;  })
       .on('end', function () {
         d3.select(this)
-          .attr("data-original-title", function (d) { var text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; return text; });
+          .attr("data-original-title", function (d) {
+            var text;
+            if (d.episode)
+              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
+            else
+              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name;
+            return text;
+            });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
       });
 
-    bars
+    subBars
       .transition().duration(this.transitionSpeed)
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
       .attr("x", function (d) { return pointer.xScale(d.name) + x1(d.character); })
-      .attr("y", function (d,i) {      
-        return pointer.yScale(yPoints[d.name][i].y);
+      .attr("y", function (d, i) {
+        return pointer.yScale(yPoints[d.name][d.character][i].y);
       })
-      .attr("height", function (d,i) { return yPoints[d.name][i].height })
+      .attr("height", function (d, i) { return yPoints[d.name][d.character][i].height;})
       .attr("width", x1.bandwidth())
       .on('end', function () {
         d3.select(this)
-          .attr("data-original-title", function (d) { var text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; return text; });
-      });
-
-    bars.exit().remove();
-      /*
-    var imageGroups = this.svg.selectAll("g.img").data(data);
-    imageGroups.enter().append("g").classed('img', true);
-    imageGroups.exit().remove();
-    var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) {console.log(d); return d.characters; });
-
-    images
-      .enter()
-      .append("image")
-      .filter(function(d,i,c){
-        console.log(d,i,c); return true;
-      })
-      .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
-      .attr("y", function (d) {return pointer.height - pointer.margin.bottom;})
-      .merge(images) // get the already existing elements as well
-      .transition() // and apply changes to all of them
-      .duration(this.transitionSpeed)
-      .attr("class", "img")
-      //.attr("opacity", function (d) {if (d.value > 0 && x1.bandwidth() >= pointer.minPhotoSize) return 1; else return 0})
-      .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + "Calling.png"; })
-      .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.name) + x1(d.character) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
-      .attr("y", function (d) {return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - x1.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-      .on('end', function () {
-          d3.select(this).attr("data-original-title", function (d) { 
+          .attr("data-original-title", function (d) {
             var text;
-            if(d.episode)
-              text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+            if (d.episode)
+              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
             else
-              text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
-            return text; 
-          });
-        d3.select(this).attr("class", "tooltipped");
-        d3.select(this).attr("data-toggle", "tooltip");
+              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name;
+            return text;
+            });
       });
 
-    images.exit().remove();*/
+    subBars.exit().remove();
+    
+  var imageGroups = this.svg.selectAll("g.img").data(data);
+  imageGroups.enter().append("g").classed('img', true);
+  imageGroups.exit().remove();
+  var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) {console.log(d); return d.characters; });
+
+  images
+    .enter()
+    .append("image")
+    .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+    .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+    .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
+    .attr("y", function (d) {return pointer.height - pointer.margin.bottom;})
+    .merge(images) // get the already existing elements as well
+    .transition() // and apply changes to all of them
+    .duration(this.transitionSpeed)
+    .attr("class", "img")
+    .attr("xlink:href", function (d) { return "../../../assets/images/" + d.name + "Calling.png"; })
+    .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+    .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+    .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
+    .attr("y", function (d) {return pointer.calculateImageInfo(pointer.yScale(yPoints[d.parent][d.name][yPoints[d.parent][d.name].length -1].y) - x1.bandwidth(), pointer.yScale(yPoints[d.parent][d.name][yPoints[d.parent][d.name].length -1].y) - pointer.maxPhotoSize, x1.bandwidth(), pointer);})
+    .on('end', function () {
+        d3.select(this).attr("data-original-title", function (d) { 
+          var text;
+          if(d.episode)
+            text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+          else
+            text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name; 
+          return text; 
+        });
+      d3.select(this).attr("class", "tooltipped");
+      d3.select(this).attr("data-toggle", "tooltip");
+    });
+
+  images.exit().remove();
   }
 
   createLineChart(data) {
@@ -591,7 +601,7 @@ export class VisualizationComponent implements OnInit {
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
     var line = d3.line()
-      .x(function (d, i) { return pointer.xScale(d.name) + pointer.xScale.bandwidth() /2; }) // set the x values for the line generator
+      .x(function (d, i) { return pointer.xScale(d.name) + pointer.xScale.bandwidth() / 2; }) // set the x values for the line generator
       .y(function (d) { return pointer.yScale(d.value); }) // set the y values for the line generator 
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
@@ -599,7 +609,7 @@ export class VisualizationComponent implements OnInit {
 
     var lines = this.svg.selectAll(".line").data(data);
 
-    
+
     lines.enter().append("path")
       .attr("class", "line")
       .attr("fill", "none")
@@ -632,21 +642,21 @@ export class VisualizationComponent implements OnInit {
       .attr("class", "dot") // Assign a class for styling
       .style("stroke", "white")
       .attr("r", 2)
-      .attr("cx", function (d, i) {return Number(pointer.xScale(d.name)+ pointer.xScale.bandwidth() /2); })
+      .attr("cx", function (d, i) { return Number(pointer.xScale(d.name) + pointer.xScale.bandwidth() / 2); })
       .attr("cy", function (d) { return pointer.height - pointer.margin.bottom })
       .transition().duration(this.transitionSpeed)
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
-      .attr("cx", function (d, i) {return Number(pointer.xScale(d.name)+ pointer.xScale.bandwidth() /2);  })
+      .attr("cx", function (d, i) { return Number(pointer.xScale(d.name) + pointer.xScale.bandwidth() / 2); })
       .attr("cy", function (d) { return pointer.yScale(d.value) })
 
       .on('end', function () {
-        d3.select(this).attr("data-original-title", function (d) { 
+        d3.select(this).attr("data-original-title", function (d) {
           var text;
-          if(d.episode)
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+          if (d.episode)
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
           else
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
-          return text; 
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season;
+          return text;
         });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
@@ -655,17 +665,17 @@ export class VisualizationComponent implements OnInit {
     circles
       .transition().duration(this.transitionSpeed)
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
-      .attr("cx", function (d, i) { return Number(pointer.xScale(d.name)+ pointer.xScale.bandwidth() /2); })
+      .attr("cx", function (d, i) { return Number(pointer.xScale(d.name) + pointer.xScale.bandwidth() / 2); })
       .attr("cy", function (d) { return pointer.yScale(d.value) })
       .attr("r", 2)
       .on('end', function () {
-        d3.select(this).attr("data-original-title", function (d) { 
+        d3.select(this).attr("data-original-title", function (d) {
           var text;
-          if(d.episode)
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
+          if (d.episode)
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
           else
-            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season; 
-          return text; 
+            text = d.character + ": " + Math.round(d.value) + "%<br/>" + "Season " + d.season;
+          return text;
         });
       });
 
