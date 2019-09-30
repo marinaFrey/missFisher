@@ -11,11 +11,14 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
   TOTAL = 0;
   PER_SEASON = 1;
   PER_EPISODE = 2;
+  PER_NUMBER_OF_EPISODES = 0;
+  PER_PERCENTAGE_OF_EPISODES = 1;
 
   @Input('episodesData') public episodes;
   parsedData;
   seasonSelection = 0; // 0 = all seasons
   graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
+  graphDataTypeSelection = 1;
   selectAll = true;
 
   charactersInfo = [
@@ -63,23 +66,25 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
       case this.TOTAL:
         this.parseTotalData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData, "Visiting");
+        this.createGroupedStackedBarChart(this.parsedData, "Visiting"," appearance(s)");
         break;
 
       case this.PER_SEASON:
         this.parseSeasonData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData, "Visiting");
+        if (this.graphDataTypeSelection == this.PER_NUMBER_OF_EPISODES)
+          this.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
+        else
+          this.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s) per episode");
         break;
 
       case this.PER_EPISODE:
         this.parseEpisodicData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData, "Visiting");
+        this.createGroupedStackedBarChart(this.parsedData, "Visiting"," appearance(s)");
         break;
 
     }
-    console.log(this.parsedData);
 
   }
 
@@ -123,15 +128,15 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
 
   pushTotalCharacterData(data, i) {
     if (!data[0])
-      data[0] = { name: "Season " + this.episodes[i].season, characters: [] };
+      data[0] = { name: "Total", characters: [] };
 
     if (this.getCharacterInfo(this.episodes[i].jackInPhrynesHome.label, "label", "isShowing") == true) {
       var index = data[0].characters.map(function (e) { return e.name; }).indexOf(this.episodes[i].jackInPhrynesHome.character);
       if (index == -1) {
         data[0].characters.push({
-          name: this.episodes[i].jackInPhrynesHome.character, parent: "Season " + this.episodes[i].season, infos: [
+          name: this.episodes[i].jackInPhrynesHome.character, parent: "Total", infos: [
             {
-              name: "Season " + this.episodes[i].season,
+              name: "Total",
               label: this.episodes[i].jackInPhrynesHome.label,
               value: this.episodes[i].jackInPhrynesHome.value,
               character: this.episodes[i].jackInPhrynesHome.character,
@@ -150,14 +155,14 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
     for (var j = 0; j < this.episodes[i].phryneInPoliceStation.length; j++) {
       var index = data[0].characters.map(function (e) { return e.name; }).indexOf(this.episodes[i].phryneInPoliceStation[j].character);
       if (index == -1) {
-        data[0].characters.push({ name: this.episodes[i].phryneInPoliceStation[j].character, parent: "Season " + this.episodes[i].season, infos: [] });
+        data[0].characters.push({ name: this.episodes[i].phryneInPoliceStation[j].character, parent: "Total", infos: [] });
         index = data[0].characters.length - 1;
       }
       if (this.getCharacterInfo(this.episodes[i].phryneInPoliceStation[j].label, "label", "isShowing") == true) {
         var labelIndex = data[0].characters[index].infos.map(function (e) { return e.label; }).indexOf(this.episodes[i].phryneInPoliceStation[j].label);
         if (labelIndex == -1) {
           data[0].characters[index].infos.push({
-            name: "Season " + this.episodes[i].season,
+            name: "Total",
             label: this.episodes[i].phryneInPoliceStation[j].label,
             value: this.episodes[i].phryneInPoliceStation[j].value,
             character: this.episodes[i].phryneInPoliceStation[j].character,
@@ -182,6 +187,16 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
         numberOfEpisodesPerSeason[this.episodes[i].season - 1] = 0;
       numberOfEpisodesPerSeason[this.episodes[i].season - 1]++;
     }
+
+    if (this.graphDataTypeSelection == this.PER_PERCENTAGE_OF_EPISODES) {
+      for (var j = 0; j < data.length; j++) {
+        for (var k = 0; k < data[j].characters.length; k++) {
+          for (var l = 0; l < data[j].characters[k].infos.length; l++)
+            data[j].characters[k].infos[l].value = data[j].characters[k].infos[l].value / numberOfEpisodesPerSeason[j];
+        }
+      }
+    }
+
     this.parsedData = data;
   }
 
