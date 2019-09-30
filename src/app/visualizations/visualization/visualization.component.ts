@@ -418,7 +418,7 @@ export class VisualizationComponent implements OnInit {
     return highestValue;
   }
 
-  createGroupedStackedBarChart(data) {
+  createGroupedStackedBarChart(data, imageName) {
     var pointer = this;
     if (data[0].characters[0].length <= 0) {
       this.clearSvg();
@@ -441,9 +441,8 @@ export class VisualizationComponent implements OnInit {
             {
               y: data[i].characters[j].infos[k].value
             }
-          if (k > 0)
-          {
-            yPoints[data[i].name][data[i].characters[j].name][k].y += yPoints[data[i].name][data[i].characters[j].name][k-1].y
+          if (k > 0) {
+            yPoints[data[i].name][data[i].characters[j].name][k].y += yPoints[data[i].name][data[i].characters[j].name][k - 1].y
           }
         }
       }
@@ -503,7 +502,7 @@ export class VisualizationComponent implements OnInit {
       .attr("y", function (d, i) {
         return pointer.yScale(yPoints[d.name][d.character][i].y);
       })
-      .attr("height", function (d, i) { return yPoints[d.name][d.character][i].height;  })
+      .attr("height", function (d, i) { return yPoints[d.name][d.character][i].height; })
       .on('end', function () {
         d3.select(this)
           .attr("data-original-title", function (d) {
@@ -513,7 +512,7 @@ export class VisualizationComponent implements OnInit {
             else
               text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name;
             return text;
-            });
+          });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
       });
@@ -525,7 +524,7 @@ export class VisualizationComponent implements OnInit {
       .attr("y", function (d, i) {
         return pointer.yScale(yPoints[d.name][d.character][i].y);
       })
-      .attr("height", function (d, i) { return yPoints[d.name][d.character][i].height;})
+      .attr("height", function (d, i) { return yPoints[d.name][d.character][i].height; })
       .attr("width", x1.bandwidth())
       .on('end', function () {
         d3.select(this)
@@ -536,46 +535,38 @@ export class VisualizationComponent implements OnInit {
             else
               text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name;
             return text;
-            });
+          });
       });
 
     subBars.exit().remove();
-    
-  var imageGroups = this.svg.selectAll("g.img").data(data);
-  imageGroups.enter().append("g").classed('img', true);
-  imageGroups.exit().remove();
-  var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) {console.log(d); return d.characters; });
 
-  images
-    .enter()
-    .append("image")
-    .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-    .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-    .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
-    .attr("y", function (d) {return pointer.height - pointer.margin.bottom;})
-    .merge(images) // get the already existing elements as well
-    .transition() // and apply changes to all of them
-    .duration(this.transitionSpeed)
-    .attr("class", "img")
-    .attr("xlink:href", function (d) { return "../../../assets/images/" + d.name + "Calling.png"; })
-    .attr("width", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-    .attr("height", function (d) {return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-    .attr("x", function (d) {return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer);})
-    .attr("y", function (d) {return pointer.calculateImageInfo(pointer.yScale(yPoints[d.parent][d.name][yPoints[d.parent][d.name].length -1].y) - x1.bandwidth(), pointer.yScale(yPoints[d.parent][d.name][yPoints[d.parent][d.name].length -1].y) - pointer.maxPhotoSize, x1.bandwidth(), pointer);})
-    .on('end', function () {
-        d3.select(this).attr("data-original-title", function (d) { 
-          var text;
-          if(d.episode)
-            text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name; 
-          else
-            text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name; 
-          return text; 
-        });
-      d3.select(this).attr("class", "tooltipped");
-      d3.select(this).attr("data-toggle", "tooltip");
-    });
+    if (imageName) {
+      var imageGroups = this.svg.selectAll("g.img").data(data);
+      imageGroups.enter().append("g").classed('img', true);
+      imageGroups.exit().remove();
+      var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) { return d.characters; });
 
-  images.exit().remove();
+      images
+        .enter()
+        .append("image")
+        .attr("width", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+        .attr("height", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+        .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer); })
+        .attr("y", function (d) { return pointer.height - pointer.margin.bottom; })
+        .merge(images) // get the already existing elements as well
+        .transition() // and apply changes to all of them
+        .duration(this.transitionSpeed)
+        .attr("class", "img")
+        .attr("xlink:href", function (d) { return "../../../assets/images/" + d.name + imageName + ".png"; })
+        .attr("width", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+        .attr("height", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+        .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer); })
+        .attr("y", function (d) { return pointer.calculateImageInfo(pointer.yScale(yPoints[d.parent][d.name][yPoints[d.parent][d.name].length - 1].y) - x1.bandwidth(), pointer.yScale(yPoints[d.parent][d.name][yPoints[d.parent][d.name].length - 1].y) - pointer.maxPhotoSize, x1.bandwidth(), pointer); })
+        ;
+
+      images.exit().remove();
+    }
+
   }
 
   createLineChart(data) {
