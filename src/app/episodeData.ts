@@ -8,9 +8,9 @@ export const EPISODES: Episode[] = [
         name: "Cocaine Blues",
         murders: [],
         date: {
-            date: new Date(1928,6),                     
-            position: 1,  
-            label: "likely mid to late July 1928"                 
+            date: new Date(1928, 6),
+            position: 1,
+            label: "likely mid to late July 1928"
         },
         totalNumberOfScenes: 45,
 
@@ -80,7 +80,7 @@ export const EPISODES: Episode[] = [
             {
                 label: "Jack says 'Phryne'",
                 value: 0,
-                character: "Jack"           
+                character: "Jack"
             },
             {
                 label: "Phryne says 'Jack'",
@@ -92,7 +92,7 @@ export const EPISODES: Episode[] = [
                 value: 0,
                 character: "Phryne"
             },
-            
+
             {
                 label: "Phryne says 'Inspector (Jack) (Robinson)'",
                 value: 4,
@@ -111,9 +111,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 1,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 0,
             character: "Jack"
@@ -162,9 +177,9 @@ export const EPISODES: Episode[] = [
         name: "Murder on the Ballarat Train",
         murders: [],
         date: {
-            date: new Date(1928,7),                     
-            position: 0,  
-            label: "early August 1928 (around 02-Aug)"                 
+            date: new Date(1928, 7),
+            position: 0,
+            label: "early August 1928 (around 02-Aug)"
         },
         totalNumberOfScenes: 51,
 
@@ -264,9 +279,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 1,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 0,
             character: "Jack"
@@ -315,9 +345,9 @@ export const EPISODES: Episode[] = [
         name: "The Green Mill Murder",
         murders: [],
         date: {
-            date: new Date(1928,7),                     
-            position: 1,  
-            label: "Mid-August 1928 (around 11-Aug)"                 
+            date: new Date(1928, 7),
+            position: 1,
+            label: "Mid-August 1928 (around 11-Aug)"
         },
         totalNumberOfScenes: 47,
 
@@ -417,9 +447,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 0,
             character: "Jack"
@@ -468,9 +513,9 @@ export const EPISODES: Episode[] = [
         name: "Death at Victoria Dock",
         murders: [],
         date: {
-            date: new Date(1928,7),                     
-            position: 3,  
-            label: "End of August 1928 (around 26-Aug)"                 
+            date: new Date(1928, 7),
+            position: 3,
+            label: "End of August 1928 (around 26-Aug)"
         },
         totalNumberOfScenes: 47,
 
@@ -570,9 +615,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 1,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -621,9 +681,9 @@ export const EPISODES: Episode[] = [
         name: "Raisins and Almonds",
         murders: [],
         date: {
-            date: new Date(1928,8),                     
-            position: 0,  
-            label: "early September 1928 (around 04-Sep)"                 
+            date: new Date(1928, 8),
+            position: 0,
+            label: "early September 1928 (around 04-Sep)"
         },
         totalNumberOfScenes: 44,
 
@@ -723,9 +783,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 4,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -774,9 +849,9 @@ export const EPISODES: Episode[] = [
         name: "Ruddy Gore",
         murders: [],
         date: {
-            date: new Date(1928,8),                     
-            position: 1,  
-            label: "Mid-September 1928 (around 16-Sep)"                 
+            date: new Date(1928, 8),
+            position: 1,
+            label: "Mid-September 1928 (around 16-Sep)"
         },
         totalNumberOfScenes: 50,
 
@@ -876,9 +951,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 1,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -927,9 +1017,9 @@ export const EPISODES: Episode[] = [
         name: "Murder in Montparnasse",
         murders: [],
         date: {
-            date: new Date(1928,9),                     
-            position: 0,  
-            label: "early October 1928 (around 06-Oct)"                 
+            date: new Date(1928, 9),
+            position: 0,
+            label: "early October 1928 (around 06-Oct)"
         },
         totalNumberOfScenes: 47,
 
@@ -1029,9 +1119,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 2,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -1079,9 +1184,9 @@ export const EPISODES: Episode[] = [
         name: "Away with the Fairies",
         murders: [],
         date: {
-            date: new Date(1928,9),                     
-            position: 1,  
-            label: "early to Mid-October 1928"                 
+            date: new Date(1928, 9),
+            position: 1,
+            label: "early to Mid-October 1928"
         },
         totalNumberOfScenes: 47,
 
@@ -1181,9 +1286,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 2,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 4,
             character: "Jack"
@@ -1232,9 +1352,9 @@ export const EPISODES: Episode[] = [
         name: "Queen of the Flowers",
         murders: [],
         date: {
-            date: new Date(1928,10),                     
-            position: 0,  
-            label: "early November 1928 (around 05-Nov)"                 
+            date: new Date(1928, 10),
+            position: 0,
+            label: "early November 1928 (around 05-Nov)"
         },
         totalNumberOfScenes: 45,
 
@@ -1334,9 +1454,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 1,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 7,
             character: "Jack"
@@ -1385,9 +1520,9 @@ export const EPISODES: Episode[] = [
         name: "Death by Miss Adventure",
         murders: [],
         date: {
-            date: new Date(1928,10),                     
-            position: 1,  
-            label: "Mid-November 1928 (around 14-Nov)"                 
+            date: new Date(1928, 10),
+            position: 1,
+            label: "Mid-November 1928 (around 14-Nov)"
         },
         totalNumberOfScenes: 50,
 
@@ -1487,9 +1622,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 4,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -1538,9 +1688,9 @@ export const EPISODES: Episode[] = [
         name: "Blood and Circuses",
         murders: [],
         date: {
-            date: new Date(1928,11),                     
-            position: 0,  
-            label: "Early December 1928 (around 04-Dec)"                 
+            date: new Date(1928, 11),
+            position: 0,
+            label: "Early December 1928 (around 04-Dec)"
         },
         totalNumberOfScenes: 51,
 
@@ -1596,7 +1746,7 @@ export const EPISODES: Episode[] = [
                 character: "Hispano Suiza"
             }
         ],
-        nameCalling:  [
+        nameCalling: [
             {
                 label: "Jack says 'Miss Fisher'",
                 value: 4,
@@ -1640,9 +1790,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -1692,9 +1857,9 @@ export const EPISODES: Episode[] = [
         name: "Murder in the Dark",
         murders: [],
         date: {
-            date: new Date(1928,11),                     
-            position: 1,  
-            label: "Mid-December 1928 (around 17-Dec)"                 
+            date: new Date(1928, 11),
+            position: 1,
+            label: "Mid-December 1928 (around 17-Dec)"
         },
         totalNumberOfScenes: 50,
 
@@ -1794,9 +1959,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 2,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 2,
             character: "Jack"
@@ -1845,9 +2025,9 @@ export const EPISODES: Episode[] = [
         name: "King Memses' Curse",
         murders: [],
         date: {
-            date: new Date(1928,11),                     
-            position: 2,  
-            label: "Mid to late December 1928 (around 19-Dec)"                 
+            date: new Date(1928, 11),
+            position: 2,
+            label: "Mid to late December 1928 (around 19-Dec)"
         },
         totalNumberOfScenes: 47,
 
@@ -1947,9 +2127,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -1998,9 +2193,9 @@ export const EPISODES: Episode[] = [
         name: "Murder Most Scandalous",
         murders: [],
         date: {
-            date: new Date(1929,0),                     
-            position: 1,  
-            label: "Mid to late January 1929 (around 20-Jan)"                 
+            date: new Date(1929, 0),
+            position: 1,
+            label: "Mid to late January 1929 (around 20-Jan)"
         },
         totalNumberOfScenes: 50,
 
@@ -2100,9 +2295,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 1,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -2151,9 +2361,9 @@ export const EPISODES: Episode[] = [
         name: "Death Comes Knocking",
         murders: [],
         date: {
-            date: new Date(1929,2),                     
-            position: 0,  
-            label: "March 1929!!!"                 
+            date: new Date(1929, 2),
+            position: 0,
+            label: "March 1929!!!"
         },
         totalNumberOfScenes: 37,
 
@@ -2209,7 +2419,7 @@ export const EPISODES: Episode[] = [
                 character: "Hispano Suiza"
             }
         ],
-        nameCalling:  [
+        nameCalling: [
             {
                 label: "Jack says 'Miss Fisher'",
                 value: 3,
@@ -2253,9 +2463,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 5,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 7,
             character: "Jack"
@@ -2304,9 +2529,9 @@ export const EPISODES: Episode[] = [
         name: "Dead Man's Chest",
         murders: [],
         date: {
-            date: new Date(1929,0),                     
-            position: 3,  
-            label: "End of January 1929 (around 26-Jan)"                 
+            date: new Date(1929, 0),
+            position: 3,
+            label: "End of January 1929 (around 26-Jan)"
         },
         totalNumberOfScenes: 47,
 
@@ -2406,9 +2631,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 0,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -2457,9 +2697,9 @@ export const EPISODES: Episode[] = [
         name: "Deadweight",
         murders: [],
         date: {
-            date: new Date(1929,1),                     
-            position: 0,  
-            label: "Early February 1929 (around 07-Feb)"                 
+            date: new Date(1929, 1),
+            position: 0,
+            label: "Early February 1929 (around 07-Feb)"
         },
         totalNumberOfScenes: 44,
 
@@ -2559,9 +2799,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 6,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 2,
             character: "Jack"
@@ -2610,9 +2865,9 @@ export const EPISODES: Episode[] = [
         name: "Murder a la Mode",
         murders: [],
         date: {
-            date: new Date(1929,1),                     
-            position: 1,  
-            label: "February 1929"                 
+            date: new Date(1929, 1),
+            position: 1,
+            label: "February 1929"
         },
         totalNumberOfScenes: 45,
 
@@ -2712,9 +2967,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 5,
             character: "Jack"
@@ -2860,9 +3130,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 4,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 0,
             character: "Jack"
@@ -2911,9 +3196,9 @@ export const EPISODES: Episode[] = [
         name: "Blood at the Wheel",
         murders: [],
         date: {
-            date: new Date(1929,2),                     
-            position: 2,  
-            label: "Mid to late March 1929 (around 20-Mar)"                 
+            date: new Date(1929, 2),
+            position: 2,
+            label: "Mid to late March 1929 (around 20-Mar)"
         },
         totalNumberOfScenes: 35,
 
@@ -3013,9 +3298,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -3064,9 +3364,9 @@ export const EPISODES: Episode[] = [
         name: "The Blood of Juana the Mad",
         murders: [],
         date: {
-            date: new Date(1929,3),                     
-            position: 2,  
-            label: "Around 18-Apr-1929 or still March 1929 (inconsistency found)"                 
+            date: new Date(1929, 3),
+            position: 2,
+            label: "Around 18-Apr-1929 or still March 1929 (inconsistency found)"
         },
         totalNumberOfScenes: 41,
 
@@ -3166,9 +3466,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 0,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -3217,9 +3532,9 @@ export const EPISODES: Episode[] = [
         name: "Framed for Murder",
         murders: [],
         date: {
-            date: new Date(1929,3),                     
-            position: 0,  
-            label: "Likely early April 1929"                 
+            date: new Date(1929, 3),
+            position: 0,
+            label: "Likely early April 1929"
         },
         totalNumberOfScenes: 52,
 
@@ -3319,9 +3634,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 2,
             character: "Jack"
@@ -3370,9 +3700,9 @@ export const EPISODES: Episode[] = [
         name: "Death on the Vine",
         murders: [],
         date: {
-            date: new Date(1929,3),                     
-            position: 1,  
-            label: "Mid to late April 1929 (around 16-Apr)"                 
+            date: new Date(1929, 3),
+            position: 1,
+            label: "Mid to late April 1929 (around 16-Apr)"
         },
         totalNumberOfScenes: 46,
 
@@ -3472,9 +3802,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -3523,9 +3868,9 @@ export const EPISODES: Episode[] = [
         name: "Dead Air",
         murders: [],
         date: {
-            date: new Date(1929,4),                     
-            position: 1,  
-            label: "Mid-May 1929 (around 15-May)"                 
+            date: new Date(1929, 4),
+            position: 1,
+            label: "Mid-May 1929 (around 15-May)"
         },
         totalNumberOfScenes: 50,
 
@@ -3625,9 +3970,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 4,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 5,
             character: "Jack"
@@ -3676,9 +4036,9 @@ export const EPISODES: Episode[] = [
         name: "Unnatural Habits",
         murders: [],
         date: {
-            date: new Date(1929,5),                     
-            position: 0,  
-            label: "Early June 1929 (around 04-Jun)"                 
+            date: new Date(1929, 5),
+            position: 0,
+            label: "Early June 1929 (around 04-Jun)"
         },
         totalNumberOfScenes: 43,
 
@@ -3778,9 +4138,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 6,
             character: "Jack"
@@ -3829,9 +4204,9 @@ export const EPISODES: Episode[] = [
         name: "Murder Under the Mistletoe",
         murders: [],
         date: {
-            date: new Date(1929,6),                     
-            position: 1,  
-            label: "July 1929"                 
+            date: new Date(1929, 6),
+            position: 1,
+            label: "July 1929"
         },
         totalNumberOfScenes: 48,
 
@@ -3931,9 +4306,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 0,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 0,
             character: "Jack"
@@ -3983,9 +4373,9 @@ export const EPISODES: Episode[] = [
         name: "Death Defying Feats",
         murders: [],
         date: {
-            date: new Date(1929,6),                     
-            position: 2,  
-            label: "Late July 1929 (around 27-Jul)"                 
+            date: new Date(1929, 6),
+            position: 2,
+            label: "Late July 1929 (around 27-Jul)"
         },
         totalNumberOfScenes: 43,
 
@@ -4085,9 +4475,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 2,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 6,
             character: "Jack"
@@ -4136,9 +4541,9 @@ export const EPISODES: Episode[] = [
         name: "Murder & the Maiden",
         murders: [],
         date: {
-            date: new Date(1929,6),                     
-            position: 2,  
-            label: "Late July 1929"                 
+            date: new Date(1929, 6),
+            position: 2,
+            label: "Late July 1929"
         },
         totalNumberOfScenes: 44,
 
@@ -4238,9 +4643,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -4289,9 +4709,9 @@ export const EPISODES: Episode[] = [
         name: "Murder & Mozzarella",
         murders: [],
         date: {
-            date: new Date(1929,7),                     
-            position: 0,  
-            label: "Early August 1929 (around 01-Aug)"                 
+            date: new Date(1929, 7),
+            position: 0,
+            label: "Early August 1929 (around 01-Aug)"
         },
         totalNumberOfScenes: 44,
 
@@ -4391,9 +4811,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 5,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -4442,9 +4877,9 @@ export const EPISODES: Episode[] = [
         name: "Blood & Money",
         murders: [],
         date: {
-            date: new Date(1929,7),                     
-            position: 0,  
-            label: "Early August 1929 (around 05-Aug)"                 
+            date: new Date(1929, 7),
+            position: 0,
+            label: "Early August 1929 (around 05-Aug)"
         },
         totalNumberOfScenes: 38,
 
@@ -4544,9 +4979,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 5,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 3,
             character: "Jack"
@@ -4693,9 +5143,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 3,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 0,
             character: "Jack"
@@ -4745,9 +5210,9 @@ export const EPISODES: Episode[] = [
         name: "Death at the Grand",
         murders: [],
         date: {
-            date: new Date(1929,7),                     
-            position: 1,  
-            label: "Mid-August 1929 (around 18-Aug)"                 
+            date: new Date(1929, 7),
+            position: 1,
+            label: "Mid-August 1929 (around 18-Aug)"
         },
         totalNumberOfScenes: 52,
 
@@ -4847,9 +5312,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 2,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -4899,9 +5379,9 @@ export const EPISODES: Episode[] = [
         name: "Game, Set & Murder",
         murders: [],
         date: {
-            date: new Date(1929,7),                     
-            position: 2,  
-            label: "Late August 1929 (around 31-Aug)"                 
+            date: new Date(1929, 7),
+            position: 2,
+            label: "Late August 1929 (around 31-Aug)"
         },
         totalNumberOfScenes: 47,
 
@@ -5001,9 +5481,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 2,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"
@@ -5052,9 +5547,9 @@ export const EPISODES: Episode[] = [
         name: "Death Do Us Part",
         murders: [],
         date: {
-            date: new Date(1929,8),                     
-            position: 0,  
-            label: "Early September 1929 (around 03-Sep)"                 
+            date: new Date(1929, 8),
+            position: 0,
+            label: "Early September 1929 (around 03-Sep)"
         },
         totalNumberOfScenes: 52,
 
@@ -5154,9 +5649,24 @@ export const EPISODES: Episode[] = [
         proximity: null,
         flirting: null,
         talking: null,
-        phryneInPoliceStation: null,
+        phryneInPoliceStation: [
+            {
+                label: "scenes with Phryne in Jack's table",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's office",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "scenes with Phryne in Jack's police station",
+                value: 0,
+                character: "Phryne"
+            }],
 
-        jackInPhryinesHome: {
+        jackInPhrynesHome: {
             label: "Screen time with Jack in Phryne's Home",
             value: 1,
             character: "Jack"

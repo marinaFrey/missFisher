@@ -18,17 +18,6 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
   graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
   selectAll = true;
 
-  /*
-  charactersInfo = [
-    { name: "Jack", label: "Jack says '(Miss) Phryne Fisher'", color: "#163075ff", hightlight: "#102252ff", isShowing: true },
-    { name: "Jack", label: "Jack says 'Miss Fisher'", color: "#3553a0ff", hightlight: "#284284ff", isShowing: true },
-    { name: "Jack", label: "Jack says 'Phryne'", color: "#4b76e4ff", hightlight: "#3b62c7ff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Detective Inspector Jack Robinson'", color: "#4e252bff", hightlight: "#42171eff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Inspector (Jack) (Robinson)'", color: "#7c3842ff", hightlight: "#60252eff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Jack Robinson'", color: "#b74d5cff", hightlight: "#9f4552ff", isShowing: true },
-    { name: "Phryne", label: "Phryne says 'Jack'", color: "#e25b6fff", hightlight: "#c14b5dff", isShowing: true }
-  ];*/
-
   charactersInfo = [
     {
       name: "Jack", infos: [
@@ -77,19 +66,19 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
       case this.TOTAL:
         this.parseTotalData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData);
+        this.createGroupedStackedBarChart(this.parsedData,"Calling");
         break;
 
       case this.PER_SEASON:
         this.parseSeasonData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData);
+        this.createGroupedStackedBarChart(this.parsedData,"Calling");
         break;
 
       case this.PER_EPISODE:
         this.parseEpisodicData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData);
+        this.createGroupedStackedBarChart(this.parsedData, "Calling");
         break;
 
     }

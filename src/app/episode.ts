@@ -19,7 +19,7 @@ export class Episode {
     talking: Information[];                 // number of scenes where they are talking alone or sharing the same scene with other characters
     phryneInPoliceStation: Information[];   // number of scenes where Phryne is in the police station
 
-    jackInPhryinesHome: Information;        // number of scenes where jack is in Phryne's home
+    jackInPhrynesHome: Information;        // number of scenes where jack is in Phryne's home
     stealthyScenes: Information;            // number of scenes Phryne is trying to be stealthy
     drinking: Information;                  // number of scenes where some kind of drink (usually alcohol) is being consumed
     changesOfOutfit: Information;           // number of times Phryne changed her outfit during the episode. Still counts even if she repeats the same outfit
