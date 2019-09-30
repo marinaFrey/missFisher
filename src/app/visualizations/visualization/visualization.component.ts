@@ -374,7 +374,7 @@ export class VisualizationComponent implements OnInit {
       .transition() // and apply changes to all of them
       .duration(this.transitionSpeed)
       .attr("class", "img")
-      //.attr("opacity", function (d) {if (d.value > 0 && x1.bandwidth() >= pointer.minPhotoSize) return 1; else return 0})
+      .attr("opacity", function (d) { if (d.value > 0 && (pointer.minPhotoSize <= pointer.xScale.bandwidth())) return 1; else return 0 })
       .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + ".png"; })
       .attr("width", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
       .attr("height", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
@@ -414,18 +414,17 @@ export class VisualizationComponent implements OnInit {
       if (highestValue < sum)
         highestValue = sum;
     }
-    console.log(highestValue);
+
     return highestValue;
   }
 
-  createGroupedStackedBarChart(data, imageName) {
+  createGroupedStackedBarChart(data, imageName, tooltipLabel) {
     var pointer = this;
     if (data[0].characters[0].length <= 0) {
       this.clearSvg();
       return;
     }
     console.log(data);
-
     //this.svg.selectAll("image").remove();
     this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
@@ -451,7 +450,7 @@ export class VisualizationComponent implements OnInit {
     this.xScale = this.createScaleBand(data.map(function (d) {
       return d.name;
     }), this.width, this.margin, 0.05);
-
+    
     var x1 = d3.scaleBand()
       .domain(data[0].characters.map(function (d) {
         return d.name;
@@ -508,9 +507,9 @@ export class VisualizationComponent implements OnInit {
           .attr("data-original-title", function (d) {
             var text;
             if (d.episode)
-              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
+              text = d.label + ": " + Math.round(d.value) + tooltipLabel + "<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
             else
-              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name;
+              text = d.label + ": " + Math.round(d.value) + tooltipLabel + "<br/>" + d.name;
             return text;
           });
         d3.select(this).attr("class", "tooltipped");
@@ -531,9 +530,9 @@ export class VisualizationComponent implements OnInit {
           .attr("data-original-title", function (d) {
             var text;
             if (d.episode)
-              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
+              text = d.label + ": " + Math.round(d.value) + tooltipLabel + "<br/>" + "S" + d.season + "E" + d.episode + ": " + d.name;
             else
-              text = d.label + ": " + Math.round(d.value) + " time(s)<br/>" + d.name;
+              text = d.label + ": " + Math.round(d.value) + tooltipLabel + "<br/>" + d.name;
             return text;
           });
       });
@@ -558,6 +557,7 @@ export class VisualizationComponent implements OnInit {
         .duration(this.transitionSpeed)
         .attr("class", "img")
         .attr("xlink:href", function (d) { return "../../../assets/images/" + d.name + imageName + ".png"; })
+        .attr("opacity", function (d) { if (yPoints[d.parent][d.name][yPoints[d.parent][d.name].length - 1].y > 0 && (pointer.minPhotoSize <= pointer.xScale.bandwidth())) return 1; else return 0 })
         .attr("width", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
         .attr("height", function (d) { return pointer.calculateImageInfo(x1.bandwidth(), pointer.maxPhotoSize, x1.bandwidth(), pointer); })
         .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - x1.bandwidth() / 2, pointer.xScale(d.parent) + x1(d.name) + x1.bandwidth() / 2 - pointer.maxPhotoSize / 2, x1.bandwidth(), pointer); })

@@ -11,11 +11,14 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
   TOTAL = 0;
   PER_SEASON = 1;
   PER_EPISODE = 2;
+  PER_NUMBER_OF_EPISODES = 0;
+  PER_PERCENTAGE_OF_EPISODES = 1;
 
   @Input('episodesData') public episodes;
   parsedData;
   seasonSelection = 0; // 0 = all seasons
   graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
+  graphDataTypeSelection = 1;
   selectAll = true;
 
   charactersInfo = [
@@ -66,19 +69,22 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
       case this.TOTAL:
         this.parseTotalData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData,"Calling");
+        this.createGroupedStackedBarChart(this.parsedData, "Calling", " appearance(s)");
         break;
 
       case this.PER_SEASON:
         this.parseSeasonData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData,"Calling");
+        if (this.graphDataTypeSelection == this.PER_NUMBER_OF_EPISODES)
+          this.createGroupedStackedBarChart(this.parsedData, "Calling", " appearance(s)");
+        else
+          this.createGroupedStackedBarChart(this.parsedData, "Calling", " appearance(s) per episode");
         break;
 
       case this.PER_EPISODE:
         this.parseEpisodicData();
         this.reorderData();
-        this.createGroupedStackedBarChart(this.parsedData, "Calling");
+        this.createGroupedStackedBarChart(this.parsedData, "Calling", " appearance(s)");
         break;
 
     }
@@ -112,13 +118,15 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
     }
   }
 
-  
+
 
   parseTotalData() {
     var data = [];
+    var numberOfEpisodes = 0;
     for (var i = 0; i < this.episodes.length; i++) {
       if ((this.seasonSelection == 0) || (this.episodes[i].season == this.seasonSelection)) {
         data = this.pushTotalCharacterData(data, i);
+        numberOfEpisodes++;
       }
     }
     this.parsedData = data;
@@ -126,18 +134,18 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
 
   pushTotalCharacterData(data, i) {
     if (!data[0])
-      data[0] = { name: "Season " + this.episodes[i].season, characters: [] };
+      data[0] = { name: "Total", characters: [] };
     for (var j = 0; j < this.episodes[i].nameCalling.length; j++) {
       var index = data[0].characters.map(function (e) { return e.name; }).indexOf(this.episodes[i].nameCalling[j].character);
-      if (index == -1) {
-        data[0].characters.push({ name: this.episodes[i].nameCalling[j].character, parent: "Season " + this.episodes[i].season, infos: [] });
+      if (index == -1 && this.getCharacterInfo(this.episodes[i].nameCalling[j].label, "label", "isShowing") == true) {
+        data[0].characters.push({ name: this.episodes[i].nameCalling[j].character, parent: "Total", infos: [] });
         index = data[0].characters.length - 1;
       }
       if (this.getCharacterInfo(this.episodes[i].nameCalling[j].label, "label", "isShowing") == true) {
         var labelIndex = data[0].characters[index].infos.map(function (e) { return e.label; }).indexOf(this.episodes[i].nameCalling[j].label);
         if (labelIndex == -1) {
           data[0].characters[index].infos.push({
-            name: "Season " + this.episodes[i].season,
+            name: "Total",
             label: this.episodes[i].nameCalling[j].label,
             value: this.episodes[i].nameCalling[j].value,
             character: this.episodes[i].nameCalling[j].character,
@@ -162,6 +170,16 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
         numberOfEpisodesPerSeason[this.episodes[i].season - 1] = 0;
       numberOfEpisodesPerSeason[this.episodes[i].season - 1]++;
     }
+
+    if (this.graphDataTypeSelection == this.PER_PERCENTAGE_OF_EPISODES) {
+      for (var j = 0; j < data.length; j++) {
+        for (var k = 0; k < data[j].characters.length; k++) {
+          for (var l = 0; l < data[j].characters[k].infos.length; l++)
+            data[j].characters[k].infos[l].value = data[j].characters[k].infos[l].value / numberOfEpisodesPerSeason[j];
+        }
+      }
+    }
+
     this.parsedData = data;
   }
 
@@ -172,7 +190,7 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
     for (var j = 0; j < this.episodes[i].nameCalling.length; j++) {
 
       var index = data[this.episodes[i].season - 1].characters.map(function (e) { return e.name; }).indexOf(this.episodes[i].nameCalling[j].character);
-      if (index == -1) {
+      if (index == -1 && this.getCharacterInfo(this.episodes[i].nameCalling[j].label, "label", "isShowing") == true) {
         data[this.episodes[i].season - 1].characters.push({ name: this.episodes[i].nameCalling[j].character, parent: "Season " + this.episodes[i].season, infos: [] });
         index = data[this.episodes[i].season - 1].characters.length - 1;
       }
@@ -216,7 +234,7 @@ export class NameCallingVisualizationComponent extends VisualizationComponent im
     for (var j = 0; j < this.episodes[i].nameCalling.length; j++) {
 
       var index = data[id].characters.map(function (e) { return e.name; }).indexOf(this.episodes[i].nameCalling[j].character);
-      if (index == -1) {
+      if (index == -1 && this.getCharacterInfo(this.episodes[i].nameCalling[j].label, "label", "isShowing") == true) {
         data[id].characters.push({ name: this.episodes[i].nameCalling[j].character, parent: this.episodes[i].name, infos: [] });
         index = data[id].characters.length - 1;
       }

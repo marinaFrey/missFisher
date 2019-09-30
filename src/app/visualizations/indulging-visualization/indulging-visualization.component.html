@@ -15,11 +15,11 @@
                 <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==3}' (click)="seasonSelection = 3; createVisualization()">Season 3</button>
             </div>
             <div class=" btn-group mr-3 group-button" role="group" aria-label="graph style selection" [ngClass]='{"hidden": graphTypeSelection != 1}'>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphStyleSelection==0}' (click)="graphStyleSelection = 0; createVisualization()">
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphDataTypeSelection==0}' (click)="graphDataTypeSelection = 0; createVisualization()">
                     By number of times
                 </button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphStyleSelection==1}' (click)="graphStyleSelection = 1; createVisualization()">
-                    By % per episode
+                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphDataTypeSelection==1}' (click)="graphDataTypeSelection = 1; createVisualization()">
+                    By episode average
                 </button>
             </div>
         </div>
