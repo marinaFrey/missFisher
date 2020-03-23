@@ -11,6 +11,9 @@ import { NumberOfScenesPerCharacterVisualizationComponent } from './visualizatio
 import { VisualizationComponent } from './visualizations/visualization/visualization.component';
 import { NameCallingVisualizationComponent } from './visualizations/name-calling-visualization/name-calling-visualization.component';
 import { IndulgingVisualizationComponent } from './visualizations/indulging-visualization/indulging-visualization.component';
+import { AboutComponent } from './about/about.component';
+import { OutfitsVisualizationComponent } from './visualizations/outfits-visualization/outfits-visualization.component';
+import { MurdersVisualizationComponent } from './visualizations/murders-visualization/murders-visualization.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { IndulgingVisualizationComponent } from './visualizations/indulging-visu
     NumberOfScenesPerCharacterVisualizationComponent,
     VisualizationComponent,
     NameCallingVisualizationComponent,
-    IndulgingVisualizationComponent
+    IndulgingVisualizationComponent,
+    AboutComponent,
+    OutfitsVisualizationComponent,
+    MurdersVisualizationComponent
   ],
   imports: [
     BrowserModule,

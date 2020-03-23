@@ -6,7 +6,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 1,
         name: "Cocaine Blues",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "lover",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 6),
             position: 1,
@@ -104,8 +112,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 12,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 8,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -175,7 +215,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 2,
         name: "Murder on the Ballarat Train",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "relative",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 7),
             position: 0,
@@ -272,8 +320,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 8,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 13,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -343,7 +423,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 3,
         name: "The Green Mill Murder",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: "dart thrown by device attached to music instrument"
+            }
+        ],
         date: {
             date: new Date(1928, 7),
             position: 1,
@@ -440,8 +528,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 10,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 12,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -511,7 +631,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 4,
         name: "Death at Victoria Dock",
-        murders: [],
+        murders: [
+            {
+                type: "gunshot",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 7),
             position: 3,
@@ -608,8 +736,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 9,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 23,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 9,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -679,7 +839,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 5,
         name: "Raisins and Almonds",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "friend",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 8),
             position: 0,
@@ -776,8 +944,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 8,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 19,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 4,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -847,7 +1047,22 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 6,
         name: "Ruddy Gore",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            },
+            {
+                type: "concussion",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 8),
             position: 1,
@@ -944,8 +1159,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 9,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 20,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 3,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -1015,7 +1262,22 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 7,
         name: "Murder in Montparnasse",
-        murders: [],
+        murders: [
+            {
+                type: "ran over",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            },
+            {
+                type: "burned",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 9),
             position: 0,
@@ -1112,8 +1374,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 14,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 7,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -1182,7 +1476,22 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 8,
         name: "Away with the Fairies",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            },
+            {
+                type: "fall",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 9),
             position: 1,
@@ -1279,8 +1588,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 9,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 21,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 6,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -1350,7 +1691,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 9,
         name: "Queen of the Flowers",
-        murders: [],
+        murders: [
+            {
+                type: "drowning",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 10),
             position: 0,
@@ -1447,8 +1796,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 5,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 17,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 8,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -1518,7 +1899,22 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 10,
         name: "Death by Miss Adventure",
-        murders: [],
+        murders: [
+            {
+                type: "crushed",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "lover",
+                comments: ""
+            },
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 10),
             position: 1,
@@ -1615,8 +2011,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 20,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 6,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -1686,7 +2114,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 11,
         name: "Blood and Circuses",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 11),
             position: 0,
@@ -1783,8 +2219,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 2,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 4,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -1855,7 +2323,15 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 12,
         name: "Murder in the Dark",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "none",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 11),
             position: 1,
@@ -1952,8 +2428,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 5,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 15,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -2023,7 +2531,22 @@ export const EPISODES: Episode[] = [
         season: 1,
         episode: 13,
         name: "King Memses' Curse",
-        murders: [],
+        murders: [
+            {
+                type: "lobotomy",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "friend",
+                comments: ""
+            },
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "ex-lover",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1928, 11),
             position: 2,
@@ -2120,8 +2643,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 14,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 0,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -2191,7 +2746,15 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 1,
         name: "Murder Most Scandalous",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 0),
             position: 1,
@@ -2288,8 +2851,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 10,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 21,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 8,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -2359,7 +2954,22 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 2,
         name: "Death Comes Knocking",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "none",
+                comments: ""
+            },
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 2),
             position: 0,
@@ -2456,8 +3066,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 8,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 5,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -2527,7 +3169,29 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 3,
         name: "Dead Man's Chest",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            },
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "employer",
+                comments: ""
+            },
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "employer",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 0),
             position: 3,
@@ -2624,8 +3288,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 5,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 15,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 6,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -2695,7 +3391,15 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 4,
         name: "Deadweight",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 1),
             position: 0,
@@ -2792,8 +3496,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 18,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 14,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -2863,7 +3599,22 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 5,
         name: "Murder a la Mode",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "employer",
+                comments: ""
+            },
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 1),
             position: 1,
@@ -2960,8 +3711,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 11,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 5,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 15,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 5,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -3030,7 +3813,22 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 6,
         name: "Marked for Murder",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            },
+            {
+                type: "gunshot",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: null,
         totalNumberOfScenes: 42,
 
@@ -3123,8 +3921,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 25,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 19,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -3194,7 +4024,15 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 7,
         name: "Blood at the Wheel",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "friend",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 2),
             position: 2,
@@ -3291,8 +4129,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 9,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 24,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 5,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -3362,7 +4232,15 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 8,
         name: "The Blood of Juana the Mad",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 3),
             position: 2,
@@ -3459,8 +4337,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 22,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 5,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -3530,7 +4440,22 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 9,
         name: "Framed for Murder",
-        murders: [],
+        murders: [
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            },
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"female",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 3),
             position: 0,
@@ -3627,8 +4552,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 6,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 30,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -3698,7 +4655,15 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 10,
         name: "Death on the Vine",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 3),
             position: 1,
@@ -3795,8 +4760,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 26,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 5,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -3866,7 +4863,22 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 11,
         name: "Dead Air",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            },
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 4),
             position: 1,
@@ -3963,8 +4975,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 6,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 21,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 6,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -4034,7 +5078,15 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 12,
         name: "Unnatural Habits",
-        murders: [],
+        murders: [
+            {
+                type: "drowning",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "none",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 5),
             position: 0,
@@ -4131,8 +5183,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 22,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 2,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -4202,7 +5286,36 @@ export const EPISODES: Episode[] = [
         season: 2,
         episode: 13,
         name: "Murder Under the Mistletoe",
-        murders: [],
+        murders: [
+            {
+                type: "electrocution",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "employer",
+                comments: ""
+            },
+            {
+                type: "concussion",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "lover",
+                comments: ""
+            },
+            {
+                type: "gunshot",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "employer",
+                comments: ""
+            },
+            {
+                type: "poison",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "employer",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 6),
             position: 1,
@@ -4299,8 +5412,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 6,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 7,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 0,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -4371,7 +5516,15 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 1,
         name: "Death Defying Feats",
-        murders: [],
+        murders: [
+            {
+                type: "decapitation",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 6),
             position: 2,
@@ -4468,8 +5621,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 6,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 14,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 1,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -4539,7 +5724,15 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 2,
         name: "Murder & the Maiden",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "colleague",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 6),
             position: 2,
@@ -4636,8 +5829,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 6,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 20,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 6,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -4707,7 +5932,15 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 3,
         name: "Murder & Mozzarella",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "relative",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 7),
             position: 0,
@@ -4804,8 +6037,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 5,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 28,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 7,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -4875,7 +6140,29 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 4,
         name: "Blood & Money",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            },
+            {
+                type: "septicemia",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            },
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "self",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 7),
             position: 0,
@@ -4972,8 +6259,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 2,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 15,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 7,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -5043,7 +6362,22 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 5,
         name: "Death & Hysteria",
-        murders: [],
+        murders: [
+            {
+                type: "electrocution",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            },
+            {
+                type: "poison",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "relative",
+                comments: ""
+            }
+        ],
         date: null,
         totalNumberOfScenes: 42,
 
@@ -5136,8 +6470,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 2,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 3,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 28,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 4,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -5208,7 +6574,22 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 6,
         name: "Death at the Grand",
-        murders: [],
+        murders: [
+            {
+                type: "fall",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "none",
+                comments: ""
+            },
+            {
+                type: "perfuration",
+                victimSex: "female",
+                murdererSex:"male",
+                relationshipWithVictim: "none",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 7),
             position: 1,
@@ -5305,8 +6686,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 4,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 2,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 15,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 8,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -5377,7 +6790,15 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 7,
         name: "Game, Set & Murder",
-        murders: [],
+        murders: [
+            {
+                type: "poison",
+                victimSex: "female",
+                murdererSex:"female",
+                relationshipWithVictim: "colleague",
+                comments: "spider inside shoe"
+            }
+        ],
         date: {
             date: new Date(1929, 7),
             position: 2,
@@ -5474,8 +6895,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 8,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 3,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 5,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 25,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 16,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,
@@ -5545,7 +6998,29 @@ export const EPISODES: Episode[] = [
         season: 3,
         episode: 8,
         name: "Death Do Us Part",
-        murders: [],
+        murders: [
+            {
+                type: "suffocation",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "none",
+                comments: ""
+            },
+            {
+                type: "poison",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "acquaintance",
+                comments: ""
+            },
+            {
+                type: "perfuration",
+                victimSex: "male",
+                murdererSex:"male",
+                relationshipWithVictim: "friend",
+                comments: ""
+            }
+        ],
         date: {
             date: new Date(1929, 8),
             position: 0,
@@ -5642,8 +7117,40 @@ export const EPISODES: Episode[] = [
                 character: "Phryne"
             }
         ],
-        outfits: null,
-        hats: null,
+        outfits: [
+            {
+                label: "number of outfits Phryne wears",
+                value: 5,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with feathers Phryne wears",
+                value: 1,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits with fur Phryne wears",
+                value: 0,
+                character: "Phryne"
+            },
+            {
+                label: "number of outfits Jack wears",
+                value: 4,
+                character: "Jack"
+            }
+        ],
+        hats: [
+            {
+                label: "Phryne wears a hat",
+                value: 16,
+                character: "Phryne"
+            },
+            {
+                label: "Jack wears a hat",
+                value: 10,
+                character: "Jack"
+            }
+        ],
         guns: null,
         jealousy: null,
         proximity: null,

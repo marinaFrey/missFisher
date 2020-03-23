@@ -1,8 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import * as d3 from "d3";
 declare var $: any;
@@ -98,6 +95,12 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
     }
 
+  }
+
+  exportImage()
+  {
+    console.log("exporting image");
+    
   }
 
   changeFilterSelection() {
