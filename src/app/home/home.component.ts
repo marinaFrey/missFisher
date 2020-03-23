@@ -9,7 +9,6 @@ import { Episode, Murder, EpisodeDate, Information } from '../episode';
 })
 export class HomeComponent implements OnInit {
 
-  public teste = "lol";
   public episodes: Episode[];
 
   constructor(private episodeService: EpisodeService) { }

@@ -24,14 +24,16 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
   charactersInfo = [
     {
       name: "Jack", infos: [
-        { name: "Jack", label: "Screen time with Jack in Phryne's Home", color: "#4b76e4ff", hightlight: "#3b62c7ff", isShowing: true }
+        { name: "Jack", label: "Screen time with Jack in Phryne's Home", color: "#4b76e4ff", hightlight: "#3b62c7ff", isShowing: true }/*,
+        { name: "Jack", label: "Total number of scenes in Phryne's Home", color: "grey", hightlight: "black", isShowing: true }*/
       ]
     },
     {
       name: "Phryne", infos: [
         { name: "Phryne", label: "scenes with Phryne in Jack's police station", color: "#7c3842ff", hightlight: "#60252eff", isShowing: true },
         { name: "Phryne", label: "scenes with Phryne in Jack's office", color: "#b74d5cff", hightlight: "#9f4552ff", isShowing: true },
-        { name: "Phryne", label: "scenes with Phryne in Jack's table", color: "#e25b6fff", hightlight: "#c14b5dff", isShowing: true }
+        { name: "Phryne", label: "scenes with Phryne in Jack's table", color: "#e25b6fff", hightlight: "#c14b5dff", isShowing: true }/*,
+        { name: "Phryne", label: "Total number of scenes in Jack's police station", color: "grey", hightlight: "black", isShowing: true }*/
       ]
     }
 
