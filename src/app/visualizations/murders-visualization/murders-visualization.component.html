@@ -3,17 +3,12 @@
   <div class="card-body">
       <div class="row justify-content-center align-items-center" style="margin-bottom: 30px">
 
-          <div class=" btn-group mr-1 group-button" role="group" aria-label="grouping methods">
-              <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==0}' (click)="graphTypeSelection = 0; createVisualization()">Total</button>
-              <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==1}' (click)="graphTypeSelection = 1; createVisualization()">Per season</button>
-              <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==2}' (click)="graphTypeSelection = 2; createVisualization()">Per episode</button>
-          </div>
           <div class=" btn-group mr-2 group-button" role="group" aria-label="season selection" [ngClass]='{"hidden": graphTypeSelection == 1}'>
               <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==0}' (click)="seasonSelection = 0; createVisualization()">All</button>
               <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==1}' (click)="seasonSelection = 1; createVisualization()">Season 1</button>
               <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==2}' (click)="seasonSelection = 2; createVisualization()">Season 2</button>
               <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==3}' (click)="seasonSelection = 3; createVisualization()">Season 3</button>
-          </div>
+          </div><!--
           <div class=" btn-group mr-3 group-button" role="group" aria-label="graph style selection" [ngClass]='{"hidden": graphTypeSelection != 1}'>
               <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphDataTypeSelection==0}' (click)="graphDataTypeSelection = 0; createVisualization()">
                   By number of times
@@ -21,41 +16,56 @@
               <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphDataTypeSelection==1}' (click)="graphDataTypeSelection = 1; createVisualization()">
                   By episode average
               </button>
+          </div>-->
+          
+      </div>
+      <div class="row containerDropdowns" style="margin-bottom: 30px">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
           </div>
       </div>
       <div class="row justify-content-center">
-          <div class="col-xl-8 col-md-12 col-sm-12">
+          <div class="col-xl-12 col-md-12 col-sm-12">
 
               <div id="vizcontainer" class="svg-container">
                   <svg id="murdersViz" class="svg-content-responsive" style="width:100%;" viewBox="0 0 500 500"></svg>
-              </div>
-
-          </div>
-
-          <div class="col-xl-4 col-md-12 col-sm-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h5 class="card-title">Legend</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">you can also filter from the graphs here!</h6>
-                      <div class="row">
-                          <label style="margin: 10px;">
-                              <input type="checkbox" [(ngModel)]='selectAll' (change)="changeFilterSelection();"> Select / Descelect all
-                          </label>
-                      </div>
-                      <div *ngFor="let characterInfo of charactersInfo; let i = index">
-                          <div *ngFor="let info of characterInfo.infos; let infoIndex = index">
-                              <div class="row">
-                                  <label style="margin: 10px;">
-                                      <span class="alert alert-primary " [ngStyle]="{'background': info.color, 'border-color':info.highlight}"
-                                          style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
-                                      </span>
-                                      <input type="checkbox" [(ngModel)]='info.isShowing' (change)="createVisualization();"> {{info.label}}
-                                  </label>
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
               </div>
 
           </div>

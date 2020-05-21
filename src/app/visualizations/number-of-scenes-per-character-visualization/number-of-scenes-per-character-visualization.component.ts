@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
+import { EpisodeService } from '../../episode.service';
+import { TOTAL, PER_SEASON, PER_EPISODE, LINE_CHART, BAR_CHART } from "../../constants";
 
 import * as d3 from "d3";
 declare var $: any;
@@ -11,19 +13,7 @@ declare var $: any;
 })
 export class NumberOfScenesPerCharacterVisualizationComponent extends VisualizationComponent implements OnInit {
 
-  TOTAL = 0;
-  PER_SEASON = 1;
-  PER_EPISODE = 2;
-  LINE_CHART = 0;
-  BAR_CHART = 1;
-
-  @Input('episodesData') public episodes;
   parsedData;
-  seasonSelection = 0; // 0 = all seasons
-  graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
-  graphStyleSelection = 1; // 0 = line chart 1 = bar chart
-  selectAll = true;
-
   charactersInfo = [
     { name: "Phryne", color: "#e25b6fff", hightlight: "#be495aff", isShowing: true },
     { name: "Jack", color: "#4b76e4ff", hightlight: "#415a9eff", isShowing: true },
@@ -37,7 +27,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
     { name: "Hispano Suiza", color: "#9e5b60ff", hightlight: "#6d3a3dff", isShowing: true }
   ];
 
-  constructor() {
+  constructor(private episodeService: EpisodeService) {
     super("#viz", 500, 300);
   }
 
@@ -64,32 +54,32 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   createVisualization() {
 
     switch (this.graphTypeSelection) {
-      case this.TOTAL:
+      case TOTAL:
         this.parseTotalData();
         this.reorderData();
         this.createBarChart(this.parsedData);
         break;
 
-      case this.PER_SEASON:
+      case PER_SEASON:
         this.parseSeasonData();
         this.reorderData();
-        if (this.graphStyleSelection == this.BAR_CHART)
+        if (this.graphStyleSelection == BAR_CHART)
           this.createGroupedBarChart(this.parsedData);
-        if (this.graphStyleSelection == this.LINE_CHART) {
+        if (this.graphStyleSelection == LINE_CHART) {
           this.parseLineData();
-          this.createLineChart(this.parsedData);
+          this.createLineChart(this.parsedData, false);
         }
         break;
 
-      case this.PER_EPISODE:
+      case PER_EPISODE:
         this.parseEpisodicData();
         this.reorderData();
-        if (this.graphStyleSelection == this.BAR_CHART)
+        if (this.graphStyleSelection == BAR_CHART)
           this.createGroupedBarChart(this.parsedData);
-        if (this.graphStyleSelection == this.LINE_CHART) {
-          this.parseLineData();
-          this.reorderData();
-          this.createLineChart(this.parsedData);
+        if (this.graphStyleSelection == LINE_CHART) {
+          this.parsedData = this.episodeService.parseLineData(this.parsedData);
+          this.episodeService.reorderData(this.parsedData, this.charactersInfo);
+          this.createLineChart(this.parsedData, false);
         }
         break;
 
@@ -193,6 +183,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
     for (var i = 0; i < this.episodes.length; i++) {
       if ((this.seasonSelection == 0) || (this.episodes[i].season == this.seasonSelection)) {
         data = this.pushEpisodicCharacterData(data, i, numberOfEpisodes);
+        //data = this.episodeService.parseEpisodicCharacterData(data, numberOfEpisodes, this.episodes[i], this.charactersInfo, ['scenesPerCharacter'], "name", this.calculateValue, "totalNumberOfScenes", "bar");
         numberOfEpisodes++;
       }
     }
@@ -211,11 +202,8 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   }
 
   parseLineData() {
-
     var parsedData = [];
     for (var j = 0; j < this.parsedData.length; j++) {
-      //parsedData[j] =  { name: data[j].name, characters: [] };
-      //parsedData[j].characters = [];
       this.parsedData[j].characters.forEach(function (item, index) {
         if (!parsedData[index])
           parsedData[index] = { character: item.character, color: item.color, highlightColor: item.highlightColor, episodes: [] };
@@ -230,10 +218,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
         });
       });
     }
-
     this.parsedData = parsedData;
-    console.log(this.parsedData);
-
   }
 
   pushTotalCharacterData(data, i) {
@@ -303,6 +288,11 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
 
     }
     return data;
+  }
+
+  calculateValue(value, extraInfo, episode) {
+    if(episode[extraInfo])
+      return Math.round((value * 100) / episode[extraInfo]);
   }
 
   getCharacterInfo(characterName, info) {

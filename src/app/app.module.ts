@@ -14,6 +14,9 @@ import { IndulgingVisualizationComponent } from './visualizations/indulging-visu
 import { AboutComponent } from './about/about.component';
 import { OutfitsVisualizationComponent } from './visualizations/outfits-visualization/outfits-visualization.component';
 import { MurdersVisualizationComponent } from './visualizations/murders-visualization/murders-visualization.component';
+import { ClosenessVisualizationComponent } from './visualizations/closeness-visualization/closeness-visualization.component';
+import { LegendComponent } from './visualizations/legend/legend.component';
+import { ButtonGroupComponent } from './visualizations/button-group/button-group.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MurdersVisualizationComponent } from './visualizations/murders-visualiz
     IndulgingVisualizationComponent,
     AboutComponent,
     OutfitsVisualizationComponent,
-    MurdersVisualizationComponent
+    MurdersVisualizationComponent,
+    ClosenessVisualizationComponent,
+    LegendComponent,
+    ButtonGroupComponent
   ],
   imports: [
     BrowserModule,
