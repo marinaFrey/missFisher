@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
+import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_OF_EPISODES } from "../../constants";
 
 @Component({
   selector: 'app-outfits-visualization',
@@ -8,18 +9,7 @@ import { VisualizationComponent } from '../visualization/visualization.component
 })
 export class OutfitsVisualizationComponent extends VisualizationComponent implements OnInit {
 
-  TOTAL = 0;
-  PER_SEASON = 1;
-  PER_EPISODE = 2;
-  LINE_CHART = 0;
-  BAR_CHART = 1;
-
-  @Input('episodesData') public episodes;
   parsedData;
-  seasonSelection = 0; // 0 = all seasons
-  graphTypeSelection = 0; // 0 = sum 1 = per season 2 = per episode
-  graphStyleSelection = 1; // 0 = line chart 1 = bar chart
-  selectAll = true;
 
   constructor() {
     super("#viz", 500, 300);

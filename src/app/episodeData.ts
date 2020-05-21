@@ -10,7 +10,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "lover",
                 comments: ""
             }
@@ -148,9 +148,36 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [
+            {
+                label: "Standing very close",
+                value: 0,
+                character: "Phryne & Jack"
+            },
+            {
+                label: "Long eye contact",
+                value: 0,
+                character: "Phryne & Jack"
+            },
+            {
+                label: "Touching",
+                value: 1,
+                character: "Phryne & Jack"
+            }
+        ],
         flirting: null,
-        talking: null,
+        talking: [
+            {
+                label: "Screen time with Phryne and Jack 'alone'",
+                value: 0,
+                character: "Phryne & Jack"
+            },
+            {
+                label: "Screen time with Phryne and Jack on the same scene (not 'alone')",
+                value: 5,
+                character: "Phryne & Jack"
+            }
+        ],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -219,7 +246,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "relative",
                 comments: ""
             }
@@ -356,9 +383,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 1, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 6, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 7, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -427,7 +454,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: "dart thrown by device attached to music instrument"
             }
@@ -564,9 +591,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 1, character: "Phryne & Jack" }, { label: "Touching", value: 0, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 6, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 5, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -635,7 +662,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "gunshot",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -772,9 +799,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 0, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 4, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 6, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -843,7 +870,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "friend",
                 comments: ""
             }
@@ -980,9 +1007,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 2, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 6, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -1051,14 +1078,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             },
             {
                 type: "concussion",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -1195,9 +1222,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 5, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 8, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -1266,14 +1293,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "ran over",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             },
             {
                 type: "burned",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -1410,9 +1437,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 2, character: "Phryne & Jack" }, { label: "Touching", value: 4, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 4, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 10, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -1480,14 +1507,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             },
             {
                 type: "fall",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -1624,9 +1651,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 11, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 6, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -1695,7 +1722,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "drowning",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -1832,9 +1859,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 1, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 4, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 15, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -1903,14 +1930,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "crushed",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "lover",
                 comments: ""
             },
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -2047,9 +2074,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 0, character: "Phryne & Jack" }, { label: "Long eye contact", value: 2, character: "Phryne & Jack" }, { label: "Touching", value: 0, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 6, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 10, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -2118,7 +2145,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -2255,9 +2282,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 1, character: "Phryne & Jack" }, { label: "Touching", value: 0, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 5, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -2327,7 +2354,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "none",
                 comments: ""
             }
@@ -2464,9 +2491,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 4, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 7, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 10, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -2535,14 +2562,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "lobotomy",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "friend",
                 comments: ""
             },
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "ex-lover",
                 comments: ""
             }
@@ -2679,9 +2706,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 3, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 7, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 8, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -2750,7 +2777,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -2887,9 +2914,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 8, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 10, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -2958,14 +2985,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "none",
                 comments: ""
             },
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -3102,9 +3129,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 5, character: "Phryne & Jack" }, { label: "Touching", value: 3, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 4, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -3173,21 +3200,21 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             },
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "employer",
                 comments: ""
             },
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "employer",
                 comments: ""
             }
@@ -3324,9 +3351,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 5, character: "Phryne & Jack" }, { label: "Long eye contact", value: 2, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 12, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 5, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -3395,7 +3422,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -3532,9 +3559,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 5, character: "Phryne & Jack" }, { label: "Touching", value: 4, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 9, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 11, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -3603,14 +3630,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "employer",
                 comments: ""
             },
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -3747,9 +3774,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 3, character: "Phryne & Jack" }, { label: "Long eye contact", value: 4, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -3817,14 +3844,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             },
             {
                 type: "gunshot",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -3957,9 +3984,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 9, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 10, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -4028,7 +4055,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "friend",
                 comments: ""
             }
@@ -4165,9 +4192,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 1, character: "Phryne & Jack" }, { label: "Touching", value: 0, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 7, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 7, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -4236,7 +4263,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -4373,9 +4400,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 4, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 7, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -4444,14 +4471,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "colleague",
                 comments: ""
             },
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -4588,9 +4615,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 1, character: "Phryne & Jack" }, { label: "Long eye contact", value: 1, character: "Phryne & Jack" }, { label: "Touching", value: 0, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 4, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 16, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -4659,7 +4686,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -4796,9 +4823,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 8, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 11, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -4867,14 +4894,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             },
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             }
@@ -5011,9 +5038,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 5, character: "Phryne & Jack" }, { label: "Long eye contact", value: 7, character: "Phryne & Jack" }, { label: "Touching", value: 3, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 9, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 7, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -5082,7 +5109,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "drowning",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "none",
                 comments: ""
             }
@@ -5219,9 +5246,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 3, character: "Phryne & Jack" }, { label: "Long eye contact", value: 6, character: "Phryne & Jack" }, { label: "Touching", value: 3, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -5290,28 +5317,28 @@ export const EPISODES: Episode[] = [
             {
                 type: "electrocution",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "employer",
                 comments: ""
             },
             {
                 type: "concussion",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "lover",
                 comments: ""
             },
             {
                 type: "gunshot",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "employer",
                 comments: ""
             },
             {
                 type: "poison",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "employer",
                 comments: ""
             }
@@ -5448,9 +5475,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 6, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 13, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -5520,7 +5547,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "decapitation",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -5657,9 +5684,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 5, character: "Phryne & Jack" }, { label: "Long eye contact", value: 4, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 6, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 13, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -5728,7 +5755,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "colleague",
                 comments: ""
             }
@@ -5865,9 +5892,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 3, character: "Phryne & Jack" }, { label: "Long eye contact", value: 2, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 9, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 10, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -5936,7 +5963,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "relative",
                 comments: ""
             }
@@ -6073,9 +6100,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 2, character: "Phryne & Jack" }, { label: "Touching", value: 1, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 10, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -6144,21 +6171,21 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             },
             {
                 type: "septicemia",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             },
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "self",
                 comments: ""
             }
@@ -6295,9 +6322,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 13, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -6366,14 +6393,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "electrocution",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             },
             {
                 type: "poison",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "relative",
                 comments: ""
             }
@@ -6506,9 +6533,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 4, character: "Phryne & Jack" }, { label: "Long eye contact", value: 5, character: "Phryne & Jack" }, { label: "Touching", value: 2, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 5, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 14, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -6578,14 +6605,14 @@ export const EPISODES: Episode[] = [
             {
                 type: "fall",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "none",
                 comments: ""
             },
             {
                 type: "perfuration",
                 victimSex: "female",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "none",
                 comments: ""
             }
@@ -6722,9 +6749,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 2, character: "Phryne & Jack" }, { label: "Long eye contact", value: 3, character: "Phryne & Jack" }, { label: "Touching", value: 3, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 12, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 13, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -6794,7 +6821,7 @@ export const EPISODES: Episode[] = [
             {
                 type: "poison",
                 victimSex: "female",
-                murdererSex:"female",
+                murdererSex: "female",
                 relationshipWithVictim: "colleague",
                 comments: "spider inside shoe"
             }
@@ -6931,9 +6958,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 6, character: "Phryne & Jack" }, { label: "Long eye contact", value: 4, character: "Phryne & Jack" }, { label: "Touching", value: 3, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 11, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 16, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
@@ -7002,21 +7029,21 @@ export const EPISODES: Episode[] = [
             {
                 type: "suffocation",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "none",
                 comments: ""
             },
             {
                 type: "poison",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "acquaintance",
                 comments: ""
             },
             {
                 type: "perfuration",
                 victimSex: "male",
-                murdererSex:"male",
+                murdererSex: "male",
                 relationshipWithVictim: "friend",
                 comments: ""
             }
@@ -7153,9 +7180,9 @@ export const EPISODES: Episode[] = [
         ],
         guns: null,
         jealousy: null,
-        proximity: null,
+        proximity: [{ label: "Standing very close", value: 3, character: "Phryne & Jack" }, { label: "Long eye contact", value: 4, character: "Phryne & Jack" }, { label: "Touching", value: 4, character: "Phryne & Jack" }],
         flirting: null,
-        talking: null,
+        talking: [{ label: "Screen time with Phryne and Jack 'alone'", value: 8, character: "Phryne & Jack" }, { label: "Screen time with Phryne and Jack on the same scene (not 'alone')", value: 17, character: "Phryne & Jack" }],
         phryneInPoliceStation: [
             {
                 label: "scenes with Phryne in Jack's table",
