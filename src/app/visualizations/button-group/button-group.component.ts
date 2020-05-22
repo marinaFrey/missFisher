@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button-group',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonGroupComponent implements OnInit {
 
+  seasonSelection; // 0 = all seasons 
+  graphTypeSelection; // 0 = sum 1 = per season 2 = per episode
+  graphStyleSelection; // 0 = line chart 1 = bar chart
+  graphDataTypeSelection; // 0 = number of times 1 = average per episode
+
+  @Output() selectionsChange = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @Input() 
+  set selections(list: Array<Number> ) {
+    let [seasonSelection, graphTypeSelection, graphStyleSelection, graphDataTypeSelection] = list;
+    this.seasonSelection = seasonSelection;
+    this.graphTypeSelection = graphTypeSelection;
+    this.graphStyleSelection = graphStyleSelection;
+    this.graphDataTypeSelection = graphDataTypeSelection;
+  }
+
+  onChange() {
+    this.selectionsChange.emit([this.seasonSelection, this.graphTypeSelection, this.graphStyleSelection, this.graphDataTypeSelection]);
   }
 
 }

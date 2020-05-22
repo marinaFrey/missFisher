@@ -93,14 +93,9 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
     
   }
 
-  changeFilterSelection() {
-    for (var i = 0; i < this.charactersInfo.length; i++) {
-      this.charactersInfo[i].isShowing = this.selectAll;
-    }
-    this.createVisualization();
-  }
-
   reorderData() {
+    if(this.parsedData.length == 0)
+      return;
     var pointer = this;
     var result = [];
     if (!this.parsedData[0].characters) {

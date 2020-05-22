@@ -81,12 +81,4 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
 
   }
 
-  changeFilterSelection() {
-    for (var i = 0; i < this.charactersInfo.length; i++) {
-      for (var j = 0; j < this.charactersInfo[i].infos.length; j++)
-        this.charactersInfo[i].infos[j].isShowing = this.selectAll;
-    }
-    this.createVisualization();
-  }
-
 }

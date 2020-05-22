@@ -12,7 +12,7 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
   parsedData;
 
   constructor() {
-    super("#viz", 500, 300);
+    super("#outfitsViz", 500, 300);
   }
 
   ngOnInit() {

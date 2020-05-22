@@ -253,6 +253,8 @@ export class EpisodeService {
   }
 
   reorderData(parsedData, extraInfoVector) {
+    if(parsedData.length == 0)
+      return parsedData;
     var result = [];
     if (!parsedData[0].characters) {
       extraInfoVector.forEach(function (key) {

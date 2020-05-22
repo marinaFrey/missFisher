@@ -1,24 +1,41 @@
 <div class="card">
   <div class="card-body">
-      <h5 class="card-title">Legend</h5>
-      <h6 class="card-subtitle mb-2 text-muted">you can also filter from the graphs here!</h6>
-      <div class="row">
-          <label style="margin: 10px;">
-              <input type="checkbox" [(ngModel)]='selectAll' (change)="changeFilterSelection();"> Select / Descelect all
-          </label>
-      </div>
-      <div *ngFor="let characterInfo of charactersInfo; let i = index">
-          <div *ngFor="let info of characterInfo.infos; let infoIndex = index">
-              <div class="row">
-                  <label style="margin: 10px;">
-                      <span class="alert alert-primary " [ngStyle]="{'background': info.color, 'border-color':info.highlight}"
-                          style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
-                      </span>
-                      <input type="checkbox" [(ngModel)]='info.isShowing' (change)="createVisualization();"> {{info.label}}
-                  </label>
-              </div>
-          </div>
+    <h5 class="card-title">Legend</h5>
+    <h6 class="card-subtitle mb-2 text-muted">you can also filter from the graphs here!</h6>
+    <div class="row">
+      <label style="margin: 10px;">
+        <input type="checkbox" [(ngModel)]='selectAll' (change)="changeFilterSelection();"> Select / Descelect all
+      </label>
+    </div>
 
+    <div *ngFor="let characterInfo of charactersInfo; let i = index">
+
+      <!-- Grouped Stacked Bar Chart -->
+      <div *ngIf="characterInfo.infos && characterInfo.infos.length > 0">
+        <div *ngFor="let info of characterInfo.infos; let infoIndex = index">
+          <div class="row">
+            <label style="margin: 10px;">
+              <span class="alert alert-primary " [ngStyle]="{'background': info.color, 'border-color':info.highlight}" style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
+              </span>
+              <input type="checkbox" [(ngModel)]='info.isShowing' (change)="onChange();"> {{info.label}}
+            </label>
+          </div>
+        </div>
       </div>
+      
+      <!-- Bar chart -->
+      <div *ngIf="!characterInfo.infos">
+        <div class="row">
+          <label style="margin: 10px;">
+            <span class="alert alert-primary " [ngStyle]="{'background': characterInfo.color, 'border-color':characterInfo.highlight}"
+              style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
+            </span>
+            <input type="checkbox" [(ngModel)]='characterInfo.isShowing' (change)="onChange();"> {{characterInfo.name}}
+          </label>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
+

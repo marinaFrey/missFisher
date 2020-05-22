@@ -1,4 +1,3 @@
-
 <div class="card">
     <h5 class="card-header">
         Character Appearances
@@ -7,62 +6,19 @@
             <i class="fas fa-image" style="color:grey"></i>
         </button>-->
     </h5>
-    
-    <div class="card-body">
-        <div class="row justify-content-center align-items-center" style="margin-bottom: 30px">
 
-            <div class="btn-group mr-1 group-button" role="group" aria-label="grouping methods">
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==0}'
-                    (click)="graphTypeSelection = 0; createVisualization()">Total</button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==1}' (click)="graphTypeSelection = 1; createVisualization()">Per season</button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphTypeSelection==2}' (click)="graphTypeSelection = 2; createVisualization()">Per episode</button>
-            </div>
-            <div class="btn-group mr-2 group-button" role="group" aria-label="season selection" [ngClass]='{"hidden": graphTypeSelection == 1}'>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==0}' (click)="seasonSelection = 0; createVisualization()">All</button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==1}' (click)="seasonSelection = 1; createVisualization()">Season 1</button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==2}' (click)="seasonSelection = 2; createVisualization()">Season 2</button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":seasonSelection==3}' (click)="seasonSelection = 3; createVisualization()">Season 3</button>
-            </div>
-            <div class="btn-group mr-3 group-button" role="group" aria-label="graph style selection" [ngClass]='{"hidden": graphTypeSelection == 0}'>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphStyleSelection==0}' (click)="graphStyleSelection = 0; createVisualization()">
-                    <i class="fas fa-chart-line"></i>
-                </button>
-                <button type="button" class="btn btn-secondary" [ngClass]='{"active":graphStyleSelection==1}' (click)="graphStyleSelection = 1; createVisualization()">
-                    <i class="fas fa-chart-bar"></i>
-                </button>
-            </div>
-        </div>
+    <div class="card-body">
+        <app-button-group [selections]="[seasonSelection, graphTypeSelection, graphStyleSelection, null]" (selectionsChange)="seasonSelection = $event[0]; graphTypeSelection = $event[1]; graphStyleSelection = $event[2]; createVisualization()">
+        </app-button-group>
+
         <div class="row justify-content-center">
             <div class="col-xl-9 col-md-12 col-sm-12">
-
                 <div id="vizcontainer" class="svg-container">
                     <svg id="viz" class="svg-content-responsive" style="width:100%;" viewBox="0 0 500 300"></svg>
                 </div>
-
             </div>
             <div class="col-xl-3 col-md-12 col-sm-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Legend</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">you can also filter characters from the graphs here!</h6>
-                        <div class="row">
-                            <label style="margin: 10px;">
-                                <input type="checkbox" [(ngModel)]='selectAll' (change)="changeFilterSelection();"> Select / Descelect all
-                            </label>
-                        </div>
-                        <div *ngFor="let characterInfo of charactersInfo; let i = index">
-                            <div class="row">
-                                
-                                <label style="margin: 10px;">
-                                        <span class="alert alert-primary " [ngStyle]="{'background': characterInfo.color, 'border-color':characterInfo.highlight}"
-                                        style="padding-top:3px;padding-bottom:3px;margin-right: 10px;">
-                                        </span>
-                                    <input type="checkbox" [(ngModel)]='characterInfo.isShowing' (change)="createVisualization();"> {{characterInfo.name}}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-legend [charactersInfo]="charactersInfo" (charactersInfoChange)="charactersInfo = $event; createVisualization()"></app-legend>
             </div>
         </div>
     </div>
