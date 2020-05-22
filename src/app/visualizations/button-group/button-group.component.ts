@@ -22,11 +22,7 @@ export class ButtonGroupComponent implements OnInit {
 
   @Input() 
   set selections(list: Array<Number> ) {
-    let [seasonSelection, graphTypeSelection, graphStyleSelection, graphDataTypeSelection] = list;
-    this.seasonSelection = seasonSelection;
-    this.graphTypeSelection = graphTypeSelection;
-    this.graphStyleSelection = graphStyleSelection;
-    this.graphDataTypeSelection = graphDataTypeSelection;
+    [this.seasonSelection, this.graphTypeSelection, this.graphStyleSelection, this.graphDataTypeSelection] = list;
   }
 
   onChange() {
