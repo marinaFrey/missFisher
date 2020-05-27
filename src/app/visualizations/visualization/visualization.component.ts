@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as d3 from 'd3';
 import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey'
-import { enterView } from '@angular/core/src/render3/instructions';
+//import { enterView } from '@angular/core/src/render3/instructions';
 declare var $: any;
 
 @Component({
