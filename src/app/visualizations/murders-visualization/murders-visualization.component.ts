@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
 import { TOTAL, PER_SEASON, PER_EPISODE, LINE_CHART , BAR_CHART } from "../../constants";
+import { SankeyChart } from '../../d3/sankey-chart';
 
 @Component({
   selector: 'app-murders-visualization',
@@ -11,7 +12,7 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
 
 
   parsedData;
-
+  
   colorInfo = 
     {
       "poison":"#9467bd",
@@ -70,7 +71,9 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
     switch (this.graphTypeSelection) {
       case TOTAL:
         this.parseTotalData();
-        this.createSankeyChart(this.parsedData, this.colorInfo);
+        const sankey = new SankeyChart('#murdersViz', 500, 500);
+        sankey.createSankeyChart(this.parsedData, this.colorInfo);
+        //this.createSankeyChart(this.parsedData, this.colorInfo);
         break;
 
       case PER_SEASON:
@@ -108,7 +111,7 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
   }
 
   pushTotalMurderData(links, i, murders, labels) {
-    var values = [murders.type, murders.victimSex+ ' victim', murders.murdererSex + ' murderer', murders.relationshipWithVictim];
+    var values = [murders.victimSex + ' victim', murders.type, murders.murdererSex + ' murderer',  murders.relationshipWithVictim];
     //var values = [murders.type,  murders.murdererSex + ' murderer'];
     for(var j = 1; j < values.length; j++)
     {

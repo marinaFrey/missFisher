@@ -11,9 +11,10 @@ export class Episode {
     scenesPerCharacter: Information[];      // number of scenes each main character appears
     nameCalling: Information[];             // number of times jack and phryne call each other and the names they used
     outfits: Information[];                 // number and types of outfits Phryne and Jack wear
+    neckties: Information[];                // neckties Jack wears, in order
     hats: Information[];                    // number of scenes Phryne and Jack use hats
     guns: Information[];                    // number of scenes Phryne and Jack's guns appear on screen
-    jealousy: Information[];                // number of times Jack or Phryne are jealous of each 
+    jealousy: Information[];                // number of times Jack or Phryne are jealous of each
     proximity: Information[];               // number of times they were very close, touching or had long eye contact
     flirting: Information[];                // number of times flirting and boudoir scenes occur
     talking: Information[];                 // number of scenes where they are talking alone or sharing the same scene with other characters
@@ -22,7 +23,8 @@ export class Episode {
     jackInPhrynesHome: Information;        // number of scenes where jack is in Phryne's home
     stealthyScenes: Information;            // number of scenes Phryne is trying to be stealthy
     drinking: Information;                  // number of scenes where some kind of drink (usually alcohol) is being consumed
-    changesOfOutfit: Information;           // number of times Phryne changed her outfit during the episode. Still counts even if she repeats the same outfit
+    changesOfOutfit: Information;           // number of times Phryne changed her outfit during the episode.
+                                            // Still counts even if she repeats the same outfit
     phrynesHouseScenes: Information;        // number of scenes outside or inside Phryne's house
     policeStationScenes: Information;       // number of scenes outside or inside the police station
     locations: Information;                 // number of distinct locations in the episode (not sets)

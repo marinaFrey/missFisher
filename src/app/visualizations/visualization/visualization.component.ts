@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as d3 from 'd3';
-import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey'
-//import { enterView } from '@angular/core/src/render3/instructions';
+import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 declare var $: any;
-
+/* tslint:disable */
 @Component({
   selector: 'app-visualization',
   templateUrl: './visualization.component.html',
@@ -217,25 +216,31 @@ export class VisualizationComponent implements OnInit {
     });
   }
 
-  createBarChart(data) {
+  createBarChart(data, propertyName, yAxisLabel, yAxisSuffix, maxYAxisValue) {
     var pointer = this;
     if (data.length <= 0) {
       this.clearSvg();
       return;
     }
-
+    console.log(data);
     this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
     this.xScale = this.createScaleBand(data.map(function (d) {
-      return d.character;
+      return d[propertyName];
     }), this.width, this.margin, 0.1);
 
     this.yScale = d3.scaleLinear()
-      .domain([0, 100])
       .rangeRound([this.height - this.margin.bottom, this.margin.top]);
+    
+    if(maxYAxisValue) 
+      this.yScale.domain([0, maxYAxisValue])
+    else
+    {
+      this.yScale.domain([0, d3.max(data, d => d.value)])
+    }
 
-    this.createAxes("Percentage of appearances", null, "%");
+    this.createAxes(yAxisLabel, null, yAxisSuffix);
 
     var barGroups = this.svg.selectAll("g.layer");
     if (barGroups.empty())
@@ -245,7 +250,7 @@ export class VisualizationComponent implements OnInit {
     rects
       .enter()
       .append("rect") // Add a new rect for each new elements
-      .attr("x", function (d) { return pointer.xScale(d.character); })
+      .attr("x", function (d) { return pointer.xScale(d[propertyName]); })
       .attr("y", function (d) { return pointer.height - pointer.margin.bottom; })
       .on("mouseover", function (d, i) { d3.select(this).attr("fill", d.highlightColor); })
       .on("mouseout", function (d, i) { d3.select(this).attr("fill", d.color); })
@@ -254,14 +259,14 @@ export class VisualizationComponent implements OnInit {
       .duration(this.transitionSpeed)
       .attr("class", "bar")
       .on('start', function (d) { d3.select(this).attr("fill", d.color) })
-      .attr("x", function (d) { return pointer.xScale(d.character); })
+      .attr("x", function (d) { return pointer.xScale(d[propertyName]); })
       .attr("y", function (d) { return pointer.yScale(Number(d.value)); })
       .attr("width", this.xScale.bandwidth())
       .attr("height", function (d) { return pointer.height - pointer.yScale(Number(d.value)) - pointer.margin.bottom; })
       .on('end', function () {
 
         d3.select(this)
-          .attr("data-original-title", function (d) { var text = d.character + ": " + Math.round(d.value) + "%"; return text; });
+          .attr("data-original-title", function (d) { var text = d[propertyName] + ": " + Math.round(d.value) + yAxisSuffix; return text; });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
       });
@@ -274,12 +279,13 @@ export class VisualizationComponent implements OnInit {
     if (imageGroups.empty())
       imageGroups = this.svg.append("g").classed('img', true);
     var images = imageGroups.selectAll("image").data(data);
+    var imagePadding = 10;
 
     images
       .enter()
       .append("image")
-      .attr("x", function (d) { return pointer.xScale(d.character); })
-      .attr("y", function (d) { return pointer.height - pointer.margin.bottom; })
+      .attr("x", function (d) { return pointer.xScale(d[propertyName]); })
+      .attr("y", function (d) { return pointer.height - pointer.margin.bottom - imagePadding; })
       //.on("mouseover", function (d, i) { d3.select(this).attr("fill", d.highlightColor); })
       //.on("mouseout", function (d, i) { d3.select(this).attr("fill", d.color); })
       .merge(images) // get the already existing elements as well
@@ -287,14 +293,14 @@ export class VisualizationComponent implements OnInit {
       .duration(this.transitionSpeed)
       .attr("class", "img")
       .attr("opacity", function (d) { if (d.value > 0 && (pointer.minPhotoSize <= pointer.xScale.bandwidth())) return 1; else return 0 })
-      .attr("xlink:href", function (d) { return "../../../assets/images/" + d.character + ".png"; })
+      .attr("xlink:href", function (d) { return "../../../assets/images/" + d[propertyName] + ".png"; })
       .attr("width", function (d) { return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer); })
-      .attr("height", function (d) { return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer); })
-      .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d.character), pointer.xScale(d.character) + pointer.xScale.bandwidth() / 2 - pointer.maxPhotoSize / 2, pointer.xScale.bandwidth(), pointer); })
-      .attr("y", function (d) { return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer); })
+      .attr("height", function (d) { return pointer.calculateImageInfo(pointer.xScale.bandwidth(), pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer)*1.3; })
+      .attr("x", function (d) { return pointer.calculateImageInfo(pointer.xScale(d[propertyName]), pointer.xScale(d[propertyName]) + pointer.xScale.bandwidth() / 2 - pointer.maxPhotoSize / 2, pointer.xScale.bandwidth(), pointer); })
+      .attr("y", function (d) { return pointer.calculateImageInfo(pointer.yScale(Number(d.value)) - pointer.xScale.bandwidth(), pointer.yScale(Number(d.value)) - pointer.maxPhotoSize, pointer.xScale.bandwidth(), pointer) - imagePadding; })
       .on('end', function () {
         d3.select(this)
-          .attr("data-original-title", function (d) { var text = d.character + ": " + Math.round(d.value) + "%"; return text; });
+          .attr("data-original-title", function (d) { var text = d[propertyName] + ": " + Math.round(d.value) + yAxisSuffix; return text; });
         d3.select(this).attr("class", "tooltipped");
         d3.select(this).attr("data-toggle", "tooltip");
       });
@@ -387,7 +393,6 @@ export class VisualizationComponent implements OnInit {
     imageGroups.enter().append("g").classed('img', true);
     imageGroups.exit().remove();
     var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) { return d.characters; });
-
     images
       .enter()
       .append("image")

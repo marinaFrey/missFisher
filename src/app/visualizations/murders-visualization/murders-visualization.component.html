@@ -6,9 +6,12 @@
 
       <div class="row justify-content-center">
           <div class="col-xl-12 col-md-12 col-sm-12">
+              <app-sankey-chart svgName="murdersViz" [data]="parsedData" [colorInfo]="colorInfo" ></app-sankey-chart>
+              <!--
               <div id="vizcontainer" class="svg-container">
                   <svg id="murdersViz" class="svg-content-responsive" style="width:100%;" viewBox="0 0 500 500"></svg>
               </div>
+            -->
           </div>
       </div>
   </div>

@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
+    <div class="collapse navbar-collapse ">
+        <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+                <a class="nav-link pl-0 text-nowrap" href="#" routerLink="/home">
+                    <span class="font-weight-bold">
+                        <app-header></app-header>
+                    </span></a>
+            </li>
+            <li *ngFor="let item of items" class="nav-item">
+                <a class="nav-link pl-0" href="#" [routerLink]="item.routing">
+                    <i [class]="item.icon"></i> 
+                    <span class="d-none d-md-inline p-1">{{item.label}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

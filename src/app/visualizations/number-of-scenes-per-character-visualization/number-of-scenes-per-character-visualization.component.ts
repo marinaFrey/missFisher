@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
 import { EpisodeService } from '../../episode.service';
-import { TOTAL, PER_SEASON, PER_EPISODE, LINE_CHART, BAR_CHART } from "../../constants";
-
+import { TOTAL, PER_SEASON, PER_EPISODE, LINE_CHART, BAR_CHART } from '../../constants';
+/* tslint:disable */
 import * as d3 from "d3";
 declare var $: any;
 
@@ -57,7 +57,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       case TOTAL:
         this.parseTotalData();
         this.reorderData();
-        this.createBarChart(this.parsedData);
+        this.createBarChart(this.parsedData, 'character', 'Percentage of appearances', '%', 100);
         break;
 
       case PER_SEASON:

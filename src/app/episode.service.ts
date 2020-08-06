@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 import { Episode } from './episode';
-import { PER_PERCENTAGE_OF_EPISODES } from "./constants";
+import { PER_PERCENTAGE_OF_EPISODES } from './constants';
 import { EPISODES } from './episodeData';
 declare var $: any;
-
+/* tslint:disable */
 @Injectable({
   providedIn: 'root'
 })
@@ -31,14 +31,14 @@ export class EpisodeService {
 
   parseTotalCharacterData(data, episode, extraInfoVector, variables, label, calculateValueFunction, calculateValueExtraParameter) {
     if (!data[0])
-      data[0] = { name: "Total", characters: [] };
+      data[0] = { name: 'Total', characters: [] };
     for (var variableIndex = 0; variableIndex < variables.length; variableIndex++) {
       if (episode[variables[variableIndex]] && episode[variables[variableIndex]].length) {
         for (var subVariableIndex = 0; subVariableIndex < episode[variables[variableIndex]].length; subVariableIndex++) {
           this.parseTotalCharacterDataStackedGroupedBarChart(data, 0, episode[variables[variableIndex]][subVariableIndex], label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter)
         }
       }
-      else if (episode[variables[variableIndex]] && (this.getCharacterExtraInfo(episode[variables[variableIndex]].label, label, "isShowing", extraInfoVector))) {
+      else if (episode[variables[variableIndex]] && (this.getCharacterExtraInfo(episode[variables[variableIndex]].label, label, 'isShowing', extraInfoVector))) {
         this.parseTotalCharacterDataStackedGroupedBarChart(data, 0, episode[variables[variableIndex]], label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter)
       }
     }
@@ -46,19 +46,19 @@ export class EpisodeService {
   }
 
   parseTotalCharacterDataStackedGroupedBarChart(data, id, variable, label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter) {
-    if (this.getCharacterExtraInfo(variable.label, label, "isShowing", extraInfoVector)) {
+    if (this.getCharacterExtraInfo(variable.label, label, 'isShowing', extraInfoVector)) {
       var index = data[id].characters.map(function (e) { return e.name; }).indexOf(variable.character);
       if (index == -1) {
         data[id].characters.push({
-          name: variable.character, parent: "Total", infos: [
-            this.getCharacterSeasonObject("Total", variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector)
+          name: variable.character, parent: 'Total', infos: [
+            this.getCharacterSeasonObject('Total', variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector)
           ]
         });
       }
       else {
         var infoIndex = data[id].characters[index].infos.map(function (e) { return e.label; }).indexOf(variable.label);
         if (infoIndex == -1) {
-          data[id].characters[index].infos.push(this.getCharacterSeasonObject("Total", variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector));
+          data[id].characters[index].infos.push(this.getCharacterSeasonObject('Total', variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector));
         }
         else
           data[id].characters[index].infos[infoIndex].value += variable.value;
@@ -92,14 +92,14 @@ export class EpisodeService {
 
   parseSeasonCharacterData(data, episode, extraInfoVector, variables, label, calculateValueFunction, calculateValueExtraParameter, type) {
     if (!data[episode.season - 1])
-      data[episode.season - 1] = { name: "Season " + episode.season, characters: [] };
+      data[episode.season - 1] = { name: 'Season ' + episode.season, characters: [] };
     for (var variableIndex = 0; variableIndex < variables.length; variableIndex++) {
       if (episode[variables[variableIndex]] && episode[variables[variableIndex]].length) {
         for (var subVariableIndex = 0; subVariableIndex < episode[variables[variableIndex]].length; subVariableIndex++) {
           this.parseSeasonCharacterDataStackedGroupedBarChart(data, episode, episode[variables[variableIndex]][subVariableIndex], label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter);
         }
       }
-      else if (episode[variables[variableIndex]] && (this.getCharacterExtraInfo(episode[variables[variableIndex]].label, label, "isShowing", extraInfoVector) == true)) {
+      else if (episode[variables[variableIndex]] && (this.getCharacterExtraInfo(episode[variables[variableIndex]].label, label, 'isShowing', extraInfoVector) == true)) {
         this.parseSeasonCharacterDataStackedGroupedBarChart(data, episode, episode[variables[variableIndex]], label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter);
       }
     }
@@ -108,16 +108,16 @@ export class EpisodeService {
 
   parseSeasonCharacterDataStackedGroupedBarChart(data, episode, variable, label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter) {
     var index = data[episode.season - 1].characters.map(function (e) { return e.name; }).indexOf(variable.character);
-    var variableShouldBeShown = this.getCharacterExtraInfo(variable.label, label, "isShowing", extraInfoVector);
+    var variableShouldBeShown = this.getCharacterExtraInfo(variable.label, label, 'isShowing', extraInfoVector);
     if (index == -1 && variableShouldBeShown) {
-      data[episode.season - 1].characters.push({ name: variable.character, parent: "Season " + episode.season, infos: [] });
+      data[episode.season - 1].characters.push({ name: variable.character, parent: 'Season ' + episode.season, infos: [] });
       index = data[episode.season - 1].characters.length - 1;
     }
     if (variableShouldBeShown) {
       var labelIndex = data[episode.season - 1].characters[index].infos.map(function (e) { return e.label; }).indexOf(variable.label);
       if (labelIndex == -1) {
         data[episode.season - 1].characters[index].infos.push(
-          this.getCharacterSeasonObject("Season " + episode.season, variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector))
+          this.getCharacterSeasonObject('Season ' + episode.season, variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector))
       }
       else {
         data[episode.season - 1].characters[index].infos[labelIndex].value += variable.value;
@@ -131,8 +131,8 @@ export class EpisodeService {
       label: variable.label,
       value: calculateValueFunction(variable.value, calculateValueExtraParameter),
       character: variable.character,
-      color: this.getCharacterExtraInfo(variable.label, label, "color", extraInfoVector),
-      highlightColor: this.getCharacterExtraInfo(variable.label, label, "hightlight", extraInfoVector)
+      color: this.getCharacterExtraInfo(variable.label, label, 'color', extraInfoVector),
+      highlightColor: this.getCharacterExtraInfo(variable.label, label, 'hightlight', extraInfoVector)
     };
   }
 
@@ -153,19 +153,19 @@ export class EpisodeService {
     for (var variableIndex = 0; variableIndex < variables.length; variableIndex++) {
       if (episode[variables[variableIndex]] && episode[variables[variableIndex]].length) {
         for (var subVariableIndex = 0; subVariableIndex < episode[variables[variableIndex]].length; subVariableIndex++) {
-          if (type == "stacked")
+          if (type == 'stacked')
             data = this.parseEpisodicCharacterDataStackedGroupedBarChart(data, id, episode, episode[variables[variableIndex]][subVariableIndex], label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter);
-          if (type == "bar")
+          if (type == 'bar')
             data = this.parseEpisodicCharacterDataBarChart(data, id, episode, variables, variableIndex, subVariableIndex, label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter);
         }
       }
-      else if (episode[variables[variableIndex]] && (this.getCharacterExtraInfo(episode[variables[variableIndex]].label, label, "isShowing", extraInfoVector) == true)) {
-        if (type == "stacked")
+      else if (episode[variables[variableIndex]] && (this.getCharacterExtraInfo(episode[variables[variableIndex]].label, label, 'isShowing', extraInfoVector) == true)) {
+        if (type == 'stacked')
           data[id].characters.push({
             name: episode[variables[variableIndex]].character, parent: episode.name,
             infos: [this.getCharacterObject(episode, episode[variables[variableIndex]], calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector)]
           });
-        if (type == "bar")
+        if (type == 'bar')
           data[id].characters.push(
             this.getCharacterObject(episode, episode[variables[variableIndex]], calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector));
       }
@@ -175,11 +175,11 @@ export class EpisodeService {
 
   parseEpisodicCharacterDataStackedGroupedBarChart(data, id, episode, variable, label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter) {
     var index = data[id].characters.map(function (e) { return e.name; }).indexOf(variable.character);
-    if (index == -1 && this.getCharacterExtraInfo(variable.label, label, "isShowing", extraInfoVector) == true) {
+    if (index == -1 && this.getCharacterExtraInfo(variable.label, label, 'isShowing', extraInfoVector) == true) {
       data[id].characters.push({ name: variable.character, parent: episode.name, infos: [] });
       index = data[id].characters.length - 1;
     }
-    if (this.getCharacterExtraInfo(variable.label, label, "isShowing", extraInfoVector) == true) {
+    if (this.getCharacterExtraInfo(variable.label, label, 'isShowing', extraInfoVector) == true) {
       data[id].characters[index].infos.push(
         this.getCharacterObject(episode, variable, calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector)
       );
@@ -188,7 +188,7 @@ export class EpisodeService {
   }
 
   parseEpisodicCharacterDataBarChart(data, id, episode, variables, variableIndex, subVariableIndex, label, extraInfoVector, calculateValueFunction, calculateValueExtraParameter) {
-    if (this.getCharacterExtraInfo(episode[variables[variableIndex]][subVariableIndex].label, label, "isShowing", extraInfoVector) == true) {
+    if (this.getCharacterExtraInfo(episode[variables[variableIndex]][subVariableIndex].label, label, 'isShowing', extraInfoVector) == true) {
       data[id].characters[subVariableIndex] =
         this.getCharacterObject(episode, episode[variables[variableIndex]][subVariableIndex], calculateValueFunction, calculateValueExtraParameter, label, extraInfoVector);
     }
@@ -223,8 +223,8 @@ export class EpisodeService {
       label: variable.label,
       value: calculateValueFunction(variable.value, calculateValueExtraParameter, episode),
       character: variable.character,
-      color: this.getCharacterExtraInfo(variable.label, label, "color", extraInfoVector),
-      highlightColor: this.getCharacterExtraInfo(variable.label, label, "hightlight", extraInfoVector)
+      color: this.getCharacterExtraInfo(variable.label, label, 'color', extraInfoVector),
+      highlightColor: this.getCharacterExtraInfo(variable.label, label, 'hightlight', extraInfoVector)
     };
   }
 

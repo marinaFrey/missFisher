@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
 import { EpisodeService } from '../../episode.service';
-import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_OF_EPISODES } from "../../constants";
-
+import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_OF_EPISODES } from '../../constants';
+/* tslint:disable */
 @Component({
   selector: 'app-name-calling-visualization',
   templateUrl: './name-calling-visualization.component.html',

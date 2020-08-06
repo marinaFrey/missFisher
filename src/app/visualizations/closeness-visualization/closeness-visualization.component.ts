@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
 import { EpisodeService } from '../../episode.service';
 import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_OF_EPISODES } from "../../constants";
+import { BarChart } from '../../d3/bar-chart';
 
 @Component({
   selector: 'app-closeness-visualization',
@@ -62,6 +63,8 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
         this.parsedBarChartData = this.episodeService.parseTotalData(this.episodes, this.closenessInfo, ['proximity'], "label", function (value) { return value; }, null, this.seasonSelection);
         this.parsedBarChartData = this.episodeService.reorderData(this.parsedBarChartData, this.closenessInfo);
         this.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
+        //const barChart = new BarChart('#closenessViz', 500, 300);
+        //barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
         break;
 
       case PER_SEASON:
@@ -77,8 +80,10 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
         this.parsedBarChartData = this.episodeService.parseEpisodicData(this.episodes, this.seasonSelection, this.closenessInfo, ['proximity'], "label", function (value) { return value; }, null, "stacked");
         this.parsedBarChartData = this.episodeService.reorderData(this.parsedBarChartData, this.closenessInfo);
         //this.parsedBarChartData = this.episodeService.reorderData(this.parsedBarChartData,this.talkingInfo);
-        this.createGroupedStackedBarChart(this.parsedBarChartData, null, "%");
+        //this.createGroupedStackedBarChart(this.parsedBarChartData, null, "%");
         //this.createOverlappingLineChart(this.parsedLineChartData);
+        const barChart = new BarChart('#closenessViz', 500, 300);
+        barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, "%");
         break;
 
     }

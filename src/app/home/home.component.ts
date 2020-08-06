@@ -16,13 +16,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.episodeService.getEpisodes()
-      .subscribe(episodes => this.episodes = episodes, e => console.log("error ", e), () => this.test());
+      .subscribe(episodes => this.episodes = episodes, e => console.log("error ", e));
 
-  }
-
-  test()
-  {
-    console.log(this.episodes);
   }
 
 }

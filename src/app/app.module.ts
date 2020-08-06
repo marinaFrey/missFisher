@@ -17,6 +17,15 @@ import { MurdersVisualizationComponent } from './visualizations/murders-visualiz
 import { ClosenessVisualizationComponent } from './visualizations/closeness-visualization/closeness-visualization.component';
 import { LegendComponent } from './visualizations/legend/legend.component';
 import { ButtonGroupComponent } from './visualizations/button-group/button-group.component';
+import { BarChartComponent } from './visualizations/bar-chart/bar-chart.component';
+import { LineChartComponent } from './visualizations/line-chart/line-chart.component';
+import { SankeyChartComponent } from './visualizations/sankey-chart/sankey-chart.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { CharactersComponent } from './characters/characters.component';
+import { RomanceComponent } from './romance/romance.component';
+import { WardrobeComponent } from './wardrobe/wardrobe.component';
+import { MudersComponent } from './muders/muders.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +42,16 @@ import { ButtonGroupComponent } from './visualizations/button-group/button-group
     MurdersVisualizationComponent,
     ClosenessVisualizationComponent,
     LegendComponent,
-    ButtonGroupComponent
+    ButtonGroupComponent,
+    BarChartComponent,
+    LineChartComponent,
+    SankeyChartComponent,
+    SideBarComponent,
+    CharactersComponent,
+    RomanceComponent,
+    WardrobeComponent,
+    MudersComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
