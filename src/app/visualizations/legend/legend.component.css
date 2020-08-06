@@ -1,0 +1,21 @@
+input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-style:solid;
+  border-width: 0.1em;
+  border-color: black;
+}
+
+.main {
+  display: block;
+  position: relative;
+  padding-left: 15px;
+  cursor: pointer;
+}
