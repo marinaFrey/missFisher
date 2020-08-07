@@ -16,7 +16,9 @@ export class SankeyChart extends Visualization
         var nodeWidth = 25;
         var nodePadding = 3;
         var graph = { nodes: data[1], links: data[0] };
-        this.clearSvg();
+        
+        this.svg.selectAll('path').remove();
+
         var nodeMap = {};
         graph.nodes.forEach(function (x, i) { nodeMap[x.name] = i; });
         graph.links = graph.links.map(function (x)
@@ -28,8 +30,6 @@ export class SankeyChart extends Visualization
             };
         });
 
-        //var color = d3.scaleOrdinal(d3.schemeCategory10);
-
         const { nodes, links } = d3Sankey()
             .nodeWidth(nodeWidth)
             .nodePadding(nodePadding)
@@ -39,43 +39,37 @@ export class SankeyChart extends Visualization
             .extent([[1, 1], [this.width - 1, this.height - 25]])({
                 nodes: graph.nodes.map(d => Object.assign({}, d)),
                 links: graph.links.map(d => Object.assign({}, d))
-            })
-        console.log(nodes, links);
-
-        this.svg.append('g')
-            .attr('stroke', 'white')
-            .selectAll('rect')
-            .data(nodes.filter(d => !d.photo))
+            });
+            
+        var rects = this.svg.selectAll("rect").data(nodes.filter(d => !d.photo));
+        console.log(nodes, rects);
+        rects
             .enter()
-            .append('rect')
-            .attr('x', function (d) { return d.x0; })
-            .attr('y', function (d) { return d.y0; })
+            .append("rect") // Add a new rect for each new elements
+            .attr("x", function (d) { return d.x0; })
+            .attr("y", function (d) { return d.y0; })
+            .attr("width", nodeWidth)
+            .on("mouseover", function (d, i) { d3.select(this).attr("fill", color[d.name]); })
+            .on("mouseout", function (d, i) { d3.select(this).attr("fill", color[d.name]); })
+            .merge(rects) // get the already existing elements as well
+            .transition() // and apply changes to all of them
+            .duration(this.transitionSpeed)
+            .attr("class", "bar")
+            .on('start', function (d) { d3.select(this).attr("fill", color[d.name]) })
+            .attr("x", function (d) { return d.x0; })
+            .attr("y", function (d) { return d.y0; })
+            .attr("width", nodeWidth)
             .attr("height", function (d) { return d.y1 - d.y0; })
-            .attr('width', nodeWidth)
-            .attr('fill', function (d) { return color[d.name] })/*
-      .call(d3.drag()
-        .on("start", function (d) { pointer.dragstarted(d, pointer) })
-        .on("drag", function(d){
-          d3.select(this)
-            .attr("x", d3.event.x)
-            .attr("y", d3.event.y);
-          d3Sankey.update({nodes,links});
-        })
-        .on("end", function (d) { pointer.dragended(d, pointer) }))*/
-            //.on('click', onNodeClick)
-            .style('cursor', 'pointer')
+            //.attr('stroke', 'white')
+            .on('end', function ()
+            {
+                d3.select(this)
+                    .attr("data-original-title", function (d) { var text = "test"; return text; });
+                d3.select(this).attr("class", "tooltipped");
+                d3.select(this).attr("data-toggle", "tooltip");
+            })
 
-        this.svg.append('g')
-            .attr('stroke', 'white')
-            .selectAll('rect')
-            .data(nodes.filter(d => d.photo))
-            .enter()
-            .append('image')
-            .attr('xlink:href', d => d.photo)
-            .attr('x', d => (d.x0 < pointer.width / 2 ? d.x1 - 41 : d.x0 + 41))
-            .attr('y', d => ((d.y0 + d.y1) / 2) - 20)
-            .attr('width', 40)
-            .attr('height', 40);
+        rects.exit().remove();
 
         const link = this.svg.append('g')
             .attr('fill', 'none')
@@ -113,27 +107,38 @@ export class SankeyChart extends Visualization
             .attr('offset', '100%')
             .attr('stop-color', d => color[d.target.name])
 
+
+
         link.append('path')
             .attr('d', sankeyLinkHorizontal())
+            .transition()
+            .duration(this.transitionSpeed)
             .attr('stroke', d => `url(#${d.uid})`)
             .attr('stroke-width', d => Math.max(1, d.width))
+        
+        link.exit().remove();
 
-        this.svg.append('g')
-            .style('font', '9px sans-serif')
-            .selectAll('text')
-            .data(nodes)
+        var texts = this.svg.selectAll("text").data(nodes);
+
+        texts
             .enter()
-            .append('text')
+            .append("text") // Add a new rect for each new elements
+            .merge(texts) // get the already existing elements as well   
+            .text(d => `${d.name} (${(d.value)})`)
+            .transition()
+            .duration(this.transitionSpeed * 1.6)
             .attr('x', d => (d.x0 < pointer.width / 2 ? d.x1 + 6 : d.x0 - 6))
             .attr('y', d => (d.y1 + d.y0) / 2)
             .attr('dy', '0.35em')
             .attr('text-anchor', d => (d.x0 < pointer.width / 2 ? 'start' : 'end'))
-            .text(d => `${d.name} (${(d.value)})`)
+            .attr('opacity', 1);
 
+        texts.exit().remove();
     }
 
     dragstarted(d, pointer)
     {
+        console.log("dragstarted");
     }
 
     dragged(d)
@@ -145,7 +150,7 @@ export class SankeyChart extends Visualization
 
     dragended(d, pointer)
     {
-
+        console.log("dragended");
     }
 
     createSankeyChartv1(data, color)

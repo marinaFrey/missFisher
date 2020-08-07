@@ -1,43 +1,40 @@
-<div class="card">
-  <div class="card-body">
+<!--
     <h5 class="card-title">Legend</h5>
     <h6 class="card-subtitle mb-2 text-muted">you can also filter from the graphs here!</h6>
-    <div class="row">
-      <label class="main">
-        <span class="checkmark" [ngStyle]="{'background-color': selectAll === true ? 'black' : 'white' }"></span>
-        <input type="checkbox" [(ngModel)]='selectAll' (change)="changeFilterSelection();"> Toggle Selection
-      </label>
-    </div>
+    -->
+<div class="row">
+  <label class="main">
+    <span class="checkmark" [ngStyle]="{'background-color': selectAll === true ? 'black' : 'white' }"></span>
+    <input type="checkbox" [(ngModel)]='selectAll' (change)="changeFilterSelection();"> Toggle Selection
+  </label>
+</div>
 
-    <div *ngFor="let characterInfo of charactersInfo; let i = index">
+<div *ngFor="let characterInfo of charactersInfo; let i = index">
 
-      <!-- Grouped Stacked Bar Chart -->
-      <div *ngIf="characterInfo.infos && characterInfo.infos.length > 0">
-        <div *ngFor="let info of characterInfo.infos; let infoIndex = index">
-          <div class="row">
-            <label class="main">
-              <span class="checkmark"
-                [ngStyle]="{'background-color': info.isShowing === true ? info.color : 'white',
+  <!-- Grouped Stacked Bar Chart -->
+  <div *ngIf="characterInfo.infos && characterInfo.infos.length > 0">
+    <div *ngFor="let info of characterInfo.infos; let infoIndex = index">
+      <div class="row">
+        <label class="main">
+          <span class="checkmark" [ngStyle]="{'background-color': info.isShowing === true ? info.color : 'white',
                             'border-color': info.highlight}"></span>
-              <input class="legendCheckbox" type="checkbox" [(ngModel)]='info.isShowing' (change)="onChange();">
-              {{info.label}}
-            </label>
-          </div>
-        </div>
+          <input class="legendCheckbox" type="checkbox" [(ngModel)]='info.isShowing' (change)="onChange();">
+          {{info.label}}
+        </label>
       </div>
-
-      <!-- Bar chart -->
-      <div *ngIf="!characterInfo.infos">
-        <div class="row">
-          <label class="main">
-            <span class="checkmark" [ngStyle]="{'background-color': characterInfo.isShowing === true ? characterInfo.color : 'white',
-                                      'border-color': characterInfo.highlight}"></span>
-            <input class="legendCheckbox" type="checkbox" [(ngModel)]='characterInfo.isShowing' (change)="onChange();">
-            {{characterInfo.name}}
-          </label>
-        </div>
-      </div>
-
     </div>
   </div>
+
+  <!-- Bar chart -->
+  <div *ngIf="!characterInfo.infos">
+    <div class="row">
+      <label class="main">
+        <span class="checkmark" [ngStyle]="{'background-color': characterInfo.isShowing === true ? characterInfo.color : 'white',
+                                      'border-color': characterInfo.highlight}"></span>
+        <input class="legendCheckbox" type="checkbox" [(ngModel)]='characterInfo.isShowing' (change)="onChange();">
+        {{characterInfo.name}}
+      </label>
+    </div>
+  </div>
+
 </div>

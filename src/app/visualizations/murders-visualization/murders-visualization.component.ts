@@ -12,7 +12,7 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
 
 
   parsedData;
-  
+  sankeyChart: SankeyChart;
   colorInfo = 
     {
       "poison":"#9467bd",
@@ -57,7 +57,11 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
     if (document.querySelector(this.svgName) != null) {
       this.setSvg();
       if (this.episodes)
+      {
+        this.sankeyChart = new SankeyChart('#murdersViz', 700, 500);
         this.createVisualization();
+      }
+        
     }
     else {
       setTimeout(function () {
@@ -71,8 +75,8 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
     switch (this.graphTypeSelection) {
       case TOTAL:
         this.parseTotalData();
-        const sankey = new SankeyChart('#murdersViz', 500, 500);
-        sankey.createSankeyChart(this.parsedData, this.colorInfo);
+        
+        this.sankeyChart.createSankeyChart(this.parsedData, this.colorInfo);
         //this.createSankeyChart(this.parsedData, this.colorInfo);
         break;
 

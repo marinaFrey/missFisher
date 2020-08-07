@@ -44,7 +44,8 @@ export class SankeyChartComponent implements OnInit, OnChanges
 
   create()
   {
-    this.sankeyChart = new SankeyChart(this.svgName, 500, 500);
+    console.log("here");
+    this.sankeyChart = new SankeyChart(this.svgName, 700, 500);
     this.sankeyChart.createSankeyChart(this.data, this.colorInfo);
   }
 
