@@ -3,6 +3,7 @@ import { VisualizationComponent } from '../visualization/visualization.component
 import { EpisodeService } from '../../episode.service';
 import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_OF_EPISODES } from '../../constants';
 import { parse } from 'querystring';
+import { BarChart } from 'src/app/d3/bar-chart';
 /* tslint:disable */
 @Component({
   selector: 'app-outfits-visualization',
@@ -13,7 +14,7 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
 
   parsedData;
   selectAll = true;
-
+  barChart: BarChart;
   tiesInfo = [
     { name: "Striped Tie", color: "#a2a2a2ff", hightlight: "#7e7e7eff", isShowing: true },
     { name: "Rhombus Filled Tie", color: "#58609eff", hightlight: "#3f4787ff", isShowing: true },
@@ -44,10 +45,8 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
   create() {
     const pointer = this;
     if (document.querySelector(this.svgName) != null) {
-      this.setSvg();
-      if (this.episodes) {
+        this.barChart = new BarChart('#outfitsViz', 500, 310);
         this.createVisualization();
-      }
     } else {
       setTimeout(function () {
         pointer.create();
@@ -57,44 +56,26 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
   }
 
   createVisualization() {
-    let ties = this.parseTieData(this.episodes, this.seasonSelection);
-    console.log(ties);
-    //let data  = this.reorderData(ties, 'label', this.tiesInfo);
-    ties.sort((a,b) => b.value - a.value);
-    this.createBarChart(ties, 'ties', 'Number of Times Worn', '', null);
-    /*
+
     switch (this.graphTypeSelection) {
       case TOTAL:
-        this.parsedData = this.episodeService.parseTotalData(this.episodes,
-                                                            this.charactersInfo,
-                                                            ['nameCalling'],
-                                                            'label',
-                                                            function (value) { return value; }, null, this.seasonSelection);
-        this.parsedData = this.episodeService.reorderData(this.parsedData, this.charactersInfo);
-        this.createGroupedStackedBarChart(this.parsedData, 'Calling', ' appearance(s)');
+        let ties = this.parseTieData(this.episodes, this.seasonSelection);
+        ties.sort((a, b) => b.value - a.value);
+        this.barChart.createBarChart(ties, 'ties', 'Number of Times Worn', '', null);
         break;
 
       case PER_SEASON:
-        this.parsedData = this.episodeService.parseSeasonData(this.episodes,
-                                                              this.charactersInfo,
-                                                              ['nameCalling'],
-                                                              'label',
-                                                              function (value) { return value; }, null, this.graphDataTypeSelection);
-        this.parsedData = this.episodeService.reorderData(this.parsedData, this.charactersInfo);
-        if (this.graphDataTypeSelection === PER_NUMBER_OF_EPISODES) {
-          this.createGroupedStackedBarChart(this.parsedData, 'Calling', ' appearance(s)');
-        } else {
-          this.createGroupedStackedBarChart(this.parsedData, 'Calling', ' appearance(s) per episode');
-        }
+
         break;
 
       case PER_EPISODE:
-        this.parsedData = this.episodeService.parseEpisodicData(this.episodes, this.seasonSelection,
-                          this.charactersInfo, ['nameCalling'], 'label', function (value) { return value; }, null, 'stacked');
-        this.parsedData = this.episodeService.reorderData(this.parsedData, this.charactersInfo);
-        this.createGroupedStackedBarChart(this.parsedData, 'Calling', ' appearance(s)');
+        //this.parsedData = this.episodeService.parseEpisodicData(this.episodes, this.seasonSelection, this.tiesInfo, ['neckties'], "label", function (value) { return value; }, null, "stacked");
+        //this.parsedData = this.episodeService.reorderData(this.parsedData, this.tiesInfo);
+        this.parsedData = this.parseEpisodicData();
+      console.log(this.parsedData);
+        this.barChart.createBarChartOfImages(this.parsedData, " time(s) worn");
         break;
-    }*/
+    }
   }
 
   parseTieData(episodes, seasonSelection) {
@@ -107,13 +88,17 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
     const parsedData = [];
     // tslint:disable-next-line:forin
     for (const tie in data) {
-      parsedData.push({
-        label: tie,
-        value: data[tie],
-        ties: tie,
-        color: this.getInfo(tie, this.tiesInfo, 'color'),
-        highlightColor: this.getInfo(tie, this.tiesInfo, 'hightlight')
-      });
+      if(this.tiesInfo.find((tieInfo) => tieInfo.name == tie).isShowing == true)
+      {
+        parsedData.push({
+          label: tie,
+          value: data[tie],
+          ties: tie,
+          color: this.getInfo(tie, this.tiesInfo, 'color'),
+          highlightColor: this.getInfo(tie, this.tiesInfo, 'hightlight')
+        });
+      }
+      
     }
 
     return parsedData;
@@ -130,10 +115,6 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
     return data;
   }
 
-  reorderData(data, propertyName, infoVector)
-  {
-    
-  }
 
   getInfo(name, infoVector, info)
   {
@@ -142,6 +123,47 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
       if (infoVector[i].name == name)
         return infoVector[i][info];
     }
+  }
+
+  parseEpisodicData()
+  {
+    var data = [];
+    var numberOfEpisodes = 0;
+    for (var i = 0; i < this.episodes.length; i++)
+    {
+      if ((this.seasonSelection == 0) || (this.episodes[i].season == this.seasonSelection))
+      {
+        data = this.pushEpisodicCharacterData(data, i, numberOfEpisodes);
+        numberOfEpisodes++;
+      }
+    }
+    this.parsedData = data;
+    return data;
+  }
+
+  pushEpisodicCharacterData(data, i, id)
+  {
+    data[id] = { name: this.episodes[i].name, column: [] };
+
+    for (var j = 0; j < this.episodes[i].neckties.length; j++)
+    {
+      
+      if (this.getInfo(this.episodes[i].neckties[j].label, this.tiesInfo, "isShowing") == true)
+      {
+        data[id].column[j] = {
+          name: this.episodes[i].name,
+          season: this.episodes[i].season,
+          episode: this.episodes[i].episode,
+          label: this.episodes[i].neckties[j].label,
+          value: this.episodes[i].neckties[j].value,
+          character: this.episodes[i].neckties[j].character,
+          color: this.getInfo(this.episodes[i].neckties[j].label, this.tiesInfo, "color"),
+          highlightColor: this.getInfo(this.episodes[i].neckties[j].label, this.tiesInfo, "hightlight", )
+        }
+      }
+
+    }
+    return data;
   }
 
 }

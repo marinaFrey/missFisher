@@ -222,7 +222,7 @@ export class VisualizationComponent implements OnInit {
       this.clearSvg();
       return;
     }
-    console.log(data);
+
     this.svg.selectAll("g.dot").remove();
     this.svg.selectAll(".line").remove();
 
@@ -427,6 +427,7 @@ export class VisualizationComponent implements OnInit {
   }
 
   createStackedBarChart(data, tooltipLabel) {
+    console.log(data);
     var pointer = this;
     if (data[0].characters[0].length <= 0) {
       this.clearSvg();

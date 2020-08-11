@@ -238,6 +238,7 @@ export class BarChart extends Visualization
 
     createStackedBarChart(data, tooltipLabel)
     {
+        console.log(data);
         var pointer = this;
         if (data[0].characters[0].length <= 0)
         {
@@ -547,5 +548,71 @@ export class BarChart extends Visualization
             images.exit().remove();
         }
 
+    }
+
+    createBarChartOfImages(data, tooltipLabel)
+    {
+        if (data[0].column[0].length <= 0)
+        {
+            this.clearSvg();
+            return;
+        }
+
+        this.svg.selectAll("g.dot").remove();
+        this.svg.selectAll(".line").remove();
+        this.svg.selectAll("rect").remove();
+
+        console.log(data);
+
+        this.xScale = this.createScaleBand(data.map(function (d)
+        {
+            return d.name;
+        }), this.width, this.margin, 0.05);
+        
+        let maxSize = 0;
+        data.forEach(episode =>
+        {
+            if (episode.column.length > maxSize)
+                maxSize = episode.column.length;
+        });
+        this.yScale = d3.scaleLinear()
+            .rangeRound([this.height - this.margin.bottom, this.margin.top]);
+        this.yScale.domain([]);
+        const totalSize = maxSize * (this.xScale.bandwidth() * 1.8359375);
+        if(totalSize > 300)
+        {
+            this.xScale.padding(0.45);
+        }else if (totalSize > 200)
+        {
+            this.xScale.padding(0.30);
+        }
+        this.createAxes(tooltipLabel, null, null);
+
+        var imageGroups = this.svg.selectAll("g.img").data(data);
+        imageGroups.enter().append("g").classed('img', true);
+        imageGroups.exit().remove();
+        var images = this.svg.selectAll("g.img").selectAll("image").data(function (d) { return d.column; });
+        var imageHeight = this.xScale.bandwidth() * 1.8359375;
+        images
+            .enter()
+            .append("image")
+            .attr("width",  0)
+            .attr("height", 0)
+            .attr("x", 0)
+            .attr("y", 0)
+            .merge(images) // get the already existing elements as well
+            .transition() // and apply changes to all of them
+            .duration(this.transitionSpeed)
+            .attr("class", "img")
+            .attr("xlink:href", function (d) { return "../../../assets/images/" + d.label + ".png"; })
+            .attr("opacity", 1)
+            .attr("width", this.xScale.bandwidth())
+            .attr("height", imageHeight)
+            .attr("x", (d) => this.xScale(d.name))
+            .attr("y", (d, i) => this.height - this.margin.bottom - i * imageHeight - imageHeight)
+            ;
+
+        images.exit().remove();
+        
     }
 }
