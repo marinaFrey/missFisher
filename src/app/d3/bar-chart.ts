@@ -3,11 +3,10 @@ import * as d3 from 'd3';
 
 export class BarChart extends Visualization
 {
-    constructor(svgName: string, width: number, height: number)
+    constructor(svgName: string, width?: number, height?: number)
     {
         super(svgName, width, height);
     }
-
 
     createBarChart(data, propertyName, yAxisLabel, yAxisSuffix, maxYAxisValue)
     {
@@ -17,7 +16,6 @@ export class BarChart extends Visualization
             this.clearSvg();
             return;
         }
-        console.log(data);
         this.svg.selectAll("g.dot").remove();
         this.svg.selectAll(".line").remove();
 
@@ -610,6 +608,13 @@ export class BarChart extends Visualization
             .attr("height", imageHeight)
             .attr("x", (d) => this.xScale(d.name))
             .attr("y", (d, i) => this.height - this.margin.bottom - i * imageHeight - imageHeight)
+            .on('end', function (d)
+            {
+                d3.select(this)
+                    .attr("data-original-title", d.label );
+                d3.select(this).attr("class", "tooltipped");
+                d3.select(this).attr("data-toggle", "tooltip");
+            })
             ;
 
         images.exit().remove();

@@ -45,7 +45,7 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
     };
 
   constructor() {
-    super("#murdersViz", 500, 300);
+    super("#murdersViz");
   }
 
   ngOnInit() {
@@ -53,20 +53,17 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
   }
 
   create() {
-    var pointer = this;
+    console.log(document.querySelector(this.svgName))
     if (document.querySelector(this.svgName) != null) {
-      this.setSvg();
       if (this.episodes)
       {
-        this.sankeyChart = new SankeyChart('#murdersViz', 700, 500);
+        this.sankeyChart = new SankeyChart(this.svgName, 700, 500);
         this.createVisualization();
       }
         
     }
     else {
-      setTimeout(function () {
-        pointer.create();
-      }, 50);
+      setTimeout( () => this.create(), 50);
     }
   }
 

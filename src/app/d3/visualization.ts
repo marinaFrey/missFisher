@@ -33,13 +33,11 @@ export class Visualization
 
     createSvg(svgName: string, width: number, height: number)
     {
-
         this.svg = d3.select(svgName)
             .attr('width', width)
             .attr('height', height);
 
         this.clearSvg();
-
         return this.svg;
     }
 

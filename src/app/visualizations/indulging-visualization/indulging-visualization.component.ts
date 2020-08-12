@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { VisualizationComponent } from '../visualization/visualization.component';
 import { EpisodeService } from '../../episode.service';
 import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_OF_EPISODES } from "../../constants";
+import { BarChart } from 'src/app/d3/bar-chart';
 
 @Component({
   selector: 'app-indulging-visualization',
@@ -11,7 +12,7 @@ import { TOTAL, PER_SEASON, PER_EPISODE, PER_NUMBER_OF_EPISODES, PER_PERCENTAGE_
 export class IndulgingVisualizationComponent extends VisualizationComponent implements OnInit {
 
   parsedData;
-
+  barChart: BarChart;
   charactersInfo = [
     {
       name: "Jack", infos: [
@@ -31,26 +32,12 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
   ];
 
   constructor(private episodeService: EpisodeService) {
-    super("#indulgeViz", 500, 300);
+    super("#indulgeViz");
   }
 
   ngOnInit() {
-    this.create();
-  }
-
-  create() {
-    var pointer = this;
-    if (document.querySelector(this.svgName) != null) {
-      this.setSvg();
-      if (this.episodes)
-        this.createVisualization();
-    }
-    else {
-      setTimeout(function () {
-        pointer.create();
-      }, 50);
-    }
-
+    this.barChart = new BarChart(this.svgName, 500, 300);
+    this.createVisualization();
   }
 
   createVisualization() {
@@ -59,23 +46,23 @@ export class IndulgingVisualizationComponent extends VisualizationComponent impl
       case TOTAL:
         this.parsedData = this.episodeService.parseTotalData(this.episodes, this.charactersInfo, ['jackInPhrynesHome','phryneInPoliceStation'], "label", function (value) { return value; }, null, this.seasonSelection);
         this.parsedData = this.episodeService.reorderData(this.parsedData, this.charactersInfo);
-        this.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
+        this.barChart.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
         break;
 
       case PER_SEASON:
         this.parsedData = this.episodeService.parseSeasonData(this.episodes, this.charactersInfo, ['jackInPhrynesHome','phryneInPoliceStation'], "label", function (value) { return value; }, null, this.graphDataTypeSelection);
         this.parsedData = this.episodeService.reorderData(this.parsedData, this.charactersInfo);
         if (this.graphDataTypeSelection == PER_NUMBER_OF_EPISODES)
-          this.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
+          this.barChart.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
         else
-          this.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s) per episode");
+          this.barChart.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s) per episode");
         break;
 
       case PER_EPISODE:
         this.parsedData = this.episodeService.parseEpisodicData(this.episodes, this.seasonSelection, this.charactersInfo, ['jackInPhrynesHome','phryneInPoliceStation'], "label", function (value) { return value; }, null, "stacked");
         this.parsedData = this.episodeService.reorderData(this.parsedData, this.charactersInfo);
         
-        this.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
+        this.barChart.createGroupedStackedBarChart(this.parsedData, "Visiting", " appearance(s)");
         break;
     }
 

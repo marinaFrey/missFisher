@@ -4,6 +4,8 @@ import { EpisodeService } from '../../episode.service';
 import { TOTAL, PER_SEASON, PER_EPISODE, LINE_CHART, BAR_CHART } from '../../constants';
 /* tslint:disable */
 import * as d3 from "d3";
+import { BarChart } from 'src/app/d3/bar-chart';
+import { LineChart } from 'src/app/d3/line-chart';
 declare var $: any;
 
 @Component({
@@ -14,6 +16,8 @@ declare var $: any;
 export class NumberOfScenesPerCharacterVisualizationComponent extends VisualizationComponent implements OnInit {
 
   parsedData;
+  barChart: BarChart;
+  lineChart: LineChart;
   charactersInfo = [
     { name: "Phryne", color: "#e25b6fff", hightlight: "#be495aff", isShowing: true },
     { name: "Jack", color: "#4b76e4ff", hightlight: "#415a9eff", isShowing: true },
@@ -28,7 +32,7 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   ];
 
   constructor(private episodeService: EpisodeService) {
-    super("#viz", 500, 300);
+    super("#viz");
   }
 
   ngOnInit() {
@@ -36,17 +40,15 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   }
 
   create() {
-    var pointer = this;
     if (document.querySelector(this.svgName) != null) {
-      this.setSvg();
-
+      this.barChart = new BarChart('#viz', 500, 300);
+      this.lineChart = new LineChart('#viz', 500, 300);
       if (this.episodes)
         this.createVisualization();
     }
-    else {
-      setTimeout(function () {
-        pointer.create();
-      }, 50);
+    else
+    {
+      setTimeout(() => this.create(), 50);
     }
 
   }
@@ -57,17 +59,17 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
       case TOTAL:
         this.parseTotalData();
         this.reorderData();
-        this.createBarChart(this.parsedData, 'character', 'Percentage of appearances', '%', 100);
+        this.barChart.createBarChart(this.parsedData, 'character', 'Percentage of appearances', '%', 100);
         break;
 
       case PER_SEASON:
         this.parseSeasonData();
         this.reorderData();
         if (this.graphStyleSelection == BAR_CHART)
-          this.createGroupedBarChart(this.parsedData);
+          this.barChart.createGroupedBarChart(this.parsedData);
         if (this.graphStyleSelection == LINE_CHART) {
           this.parseLineData();
-          this.createLineChart(this.parsedData, false);
+          this.lineChart.createLineChart(this.parsedData, false);
         }
         break;
 
@@ -75,11 +77,11 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
         this.parseEpisodicData();
         this.reorderData();
         if (this.graphStyleSelection == BAR_CHART)
-          this.createGroupedBarChart(this.parsedData);
+          this.barChart.createGroupedBarChart(this.parsedData);
         if (this.graphStyleSelection == LINE_CHART) {
           this.parsedData = this.episodeService.parseLineData(this.parsedData);
           this.episodeService.reorderData(this.parsedData, this.charactersInfo);
-          this.createLineChart(this.parsedData, false);
+          this.lineChart.createLineChart(this.parsedData, false);
         }
         break;
 
@@ -90,7 +92,6 @@ export class NumberOfScenesPerCharacterVisualizationComponent extends Visualizat
   exportImage()
   {
     console.log("exporting image");
-    
   }
 
   reorderData() {

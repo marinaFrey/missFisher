@@ -13,7 +13,7 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
 
   parsedBarChartData;
   parsedLineChartData;
-
+  barChart: BarChart;
   talkingInfo = [
     {
       name: "Phryne & Jack", infos: [
@@ -34,26 +34,12 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
   ];
 
   constructor(private episodeService: EpisodeService) {
-    super("#closenessViz", 500, 300);
+    super('#closenessViz');
   }
 
   ngOnInit() {
-    this.create();
-  }
-
-  create() {
-    var pointer = this;
-    if (document.querySelector(this.svgName) != null) {
-      this.setSvg();
-      if (this.episodes)
-        this.createVisualization();
-    }
-    else {
-      setTimeout(function () {
-        pointer.create();
-      }, 50);
-    }
-
+    this.barChart = new BarChart(this.svgName, 500, 300);
+    this.createVisualization();
   }
 
   createVisualization() {
@@ -62,7 +48,7 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
       case TOTAL:
         this.parsedBarChartData = this.episodeService.parseTotalData(this.episodes, this.closenessInfo, ['proximity'], "label", function (value) { return value; }, null, this.seasonSelection);
         this.parsedBarChartData = this.episodeService.reorderData(this.parsedBarChartData, this.closenessInfo);
-        this.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
+        this.barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
         //const barChart = new BarChart('#closenessViz', 500, 300);
         //barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
         break;
@@ -71,9 +57,9 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
         this.parsedBarChartData = this.episodeService.parseSeasonData(this.episodes, this.closenessInfo, ['proximity'], "label", function (value) { return value; }, null, this.graphDataTypeSelection);
         this.parsedBarChartData = this.episodeService.reorderData(this.parsedBarChartData, this.closenessInfo);
         if (this.graphDataTypeSelection == PER_NUMBER_OF_EPISODES)
-          this.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
+          this.barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s)");
         else
-          this.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s) per episode");
+          this.barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, " appearance(s) per episode");
         break;
 
       case PER_EPISODE:
@@ -82,8 +68,7 @@ export class ClosenessVisualizationComponent extends VisualizationComponent impl
         //this.parsedBarChartData = this.episodeService.reorderData(this.parsedBarChartData,this.talkingInfo);
         //this.createGroupedStackedBarChart(this.parsedBarChartData, null, "%");
         //this.createOverlappingLineChart(this.parsedLineChartData);
-        const barChart = new BarChart('#closenessViz', 500, 300);
-        barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, "%");
+        this.barChart.createGroupedStackedBarChart(this.parsedBarChartData, null, "%");
         break;
 
     }

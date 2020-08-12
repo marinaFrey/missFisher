@@ -4,14 +4,14 @@ import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 
 export class SankeyChart extends Visualization
 {
-    constructor(svgName: string, width: number, height: number)
+    constructor(svgName: string, width?: number, height?: number)
     {
         super(svgName, width, height);
     }
 
     createSankeyChart(data, color)
     {
-        console.log(data);
+        console.log(this.svg);
         var pointer = this;
         var nodeWidth = 25;
         var nodePadding = 3;

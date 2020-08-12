@@ -35,7 +35,7 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
   ];
 
   constructor(private episodeService: EpisodeService) {
-    super('#outfitsViz', 500, 300);
+    super('#outfitsViz');
   }
 
   ngOnInit() {
@@ -43,14 +43,13 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
   }
 
   create() {
-    const pointer = this;
     if (document.querySelector(this.svgName) != null) {
         this.barChart = new BarChart('#outfitsViz', 500, 310);
         this.createVisualization();
-    } else {
-      setTimeout(function () {
-        pointer.create();
-      }, 50);
+    } 
+    else
+    {
+      setTimeout(() => this.create(), 50);
     }
 
   }
@@ -69,10 +68,7 @@ export class OutfitsVisualizationComponent extends VisualizationComponent implem
         break;
 
       case PER_EPISODE:
-        //this.parsedData = this.episodeService.parseEpisodicData(this.episodes, this.seasonSelection, this.tiesInfo, ['neckties'], "label", function (value) { return value; }, null, "stacked");
-        //this.parsedData = this.episodeService.reorderData(this.parsedData, this.tiesInfo);
         this.parsedData = this.parseEpisodicData();
-      console.log(this.parsedData);
         this.barChart.createBarChartOfImages(this.parsedData, " time(s) worn");
         break;
     }

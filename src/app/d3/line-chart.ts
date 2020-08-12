@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 export class LineChart extends Visualization
 {
-    constructor(svgName: string, width: number, height: number)
+    constructor(svgName: string, width?: number, height?: number)
     {
         super(svgName, width, height);
     }
