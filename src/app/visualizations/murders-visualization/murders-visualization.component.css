@@ -1,4 +1,9 @@
-.containerDropdowns {
+.titles {
+  margin: 1%;
   display: flex;
   justify-content: space-between;
+}
+
+.dropdown-item {
+  cursor: pointer;
 }

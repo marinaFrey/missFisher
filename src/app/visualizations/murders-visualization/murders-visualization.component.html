@@ -1,18 +1,31 @@
 <div class="card">
   <h5 class="card-header">Murders</h5>
   <div class="card-body">
-      <app-button-group [selections]="[seasonSelection, null, null, null]" (selectionsChange)="seasonSelection = $event[0]; createVisualization()">
-        </app-button-group>
+    <app-button-group [selections]="[seasonSelection, null, null, null]"
+      (selectionsChange)="seasonSelection = $event[0]; createVisualization()">
+    </app-button-group>
 
-      <div class="row justify-content-center">
-          <div class="col-xl-12 col-md-12 col-sm-12">
-              <app-sankey-chart svgName="murdersViz" [data]="parsedData" [colorInfo]="colorInfo" ></app-sankey-chart>
-              <!--
-              <div id="vizcontainer" class="svg-container">
-                  <svg id="murdersViz" class="svg-content-responsive" style="width:100%;" viewBox="0 0 500 500"></svg>
-              </div>
-            -->
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-md-12 col-sm-12">
+        <div class="row" class="titles">
+          <div *ngFor="let selectedTitle of selectedTitles; let i = index" class="dropdown titles">
+            <button class="btn btn-info dropdown-toggle" type="button" [id]="i" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              {{selectedTitle}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="i">
+              <a *ngFor="let title of titles" class="dropdown-item" (click)="changeColumnData(title, i)">{{title.label}}</a>
+            </div>
           </div>
+            <!--<button *ngFor="let title of titles" type="button" class="btn "> {{title}} </button>-->
+        </div>
+        <div class="row">
+          <div id="vizcontainer" class="svg-container">
+            <svg id="murdersViz" class="svg-content-responsive" style="width:100%;" viewBox="0 0 700 500"></svg>
+          </div>
+        </div>
+
       </div>
+    </div>
   </div>
 </div>
