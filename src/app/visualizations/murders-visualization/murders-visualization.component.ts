@@ -14,11 +14,11 @@ export class MurdersVisualizationComponent extends VisualizationComponent implem
 
   parsedData;
   sankeyChart: SankeyChart;
-  selectedTitles = ['Cause of Death', 'Victim Sex', 'Murderer Sex', 'Relationship with Victim'];
+  selectedTitles = ['Cause of Death', 'Victim Gender', 'Murderer Gender', 'Relationship with Victim'];
   titles = [
-    { label: 'Victim Sex', variable: 'victimSex', suffix: ' victim'}, 
+    { label: 'Victim Gender', variable: 'victimSex', suffix: ' victim'}, 
     { label: 'Cause of Death', variable: 'type', suffix: '' },
-    { label: 'Murderer Sex', variable: 'murdererSex', suffix: ' murderer' },
+    { label: 'Murderer Gender', variable: 'murdererSex', suffix: ' murderer' },
     { label: 'Relationship with Victim', variable: 'relationshipWithVictim', suffix: '' }
   ];
   colorInfo =

@@ -15,8 +15,9 @@ export class VisualizationComponent implements OnInit {
   graphDataTypeSelection = 1; // 0 = number of times 1 = average per episode
 
   svgName: string;
+  parsedData: any;
 
-  constructor(svgName: string) {
+  constructor(svgName?: string) {
     this.svgName = svgName;
   }
 

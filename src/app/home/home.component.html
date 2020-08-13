@@ -1,6 +1,10 @@
 <img src="../../assets/images/headerWithLogo.png" width="100%" />
-<div class="container">
-    
+<div *ngIf="episodes" class="container">
+
     <h1 class="title"> Miss Fisher's Data Mysteries </h1>
     <h4 class="subtitle"> A Miss Fisher's Murder Mysteries Data Visualization Tool </h4>
+    <app-bar-chart [episodesData]="episodes" title="Titulo" svgName="testesvg" width="500" height="300" [parsingInfo]="charactersInfo" [variables]="['nameCalling']" label="label"
+        imageName="Calling" tooltipLabel=" appearance(s)" seasonSelection="0" [graphTypeSelection]="0" graphStyleSelection="1"
+        graphDataTypeSelection="null"></app-bar-chart>
+
 </div>

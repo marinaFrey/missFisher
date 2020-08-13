@@ -127,6 +127,7 @@ export class SankeyChart extends Visualization
             .duration(this.transitionSpeed * 1.6)
             .attr('x', d => (d.x0 < this.width / 2 ? d.x1 + 6 : d.x0 - 6))
             .attr('y', d => (d.y1 + d.y0) / 2)
+            .attr('font-size', '10px')
             .attr('dy', '0.35em')
             .attr('text-anchor', d => (d.x0 < this.width / 2 ? 'start' : 'end'))
             .attr('opacity', 1);

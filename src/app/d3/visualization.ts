@@ -35,7 +35,9 @@ export class Visualization
     {
         this.svg = d3.select(svgName)
             .attr('width', width)
-            .attr('height', height);
+            .attr('height', height)
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            ;
 
         this.clearSvg();
         return this.svg;

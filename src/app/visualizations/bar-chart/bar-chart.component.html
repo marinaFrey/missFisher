@@ -1,1 +1,21 @@
-<p>bar-chart works!</p>
+<div class="card">
+    <h5 class="card-header">{{title}}</h5>
+    <div class="card-body">
+        <app-button-group [selections]="[seasonSelection, graphTypeSelection, null, graphDataTypeSelection]"
+            (selectionsChange)="seasonSelection = $event[0]; graphTypeSelection = $event[1]; graphDataTypeSelection = $event[3]; createVisualization()">
+        </app-button-group>
+
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-md-12 col-sm-12">
+                <div id="vizcontainer" class="svg-container">
+                    <svg [id]="svgName" class="svg-content-responsive" style="width:100%;"></svg>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-12 col-sm-12">
+                <app-legend [charactersInfo]="parsingInfo"
+                    (charactersInfoChange)="parsingInfo = $event; createVisualization()"></app-legend>
+            </div>
+        </div>
+    </div>
+</div>
