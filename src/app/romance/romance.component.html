@@ -1,3 +1,14 @@
 <app-closeness-visualization [episodesData]="episodes"></app-closeness-visualization>
-<app-name-calling-visualization [episodesData]="episodes"></app-name-calling-visualization>
-<app-indulging-visualization [episodesData]="episodes"></app-indulging-visualization>
+
+<app-bar-chart [episodesData]="episodes" title="Name Calling" svgName="nameCallingViz" [parsingInfo]="nameCallingInfo"
+    [variables]="['nameCalling']" imageName="Calling" graphDataTypeSelection="null"></app-bar-chart>
+
+<app-bar-chart [episodesData]="episodes" title="Closeness" svgName="testesvg2" [parsingInfo]="closenessInfo"
+    [variables]="['proximity']" graphDataTypeSelection="null"></app-bar-chart>
+
+<app-bar-chart [episodesData]="episodes" title="Scene Sharing" svgName="sceneSharingViz" [parsingInfo]="talkingInfo"
+    [variables]="['talking']" graphDataTypeSelection="null"></app-bar-chart>
+
+<app-bar-chart [episodesData]="episodes" title="Indulging" svgName="indulgeViz" [parsingInfo]="indulgingInfo"
+    [variables]="['jackInPhrynesHome','phryneInPoliceStation']" imageName="Visiting" graphDataTypeSelection="null">
+</app-bar-chart>

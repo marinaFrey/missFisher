@@ -14,18 +14,13 @@ export class BarChartComponent extends VisualizationComponent implements OnInit
 
   @Input() title: string;
   @Input() svgName: string;
-  @Input() width: number;
-  @Input() height: number;
+  @Input() width: number = 500;
+  @Input() height: number = 300;
   @Input() parsingInfo: any;
   @Input() variables: string[];
-  @Input() label: string;
-  @Input() imageName: string;
-  @Input() tooltipLabel: string;
-
-  @Input() seasonSelection: number;
-  @Input() graphTypeSelection: number;
-  @Input() graphStyleSelection: number;
-  @Input() graphDataTypeSelection: number;
+  @Input() label: string = 'label';
+  @Input() imageName: string = null;
+  @Input() tooltipLabel: string = ' appearance(s)';
 
   barChart: BarChart;
 
