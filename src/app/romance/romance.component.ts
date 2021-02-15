@@ -73,7 +73,7 @@ export class RomanceComponent implements OnInit {
 
     this.episodeService.getEpisodes()
       .subscribe(episodes => this.episodes = episodes, e => console.log("error ", e));
-
+    
   }
 
 }
